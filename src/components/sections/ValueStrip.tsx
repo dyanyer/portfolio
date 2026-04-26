@@ -1,42 +1,46 @@
-import { motion } from "framer-motion";
+import { skillMarqueeJa, techStack } from "@/data/portfolio";
+import { cn } from "@/lib/utils";
 
-import { valuePoints } from "@/data/portfolio";
+function MarqueeRow({
+  items,
+  reverse = false,
+}: {
+  items: string[];
+  reverse?: boolean;
+}) {
+  const repeated = [...items, ...items, ...items, ...items];
+
+  return (
+    <div className="marquee-mask overflow-hidden border-y border-[color:var(--border)] bg-[color-mix(in_srgb,var(--bg-surface)_62%,transparent)] py-4">
+      <div
+        className={cn(
+          "marquee-track flex w-max items-center gap-4 whitespace-nowrap font-mono text-sm text-[var(--ink-faded)]",
+          reverse && "marquee-reverse",
+        )}
+      >
+        {repeated.map((item, index) => (
+          <span
+            className={cn(
+              "inline-flex items-center gap-4",
+              index % 7 === 0 && "text-[var(--gold)]",
+              index % 9 === 0 && "text-[var(--sakura)]",
+            )}
+            key={`${item}-${index}`}
+          >
+            {item}
+            <span className="text-[var(--border)]">・</span>
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export function ValueStrip() {
   return (
-    <section className="px-4 pb-12 md:pb-16" aria-label="Trust points">
-      <div className="mx-auto max-w-7xl">
-        <div className="-mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-3 md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0">
-          {valuePoints.map((item, index) => {
-            const Icon = item.icon;
-
-            return (
-              <motion.div
-                className="bento-card group min-w-[78vw] snap-start p-6 transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)] md:min-w-0"
-                initial={{ opacity: 0, y: 18 }}
-                key={item.title}
-                transition={{
-                  delay: index * 0.05,
-                  duration: 0.5,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                viewport={{ once: true, margin: "-80px" }}
-                whileInView={{ opacity: 1, y: 0 }}
-              >
-                <span className="grid size-11 place-items-center rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_10%,transparent)] transition duration-200 group-hover:-rotate-3">
-                  <Icon aria-hidden="true" className="size-5" />
-                </span>
-                <p className="font-display mt-6 text-lg font-extrabold leading-tight text-[var(--text-strong)]">
-                  {item.title}
-                </p>
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                  {item.description}
-                </p>
-              </motion.div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
+    <div className="relative mx-[calc(50%-50vw)] mt-16">
+      <MarqueeRow items={techStack} />
+      <MarqueeRow items={skillMarqueeJa} reverse />
+    </div>
   );
 }

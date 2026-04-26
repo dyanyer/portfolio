@@ -1,99 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=M+PLUS+1:wght@400;500;600;700;800;900&family=Zen+Kurenaido&family=Zen+Old+Mincho:wght@400;500;600;700;900&display=swap");
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Noto Sans JP", "Inter", "DM Sans", ui-sans-serif, system-ui,
-    -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "M PLUS 1", ui-sans-serif, system-ui, sans-serif;
 }
 
 :root,
-.theme-light {
-  color-scheme: light;
-  --font-display: "M PLUS Rounded 1c", "Noto Sans JP", ui-sans-serif, system-ui;
-  --page: #fff6ea;
-  --page-soft: #fce9dd;
-  --surface: #fffdf7;
-  --surface-strong: #ffffff;
-  --surface-muted: #f8e1d4;
-  --paper: #fff9ef;
-  --sticker: #ffffff;
-  --ink-panel: #1d1815;
-  --text: #2a201b;
-  --text-strong: #15110f;
-  --muted: #725f53;
-  --muted-strong: #4c3f38;
-  --border: rgb(48 33 25 / 0.16);
-  --border-strong: rgb(48 33 25 / 0.3);
-  --accent: #f5745f;
-  --accent-strong: #b93e31;
-  --accent-foreground: #fffaf2;
-  --accent-soft: rgb(245 116 95 / 0.1);
-  --accent-border: rgb(185 62 49 / 0.24);
-  --gold: #dea448;
-  --gold-soft: rgb(222 164 72 / 0.18);
-  --matcha: #8ca66c;
-  --matcha-soft: rgb(140 166 108 / 0.18);
-  --sky: #7ca7bd;
-  --sky-soft: rgb(124 167 189 / 0.13);
-  --brown: #8a6048;
-  --brown-soft: rgb(138 96 72 / 0.14);
-  --cream: #fff1cf;
-  --paper-speck: rgb(81 54 38 / 0.07);
-  --grid: rgb(66 45 34 / 0.055);
-  --line: #211814;
-  --glow: rgb(245 116 95 / 0.2);
-  --shadow-soft: 0 18px 42px rgb(60 39 28 / 0.1);
-  --shadow-strong: 0 26px 72px rgb(60 39 28 / 0.18);
-  --shadow-sticker: 4px 5px 0 rgb(33 24 20 / 0.09);
-  --background: 32 100% 96%;
-  --foreground: 19 36% 9%;
-  --card: 42 100% 99%;
-  --card-foreground: 19 36% 9%;
-  --ring: 8 87% 67%;
-}
-
 .theme-night {
   color-scheme: dark;
-  --font-display: "M PLUS Rounded 1c", "Noto Sans JP", ui-sans-serif, system-ui;
-  --page: #15100e;
-  --page-soft: #201816;
-  --surface: #251d19;
-  --surface-strong: #30241f;
-  --surface-muted: #1b1513;
-  --paper: #221916;
-  --sticker: #2d231e;
-  --ink-panel: #0f0b0a;
-  --text: #f7e9d8;
-  --text-strong: #fff7e9;
-  --muted: #c6b2a0;
-  --muted-strong: #ead8c6;
-  --border: rgb(255 236 210 / 0.13);
-  --border-strong: rgb(255 236 210 / 0.24);
-  --accent: #ff9b76;
-  --accent-strong: #ffc267;
-  --accent-foreground: #1a1110;
-  --accent-soft: rgb(255 155 118 / 0.12);
-  --accent-border: rgb(255 194 103 / 0.28);
-  --gold: #ffc267;
-  --gold-soft: rgb(255 194 103 / 0.18);
-  --matcha: #b4c98a;
-  --matcha-soft: rgb(180 201 138 / 0.14);
-  --sky: #96b6cc;
-  --sky-soft: rgb(150 182 204 / 0.11);
-  --brown: #d0a17f;
-  --brown-soft: rgb(208 161 127 / 0.14);
-  --cream: #ffedc9;
-  --paper-speck: rgb(255 236 210 / 0.06);
-  --grid: rgb(255 236 210 / 0.055);
-  --line: #ffead3;
-  --glow: rgb(255 155 118 / 0.2);
-  --shadow-soft: 0 18px 46px rgb(0 0 0 / 0.36);
-  --shadow-strong: 0 24px 86px rgb(0 0 0 / 0.5);
-  --shadow-sticker: 5px 6px 0 rgb(0 0 0 / 0.25);
-  --background: 18 27% 7%;
-  --foreground: 35 75% 94%;
-  --card: 22 24% 14%;
-  --card-foreground: 35 75% 94%;
-  --ring: 30 100% 70%;
+  --bg-void: #0a0a0f;
+  --bg-surface: #12121a;
+  --bg-card: #1a1a28;
+  --sakura: #ff4d8d;
+  --gold: #ffb800;
+  --vermillion: #e8341a;
+  --teal: #00d4aa;
+  --parchment: #f0ead6;
+  --ink-faded: #7a7a9a;
+  --border: #2a2a3e;
+  --line: #050507;
+  --field: #202032;
+  --paper: #f0ead6;
+  --shadow-ink: rgb(0 0 0 / 0.48);
+  --glow-sakura: rgb(255 77 141 / 0.22);
+  --glow-gold: rgb(255 184 0 / 0.18);
+  --selection: rgb(255 77 141 / 0.32);
+
+  /* Legacy aliases retained for older unused modules in the repo. */
+  --page: var(--bg-void);
+  --page-soft: #101018;
+  --surface: var(--bg-surface);
+  --surface-strong: var(--bg-card);
+  --surface-muted: #111119;
+  --sticker: var(--bg-card);
+  --ink-panel: #07070b;
+  --text: var(--parchment);
+  --text-strong: #fff8e6;
+  --muted: var(--ink-faded);
+  --muted-strong: #aaa8c8;
+  --border-strong: #3a3a54;
+  --accent: var(--sakura);
+  --accent-strong: var(--sakura);
+  --accent-foreground: var(--parchment);
+  --accent-soft: rgb(255 77 141 / 0.11);
+  --accent-border: rgb(255 77 141 / 0.38);
+  --gold-soft: rgb(255 184 0 / 0.14);
+  --matcha: var(--teal);
+  --matcha-soft: rgb(0 212 170 / 0.13);
+  --sky: #66a6ff;
+  --sky-soft: rgb(102 166 255 / 0.12);
+  --brown: #c48a5a;
+  --brown-soft: rgb(196 138 90 / 0.14);
+  --cream: var(--parchment);
+  --paper-speck: rgb(240 234 214 / 0.06);
+  --grid: rgb(240 234 214 / 0.055);
+  --glow: var(--glow-sakura);
+  --shadow-soft: 0 18px 42px rgb(0 0 0 / 0.28);
+  --shadow-strong: 0 28px 80px rgb(0 0 0 / 0.42);
+  --shadow-sticker: 5px 5px 0 var(--line);
+}
+
+.theme-light {
+  color-scheme: light;
+  --bg-void: #f7f0df;
+  --bg-surface: #fff8e8;
+  --bg-card: #fffdf5;
+  --sakura: #d91e66;
+  --gold: #b87900;
+  --vermillion: #c72c17;
+  --teal: #007f70;
+  --parchment: #17151a;
+  --ink-faded: #575166;
+  --border: #d8cbb0;
+  --line: #17110f;
+  --field: #f0e5cc;
+  --paper: #fff8e8;
+  --shadow-ink: rgb(35 25 12 / 0.18);
+  --glow-sakura: rgb(217 30 102 / 0.16);
+  --glow-gold: rgb(184 121 0 / 0.16);
+  --selection: rgb(217 30 102 / 0.2);
+
+  --page: var(--bg-void);
+  --page-soft: #efe3c9;
+  --surface: var(--bg-surface);
+  --surface-strong: var(--bg-card);
+  --surface-muted: #efe7d4;
+  --sticker: var(--bg-card);
+  --ink-panel: #161219;
+  --text: var(--parchment);
+  --text-strong: #0e0c10;
+  --muted: var(--ink-faded);
+  --muted-strong: #3e394c;
+  --border-strong: #bda982;
+  --accent: var(--sakura);
+  --accent-strong: var(--sakura);
+  --accent-foreground: #fff8e8;
+  --accent-soft: rgb(217 30 102 / 0.1);
+  --accent-border: rgb(217 30 102 / 0.3);
+  --gold-soft: rgb(184 121 0 / 0.14);
+  --matcha: var(--teal);
+  --matcha-soft: rgb(0 127 112 / 0.12);
+  --sky: #365da8;
+  --sky-soft: rgb(54 93 168 / 0.1);
+  --brown: #8f5935;
+  --brown-soft: rgb(143 89 53 / 0.12);
+  --cream: #fff8e8;
+  --paper-speck: rgb(23 17 15 / 0.06);
+  --grid: rgb(23 17 15 / 0.055);
+  --glow: var(--glow-sakura);
+  --shadow-soft: 0 18px 42px rgb(35 25 12 / 0.1);
+  --shadow-strong: 0 28px 80px rgb(35 25 12 / 0.18);
+  --shadow-sticker: 5px 5px 0 rgb(23 17 15 / 0.18);
 }
 
 * {
@@ -101,24 +118,40 @@
 }
 
 html {
-  background: var(--page);
+  min-width: 320px;
+  background: var(--bg-void);
   scroll-behavior: smooth;
   scroll-padding-top: 6rem;
 }
 
 body {
   min-width: 320px;
+  min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
-  background: var(--page);
-  color: var(--text);
-  font-family: var(--font-sans);
-  text-rendering: optimizelegibility;
+  background: var(--bg-void);
+  color: var(--parchment);
+  font-family: "M PLUS 1", ui-sans-serif, system-ui, sans-serif;
+  text-rendering: optimizeLegibility;
 }
 
-body::selection {
-  background: var(--accent-soft);
-  color: var(--text-strong);
+::selection {
+  background: var(--selection);
+  color: var(--parchment);
+}
+
+::-webkit-scrollbar {
+  width: 0.72rem;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-void);
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid var(--bg-void);
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--sakura), var(--vermillion));
 }
 
 button,
@@ -126,6 +159,11 @@ input,
 textarea,
 select {
   font: inherit;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
 }
 
 a {
@@ -138,103 +176,40 @@ a {
   isolation: isolate;
 }
 
+.font-display {
+  font-family: "Zen Old Mincho", "M PLUS 1", serif;
+}
+
+.font-body {
+  font-family: "M PLUS 1", ui-sans-serif, system-ui, sans-serif;
+}
+
+.font-mono {
+  font-family: "Zen Kurenaido", "M PLUS 1", ui-monospace, monospace;
+}
+
 .portfolio-shell {
   position: relative;
   min-height: 100vh;
   overflow-x: clip;
   background:
-    linear-gradient(90deg, transparent 39px, var(--grid) 40px),
-    linear-gradient(180deg, transparent 39px, var(--grid) 40px),
-    linear-gradient(180deg, var(--page), var(--page-soft) 47%, var(--page));
-  background-size: 40px 40px, 40px 40px, auto;
-  transition: background-color 220ms ease, color 220ms ease;
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--border) 72%, transparent) 1px, transparent 1.7px),
+    linear-gradient(180deg, var(--bg-void) 0%, color-mix(in srgb, var(--bg-surface) 62%, var(--bg-void)) 46%, var(--bg-void) 100%);
+  background-size: 28px 28px, auto;
 }
 
-.portfolio-shell::before {
-  position: fixed;
-  z-index: 0;
-  inset: 0;
-  pointer-events: none;
-  content: "";
-  background-image:
-    radial-gradient(circle at 20% 30%, var(--paper-speck) 0 1px, transparent 1.5px),
-    radial-gradient(circle at 80% 70%, var(--paper-speck) 0 0.8px, transparent 1.4px),
-    repeating-linear-gradient(135deg, transparent 0 18px, rgb(255 255 255 / 0.045) 18px 19px, transparent 19px 36px);
-  background-size: 15px 15px, 21px 21px, 190px 190px;
-  mask-image: linear-gradient(to bottom, black 0%, black 48%, transparent 86%);
-  opacity: 0.46;
-}
-
-.portfolio-shell::after {
-  position: fixed;
-  z-index: 0;
-  top: 0;
-  bottom: 0;
-  left: clamp(1rem, 6vw, 6rem);
-  width: 0.45rem;
-  pointer-events: none;
-  content: "";
+.theme-light .portfolio-shell {
   background:
-    repeating-linear-gradient(
-      45deg,
-      color-mix(in srgb, var(--accent) 58%, transparent) 0 8px,
-      transparent 8px 16px
-    );
-  opacity: 0.11;
-}
-
-.portfolio-shell > * {
-  position: relative;
-  z-index: 1;
-}
-
-.hero-grid,
-.subtle-grid,
-.kumiko-grid {
-  background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-}
-
-.hero-grid {
-  background-size: 44px 44px;
-  mask-image: linear-gradient(to bottom, black 4%, transparent 86%);
-}
-
-.subtle-grid {
-  background-size: 34px 34px;
-}
-
-.kumiko-grid {
-  background-size: 28px 28px;
-}
-
-.kumiko-grid::after {
-  position: absolute;
-  inset: 0;
-  content: "";
-  background-image:
-    linear-gradient(45deg, transparent 48%, var(--grid) 49%, var(--grid) 51%, transparent 52%),
-    linear-gradient(-45deg, transparent 48%, var(--grid) 49%, var(--grid) 51%, transparent 52%);
-  background-size: 56px 56px;
-  opacity: 0.5;
-}
-
-.paper-sunburst {
-  background:
-    repeating-conic-gradient(
-      from -8deg at 50% 50%,
-      color-mix(in srgb, var(--gold) 18%, transparent) 0deg 8deg,
-      transparent 8deg 18deg
-    );
-  mask-image: radial-gradient(circle, black 0 34%, transparent 69%);
-  opacity: 0.72;
+    radial-gradient(circle at 1px 1px, color-mix(in srgb, var(--border) 65%, transparent) 1px, transparent 1.7px),
+    linear-gradient(180deg, var(--bg-void) 0%, #fff5df 48%, var(--bg-void) 100%);
+  background-size: 28px 28px, auto;
 }
 
 .section-shell {
   position: relative;
-  padding: 6.25rem 1rem;
-  scroll-margin-top: 7rem;
+  overflow: hidden;
+  padding: 6.5rem 1rem;
+  scroll-margin-top: 6rem;
 }
 
 .section-shell::before {
@@ -243,9 +218,9 @@ a {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(to bottom, color-mix(in srgb, var(--surface) 24%, transparent), transparent 18%);
-  border-top: 1px dashed var(--border);
-  opacity: 0.7;
+    linear-gradient(90deg, transparent 0 48%, color-mix(in srgb, var(--border) 45%, transparent) 48% 48.12%, transparent 48.12%),
+    linear-gradient(180deg, color-mix(in srgb, var(--bg-surface) 28%, transparent), transparent 34%);
+  opacity: 0.5;
 }
 
 .section-shell > * {
@@ -253,280 +228,147 @@ a {
   z-index: 1;
 }
 
-.glass-panel {
-  border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface) 90%, transparent);
-  box-shadow: var(--shadow-soft);
-  backdrop-filter: blur(18px);
+.dot-grid {
+  background-image: radial-gradient(circle at center, color-mix(in srgb, var(--border) 82%, transparent) 1px, transparent 1.8px);
+  background-size: 30px 30px;
 }
 
-.studio-panel {
+.cel-card {
   position: relative;
-  border: 1px solid var(--border);
+  border: 2px solid var(--border);
   border-radius: 8px;
+  background: var(--bg-card);
+  box-shadow: 6px 6px 0 var(--border);
+}
+
+.theme-light .cel-card {
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 88%, transparent), color-mix(in srgb, var(--paper) 90%, transparent)),
-    var(--surface);
-  box-shadow: var(--shadow-soft);
+    radial-gradient(circle at 1px 1px, rgb(23 17 15 / 0.045) 0 0.8px, transparent 1.3px),
+    var(--bg-card);
+  background-size: 13px 13px, auto;
 }
 
-.ink-panel {
-  border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
-  border-radius: 8px;
-  background:
-    linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px),
-    linear-gradient(180deg, #2a211d, var(--ink-panel));
-  background-size: 24px 24px, auto;
-  color: var(--cream);
-  box-shadow: var(--shadow-strong);
+.corner-notch {
+  clip-path: polygon(0 0, calc(100% - 22px) 0, 100% 22px, 100% 100%, 0 100%);
 }
 
-.paper-edge {
-  box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.58),
-    var(--shadow-sticker),
-    var(--shadow-soft);
+.stamp {
+  clip-path: polygon(
+    50% 0%,
+    58% 9%,
+    70% 5%,
+    76% 16%,
+    89% 17%,
+    91% 30%,
+    100% 38%,
+    94% 50%,
+    100% 62%,
+    91% 70%,
+    89% 83%,
+    76% 84%,
+    70% 95%,
+    58% 91%,
+    50% 100%,
+    42% 91%,
+    30% 95%,
+    24% 84%,
+    11% 83%,
+    9% 70%,
+    0% 62%,
+    6% 50%,
+    0% 38%,
+    9% 30%,
+    11% 17%,
+    24% 16%,
+    30% 5%,
+    42% 9%
+  );
 }
 
-.font-display {
-  font-family: var(--font-display);
-}
-
-.stationery-card {
-  position: relative;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background:
-    radial-gradient(circle at 1px 1px, var(--paper-speck) 0 0.7px, transparent 1px),
-    linear-gradient(180deg, var(--surface-strong), var(--paper));
-  background-size: 12px 12px, auto;
-  box-shadow: var(--shadow-sticker), var(--shadow-soft);
-}
-
-.bento-card {
-  position: relative;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 94%, transparent), color-mix(in srgb, var(--paper) 94%, transparent));
-  box-shadow: var(--shadow-soft);
-}
-
-.sticker-card {
-  position: relative;
-  border: 2px solid var(--line);
-  border-radius: 8px;
-  background: var(--sticker);
-  box-shadow: var(--shadow-sticker);
-}
-
-.manga-panel {
-  position: relative;
-  border: 2px solid var(--line);
-  border-radius: 8px;
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--grid) 65%, transparent) 1px, transparent 1px),
-    linear-gradient(180deg, color-mix(in srgb, var(--grid) 65%, transparent) 1px, transparent 1px),
-    var(--surface);
-  background-size: 22px 22px;
-  box-shadow: 6px 7px 0 color-mix(in srgb, var(--line) 12%, transparent);
-}
-
-.ticket-card {
-  position: relative;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background:
-    linear-gradient(90deg, var(--accent-soft) 0 1px, transparent 1px 18px),
-    var(--surface);
-  background-size: 18px 18px, auto;
-  box-shadow: var(--shadow-soft);
-}
-
-.ticket-card::before,
-.ticket-card::after {
-  position: absolute;
-  top: 50%;
-  width: 1.2rem;
-  height: 1.2rem;
-  border: 1px solid var(--border-strong);
-  border-radius: 999px;
-  background: var(--page);
-  content: "";
-}
-
-.ticket-card::before {
-  left: -0.65rem;
-  transform: translateY(-50%);
-}
-
-.ticket-card::after {
-  right: -0.65rem;
-  transform: translateY(-50%);
-}
-
-.stamp-label {
-  display: inline-flex;
-  align-items: center;
-  width: fit-content;
-  border: 1px dashed var(--accent-border);
-  border-radius: 6px;
-  background: var(--accent-soft);
-  color: var(--accent-strong);
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.16em;
-  line-height: 1;
-  padding: 0.48rem 0.62rem;
-  text-transform: uppercase;
-  transform: rotate(-1deg);
-}
-
-.mini-ticket {
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--surface);
-  box-shadow: 2px 3px 0 color-mix(in srgb, var(--line) 8%, transparent);
-}
-
-.tag-chip {
-  display: inline-flex;
-  align-items: center;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: color-mix(in srgb, var(--surface) 88%, transparent);
-  color: var(--muted-strong);
-  font-size: 0.75rem;
-  font-weight: 800;
-  line-height: 1;
-  padding: 0.5rem 0.72rem;
+.vertical-label {
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
 
 .washi-strip {
-  border-radius: 3px;
   background:
-    repeating-linear-gradient(
-      -45deg,
-      color-mix(in srgb, var(--gold) 48%, transparent) 0 7px,
-      color-mix(in srgb, var(--matcha) 24%, transparent) 7px 14px
-    );
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.08);
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--gold) 48%, transparent), transparent),
+    repeating-linear-gradient(-8deg, rgb(255 255 255 / 0.12) 0 4px, transparent 4px 9px);
+  filter: saturate(0.92);
 }
 
-.label-tab {
-  border: 1px solid var(--border-strong);
-  border-bottom: 0;
-  border-radius: 8px 8px 0 0;
-  background: var(--gold-soft);
-  color: var(--muted-strong);
-}
-
-.speech-bubble {
-  position: relative;
-  border: 2px solid var(--line);
-  border-radius: 8px;
-  background: var(--surface-strong);
-  box-shadow: 4px 5px 0 color-mix(in srgb, var(--line) 10%, transparent);
-}
-
-.speech-bubble::after {
-  position: absolute;
-  bottom: -0.62rem;
-  left: 1.35rem;
-  width: 1rem;
-  height: 1rem;
-  border-right: 2px solid var(--line);
-  border-bottom: 2px solid var(--line);
-  background: inherit;
-  content: "";
-  transform: rotate(45deg);
-}
-
-.collectible-card {
-  position: relative;
-  overflow: hidden;
-  border: 2px solid var(--line);
-  border-radius: 8px;
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--card-accent, var(--accent)) 15%, transparent) 0 0.55rem, transparent 0.55rem),
-    radial-gradient(circle at 1px 1px, var(--paper-speck) 0 0.7px, transparent 1px),
-    linear-gradient(180deg, var(--surface-strong), var(--paper));
-  background-size: auto, 11px 11px, auto;
-  box-shadow: var(--shadow-sticker), var(--shadow-soft);
-}
-
-.case-study-card {
-  position: relative;
-  overflow: hidden;
-  border: 1px solid var(--border-strong);
-  border-radius: 8px;
-  background:
-    radial-gradient(circle at 1px 1px, var(--paper-speck) 0 0.6px, transparent 1px),
-    linear-gradient(180deg, var(--surface-strong), var(--paper));
-  background-size: 14px 14px, auto;
-  box-shadow: var(--shadow-strong);
-}
-
-.collectible-card::before {
-  position: absolute;
-  top: 0.9rem;
-  right: -2.8rem;
-  z-index: 0;
-  width: 9rem;
-  height: 1.9rem;
-  background: color-mix(in srgb, var(--card-accent, var(--accent)) 82%, transparent);
-  color: var(--accent-foreground);
-  content: "";
-  opacity: 0.86;
-  transform: rotate(35deg);
-}
-
-.project-scene {
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background:
-    linear-gradient(90deg, color-mix(in srgb, var(--card-accent, var(--accent)) 11%, transparent) 1px, transparent 1px),
-    linear-gradient(180deg, color-mix(in srgb, var(--card-accent, var(--accent)) 11%, transparent) 1px, transparent 1px),
-    color-mix(in srgb, var(--surface-muted) 72%, var(--surface));
-  background-size: 20px 20px;
-}
-
-.mascot-badge {
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  border: 2px solid var(--line);
-  border-radius: 999px;
-  background: var(--cream);
-  box-shadow: 3px 4px 0 color-mix(in srgb, var(--line) 10%, transparent);
-}
-
-.night-cafe-glow {
-  box-shadow:
-    inset 0 0 0 1px rgb(255 255 255 / 0.04),
-    0 0 28px color-mix(in srgb, var(--accent) 18%, transparent),
-    var(--shadow-strong);
-}
-
-.float-soft {
-  animation: float-soft 7s ease-in-out infinite;
-}
-
-.wiggle-soft {
-  animation: wiggle-soft 5.8s ease-in-out infinite;
-}
-
-.mascot-cutout {
-  filter: drop-shadow(0 18px 24px rgb(0 0 0 / 0.22));
-}
-
-.theme-light .mascot-cutout {
-  filter: drop-shadow(0 18px 22px rgb(70 52 30 / 0.2));
+.seigaiha {
+  background-image:
+    radial-gradient(circle at 50% 100%, transparent 0 10px, color-mix(in srgb, var(--parchment) 48%, transparent) 10.5px 11.5px, transparent 12px),
+    radial-gradient(circle at 50% 0%, transparent 0 10px, color-mix(in srgb, var(--parchment) 38%, transparent) 10.5px 11.5px, transparent 12px);
+  background-position: 0 0, 18px 9px;
+  background-size: 36px 18px;
 }
 
 .marquee-track {
-  animation: marquee 28s linear infinite;
+  animation: marquee 30s linear infinite;
   transform: translate3d(0, 0, 0);
+}
+
+.marquee-reverse {
+  animation-direction: reverse;
+  animation-duration: 36s;
+}
+
+.marquee-mask {
+  mask-image: linear-gradient(90deg, transparent, black 9%, black 91%, transparent);
+}
+
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.brush-reveal {
+  animation: brush-in 900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+.stamp-border-card::after {
+  position: absolute;
+  inset: 0.42rem;
+  pointer-events: none;
+  content: "";
+  border: 1px solid color-mix(in srgb, var(--vermillion) 64%, transparent);
+  border-radius: 6px;
+  opacity: 0;
+  transform: rotate(0deg);
+}
+
+.stamp-border-card:hover::after {
+  animation: stamp-spin 720ms ease-out both;
+}
+
+.focus-ring {
+  outline: none;
+}
+
+.focus-ring:focus-visible {
+  box-shadow: 0 0 0 2px var(--bg-void), 0 0 0 4px var(--gold);
+}
+
+.custom-cursor {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .custom-cursor {
+    display: block;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+
+  50% {
+    transform: translate3d(0, -14px, 0) rotate(7deg);
+  }
 }
 
 @keyframes marquee {
@@ -539,25 +381,42 @@ a {
   }
 }
 
-@keyframes float-soft {
-  0%,
-  100% {
-    transform: translate3d(0, 0, 0);
+@keyframes brush-in {
+  from {
+    clip-path: inset(0 100% 0 0);
+    opacity: 0;
   }
 
-  50% {
-    transform: translate3d(0, -10px, 0);
+  to {
+    clip-path: inset(0 0 0 0);
+    opacity: 1;
   }
 }
 
-@keyframes wiggle-soft {
-  0%,
-  100% {
-    transform: rotate(-1deg);
+@keyframes stamp-spin {
+  0% {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.96);
   }
 
-  50% {
-    transform: rotate(1.5deg);
+  55% {
+    opacity: 0.9;
+    transform: rotate(360deg) scale(1);
+  }
+
+  100% {
+    opacity: 0.58;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes gradient-border {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
   }
 }
 
@@ -570,12 +429,6 @@ a {
 @media (min-width: 1280px) {
   .section-shell {
     padding: 9rem 1rem;
-  }
-}
-
-@media (max-width: 767px) {
-  .portfolio-shell::after {
-    display: none;
   }
 }
 

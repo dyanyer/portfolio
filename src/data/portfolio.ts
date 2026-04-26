@@ -1,428 +1,360 @@
 import {
-  BadgeCheck,
-  BriefcaseBusiness,
-  ChartNoAxesCombined,
-  ClipboardCheck,
-  Cloud,
-  Code2,
-  Database,
-  FileCode2,
+  CalendarDays,
   FileDown,
   Github,
-  Globe2,
-  LayoutDashboard,
   Linkedin,
   Mail,
-  MessagesSquare,
-  Network,
-  Rocket,
-  ScanLine,
-  Server,
-  ShieldCheck,
-  Sparkles,
-  UsersRound,
-  Wrench,
   type LucideIcon,
 } from "lucide-react";
 
-export type NavItem = {
-  label: string;
-  href: string;
-  id: string;
-};
-
-export type ValuePoint = {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-};
-
-export type AboutHighlight = {
-  title: string;
-  description: string;
-  icon: LucideIcon;
-};
-
-export type ProjectVisualType =
-  | "dashboard"
-  | "architecture"
-  | "qr"
-  | "report"
-  | "landing";
-
-export type Project = {
+export interface Project {
   id: string;
   title: string;
-  problemSolved: string;
+  titleJa: string;
   description: string;
-  role: string;
-  techStack: string[];
-  businessValue: string;
-  status: "System Feature" | "Architecture" | "Compliance" | "Landing Page";
-  icon: LucideIcon;
-  visualType: ProjectVisualType;
-  visualLabel: string;
-  visualNote: string;
-  placeholderImage: string;
-  links: {
-    details: string;
-    live: string;
-    github: string;
-  };
-};
+  longDescription: string;
+  tags: string[];
+  type: "featured" | "opensource" | "client";
+  accentColor: string;
+  chapter: string;
+}
 
-export type SkillCategory = {
+export interface Skill {
+  category: string;
+  categoryJa: string;
+  kanjiWatermark: string;
+  items: string[];
+  proficiency: number;
+}
+
+export interface Principle {
+  kanji: string;
+  english: string;
+  japanese: string;
+  description: string;
+}
+
+export interface ProcessStep {
+  numeral: string;
   title: string;
   description: string;
-  icon: LucideIcon;
-  score: string;
-  skills: string[];
-};
+}
 
-export type ProcessStep = {
-  step: string;
-  title: string;
-  description: string;
-  icon: LucideIcon;
-};
-
-export type ContactLink = {
+export interface NavItem {
   label: string;
+  labelJa: string;
+  href: string;
+  id: string;
+}
+
+export interface ContactMethod {
+  label: string;
+  value: string;
   href: string;
   icon: LucideIcon;
-};
+}
 
-export const personalInfo = {
-  name: "John Rey Rebusquillo",
-  role: "Full-Stack Web Developer",
-  email: "your-email@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
-  resume: "/resume.pdf",
+export const developer = {
+  name: "John Rey",
+  title: "Full-Stack Developer & Systems Architect",
+  tagline: "I build systems that work, scale, and last.",
+  taglineJa: "動くシステムを作る。",
+  location: "Remote — Available Worldwide",
+  email: "hello@johnrey.dev",
+  github: "github.com/johnrey",
+  calendly: "calendly.com/johnrey/intro",
+  resume: "/john-rey-cv.pdf",
+  available: true,
 };
 
 export const navItems: NavItem[] = [
-  { label: "Home", href: "#home", id: "home" },
-  { label: "About", href: "#about", id: "about" },
-  { label: "Work", href: "#work", id: "work" },
-  { label: "Skills", href: "#skills", id: "skills" },
-  { label: "Process", href: "#process", id: "process" },
-  { label: "Contact", href: "#contact", id: "contact" },
-];
-
-export const valuePoints: ValuePoint[] = [
-  {
-    title: "Workflow-first thinking",
-    description: "Rules, roles, and real tasks before shiny screens.",
-    icon: BriefcaseBusiness,
-  },
-  {
-    title: "Clean implementation",
-    description: "Readable code paths that stay easier to change.",
-    icon: Code2,
-  },
-  {
-    title: "Practical features",
-    description: "Tools built around daily business operations.",
-    icon: LayoutDashboard,
-  },
-  {
-    title: "Calm collaboration",
-    description: "Clear updates, scoped decisions, and useful handoffs.",
-    icon: Cloud,
-  },
-];
-
-export const aboutHighlights: AboutHighlight[] = [
-  {
-    title: "Workflow-first thinking",
-    description: "I start with people, approvals, data, and the real business outcome.",
-    icon: MessagesSquare,
-  },
-  {
-    title: "Practical UI decisions",
-    description: "Screens are designed around tasks teams actually repeat.",
-    icon: UsersRound,
-  },
-  {
-    title: "Maintainable backend logic",
-    description: "I favor clear rules, readable structure, and predictable feature paths.",
-    icon: Wrench,
-  },
-  {
-    title: "Useful iteration",
-    description: "Real scenarios shape the next improvement instead of guesswork.",
-    icon: BadgeCheck,
-  },
-];
-
-export const aboutStats = [
-  { value: "Full-stack", label: "interfaces, APIs, data, deployment" },
-  { value: "Ops-aware", label: "HR, payroll, reports, approvals" },
-  { value: "Clear delivery", label: "scoped features and handoff notes" },
+  { label: "Home", labelJa: "ホーム", href: "#home", id: "home" },
+  { label: "Work", labelJa: "作品", href: "#work", id: "work" },
+  { label: "Skills", labelJa: "技術", href: "#skills", id: "skills" },
+  { label: "Process", labelJa: "道", href: "#process", id: "process" },
+  { label: "Contact", labelJa: "連絡", href: "#contact", id: "contact" },
 ];
 
 export const projects: Project[] = [
   {
-    id: "hr-payroll",
-    title: "HR and Payroll Management System",
-    problemSolved: "Manual HR workflows and scattered employee records.",
-    description:
-      "A system for managing employees, attendance, leave, overtime, payroll processing, and reporting workflows.",
-    role: "Full-stack feature design and implementation",
-    techStack: ["Laravel", "PHP", "MySQL", "JavaScript", "Tailwind CSS"],
-    businessValue:
-      "Centralizes HR operations so teams can review payroll inputs with less confusion.",
-    status: "System Feature",
-    icon: UsersRound,
-    visualType: "dashboard",
-    visualLabel: "HR dashboard mockup",
-    visualNote: "Employee records, attendance, leave, and payroll review in one flow.",
-    placeholderImage: "/images/project-hr-dashboard.jpg",
-    links: {
-      details: "#project-hr-payroll",
-      live: "#replace-with-live-demo",
-      github: "#replace-with-github-repo",
-    },
+    id: "ryokan-saas",
+    title: "Ryokan SaaS",
+    titleJa: "旅館サース",
+    description: "Multi-tenant booking system for boutique hotels.",
+    longDescription:
+      "Tenant-aware booking, payments, staff workflows, and guest lifecycle tools designed for boutique hospitality teams that need reliability without bloated operations.",
+    tags: ["React", "Node.js", "PostgreSQL", "Stripe", "Multi-tenant"],
+    type: "featured",
+    accentColor: "#ff4d8d",
+    chapter: "第一章",
   },
   {
-    id: "multi-tenant-saas",
-    title: "Multi-Tenant SaaS Platform",
-    problemSolved:
-      "Multiple clients need separate portals without maintaining separate codebases.",
-    description:
-      "A Laravel-based SaaS setup using one codebase with separate tenant databases and subdomain-based client portals.",
-    role: "Architecture planning and backend foundation",
-    techStack: ["Laravel", "MySQL", "Nginx", "Cloudflare", "VPS", "Queues"],
-    businessValue:
-      "Creates a repeatable platform foundation with tenant isolation and cleaner provisioning.",
-    status: "Architecture",
-    icon: Server,
-    visualType: "architecture",
-    visualLabel: "SaaS architecture mockup",
-    visualNote: "Tenant portals, isolated data, provisioning, and deployment concerns.",
-    placeholderImage: "/images/project-saas-architecture.jpg",
-    links: {
-      details: "#project-multi-tenant-saas",
-      live: "#replace-with-live-demo",
-      github: "#replace-with-github-repo",
-    },
+    id: "torii-auth",
+    title: "Torii Auth",
+    titleJa: "鳥居認証",
+    description: "Open source role-based auth library for Node.js.",
+    longDescription:
+      "A TypeScript authentication package with RBAC primitives, JWT sessions, OAuth adapters, and policy helpers for teams that need clear authorization boundaries.",
+    tags: ["TypeScript", "JWT", "RBAC", "OAuth", "Open Source"],
+    type: "opensource",
+    accentColor: "#ffb800",
+    chapter: "第二章",
   },
   {
-    id: "meal-stub-qr",
-    title: "Free Meal Stub QR System",
-    problemSolved: "Manual tracking of employee meal benefits.",
-    description:
-      "A QR-based employee meal benefit feature with automatic stub issuance, validation, usage tracking, and admin review.",
-    role: "Workflow logic, admin screens, and validation flow",
-    techStack: ["Laravel", "MySQL", "QR Code", "Attendance Integration"],
-    businessValue:
-      "Improves transparency and control over employee meal benefit usage.",
-    status: "System Feature",
-    icon: ScanLine,
-    visualType: "qr",
-    visualLabel: "QR validation mockup",
-    visualNote: "Stub issuance, QR scanning, usage history, and admin review.",
-    placeholderImage: "/images/project-qr-validation.jpg",
-    links: {
-      details: "#project-meal-stub-qr",
-      live: "#replace-with-live-demo",
-      github: "#replace-with-github-repo",
-    },
+    id: "kaihatsu-dashboard",
+    title: "Kaihatsu Dashboard",
+    titleJa: "開発ダッシュボード",
+    description: "Real-time internal dev metrics platform.",
+    longDescription:
+      "Live delivery metrics, incident signals, and team health dashboards with WebSocket updates, Redis-backed events, and focused views for engineering leads.",
+    tags: ["Next.js", "WebSocket", "Redis", "Recharts", "Prisma"],
+    type: "client",
+    accentColor: "#00d4aa",
+    chapter: "第三章",
   },
   {
-    id: "bir-tax-module",
-    title: "BIR 1601-C Payroll Tax Module",
-    problemSolved: "Payroll tax reports must match computed payroll tax data.",
-    description:
-      "A payroll tax reporting module focused on computed tax consistency, taxable components, and report accuracy.",
-    role: "Payroll computation logic and reporting review flow",
-    techStack: ["Laravel", "PHP", "MySQL", "Payroll Tax Logic"],
-    businessValue:
-      "Gives payroll teams a clearer way to validate tax-related data before reports are used.",
-    status: "Compliance",
-    icon: FileCode2,
-    visualType: "report",
-    visualLabel: "Reporting dashboard mockup",
-    visualNote: "Computed payroll tax data shaped into reviewable reports.",
-    placeholderImage: "/images/project-tax-report.jpg",
-    links: {
-      details: "#project-bir-tax-module",
-      live: "#replace-with-live-demo",
-      github: "#replace-with-github-repo",
-    },
+    id: "noren-commerce",
+    title: "Noren Commerce",
+    titleJa: "暖簾コマース",
+    description: "Headless e-commerce for artisan shops.",
+    longDescription:
+      "A storefront architecture for small makers: fast search, flexible product stories, Shopify inventory sync, and checkout paths that stay calm and credible.",
+    tags: ["Next.js", "Shopify API", "Tailwind", "Algolia"],
+    type: "client",
+    accentColor: "#e8341a",
+    chapter: "第四章",
   },
   {
-    id: "business-landing-pages",
-    title: "Modern Business Landing Pages",
-    problemSolved: "Small businesses need a credible online presence.",
-    description:
-      "Conversion-focused landing pages for small businesses that need a professional online presence.",
-    role: "UI implementation, content structure, and interaction polish",
-    techStack: ["React", "Tailwind CSS", "Framer Motion"],
-    businessValue:
-      "Helps visitors understand the offer quickly and move toward an inquiry.",
-    status: "Landing Page",
-    icon: Globe2,
-    visualType: "landing",
-    visualLabel: "Landing page mockup",
-    visualNote: "Clear offers, strong structure, and inquiry-focused pages.",
-    placeholderImage: "/images/project-business-landing.jpg",
-    links: {
-      details: "#project-business-landing-pages",
-      live: "#replace-with-live-demo",
-      github: "#replace-with-github-repo",
-    },
+    id: "samurai-crm",
+    title: "Samurai CRM",
+    titleJa: "侍CRM",
+    description: "AI-powered sales pipeline with lead scoring.",
+    longDescription:
+      "Pipeline automation, lead scoring, and account summaries using AI-assisted research, structured activity logs, and deployment-ready container workflows.",
+    tags: ["React", "OpenAI", "LangChain", "PostgreSQL", "Docker"],
+    type: "featured",
+    accentColor: "#8c5cff",
+    chapter: "第五章",
   },
 ];
 
-export const skillCategories: SkillCategory[] = [
+export const skills: Skill[] = [
   {
-    title: "Web Systems",
-    description: "End-to-end features for dashboards, portals, reports, and operations.",
-    icon: Network,
-    score: "Core",
-    skills: ["System flows", "Dashboards", "Reports", "Portals", "Feature planning"],
+    category: "Frontend",
+    categoryJa: "フロントエンド",
+    kanjiWatermark: "端",
+    items: ["React", "TypeScript", "Next.js", "Tailwind", "Framer Motion"],
+    proficiency: 94,
   },
   {
-    title: "UI Implementation",
-    description: "Responsive React screens with polished states, motion, and accessibility.",
-    icon: LayoutDashboard,
-    score: "Frontend",
-    skills: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Responsive UI"],
+    category: "Backend",
+    categoryJa: "バックエンド",
+    kanjiWatermark: "基",
+    items: ["Node.js", "APIs", "Auth", "Queues", "PostgreSQL"],
+    proficiency: 91,
   },
   {
-    title: "Backend Logic",
-    description: "Rules, APIs, permissions, queues, authentication, and report data.",
-    icon: Database,
-    score: "Backend",
-    skills: ["Laravel", "PHP", "MySQL", "REST APIs", "Authentication", "Queues"],
+    category: "Cloud",
+    categoryJa: "クラウド",
+    kanjiWatermark: "雲",
+    items: ["AWS", "Docker", "Redis", "CI/CD", "Observability"],
+    proficiency: 86,
   },
   {
-    title: "HR / Payroll Systems",
-    description: "Operational workflows for employees, attendance, payroll, and compliance.",
-    icon: UsersRound,
-    score: "Ops",
-    skills: [
-      "Attendance",
-      "Leave",
-      "Overtime",
-      "Payroll review",
-      "Tax reports",
-    ],
+    category: "AI/ML",
+    categoryJa: "人工知能",
+    kanjiWatermark: "智",
+    items: ["OpenAI", "LangChain", "RAG", "Evaluation", "Automation"],
+    proficiency: 84,
   },
   {
-    title: "SaaS / Multi-Tenant Systems",
-    description: "Tenant-aware portals, provisioning, isolation, deployment, and operations.",
-    icon: Server,
-    score: "SaaS",
-    skills: ["Tenant databases", "Subdomains", "Nginx", "Cloudflare", "VPS"],
+    category: "Design",
+    categoryJa: "設計",
+    kanjiWatermark: "美",
+    items: ["Design Systems", "UX Flows", "Dashboards", "Accessibility", "Motion"],
+    proficiency: 88,
   },
   {
-    title: "Automation / AI-assisted Development",
-    description: "Use automation to move faster while keeping requirements and code clear.",
-    icon: Sparkles,
-    score: "Assist",
-    skills: ["Task breakdown", "Code review", "Debugging", "Documentation", "AI workflows"],
+    category: "Systems",
+    categoryJa: "構築",
+    kanjiWatermark: "系",
+    items: ["Architecture", "Multi-tenant", "RBAC", "Data Models", "Scalability"],
+    proficiency: 93,
+  },
+];
+
+export const principles: Principle[] = [
+  {
+    kanji: "誠実",
+    english: "Integrity",
+    japanese: "せいじつ",
+    description: "Clear decisions, honest constraints, and software that earns trust.",
+  },
+  {
+    kanji: "精密",
+    english: "Precision",
+    japanese: "せいみつ",
+    description: "Interfaces, APIs, and data flows shaped with careful attention.",
+  },
+  {
+    kanji: "実用",
+    english: "Utility",
+    japanese: "じつよう",
+    description: "Every feature has a job and every screen supports real work.",
+  },
+  {
+    kanji: "革新",
+    english: "Innovation",
+    japanese: "かくしん",
+    description: "Modern tools used with restraint, purpose, and measurable value.",
+  },
+  {
+    kanji: "協力",
+    english: "Collaboration",
+    japanese: "きょうりょく",
+    description: "Good systems come from shared context and tight feedback loops.",
+  },
+  {
+    kanji: "集中",
+    english: "Focus",
+    japanese: "しゅうちゅう",
+    description: "The strongest build path is narrow, disciplined, and visible.",
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
-    step: "01",
-    title: "Understand the request",
-    description: "Map users, approvals, data sources, handoffs, and business outcomes.",
-    icon: MessagesSquare,
+    numeral: "一",
+    title: "Understand",
+    description: "Map the business rules, users, risks, and handoffs before shaping screens.",
   },
   {
-    step: "02",
-    title: "Clarify scope",
-    description: "Document permissions, exceptions, computations, and reporting needs.",
-    icon: ClipboardCheck,
+    numeral: "二",
+    title: "Architect",
+    description: "Design the data model, boundaries, interfaces, and delivery path.",
   },
   {
-    step: "03",
-    title: "Design the system",
-    description: "Shape models, relationships, screens, states, and API contracts.",
-    icon: Network,
+    numeral: "三",
+    title: "Build",
+    description: "Implement focused slices with clean state, readable code, and useful defaults.",
   },
   {
-    step: "04",
-    title: "Build the backend logic",
-    description: "Implement focused features with clean UI and maintainable code.",
-    icon: Code2,
+    numeral: "四",
+    title: "Refine",
+    description: "Stress test workflows, polish interaction states, and tighten performance.",
   },
   {
-    step: "05",
-    title: "Test the workflow",
-    description: "Run practical cases for payroll, reports, exceptions, and approvals.",
-    icon: ShieldCheck,
-  },
-  {
-    step: "06",
-    title: "Deliver useful output",
-    description: "Prepare release steps, write notes, and refine after feedback.",
-    icon: Rocket,
+    numeral: "五",
+    title: "Launch",
+    description: "Ship with handoff notes, monitoring expectations, and a practical next step.",
   },
 ];
 
-export const operatingPrinciples = [
-  "Clarity before complexity",
-  "Business value before decoration",
-  "Maintainable code over clever code",
-  "Small improvements compound",
-  "Communicate early, document clearly",
-];
-
-export const systemsBuilt = [
-  "Laravel Systems",
-  "React Interfaces",
-  "Payroll Logic",
-  "SaaS Portals",
-  "Bento Dashboards",
-  "QR Features",
-  "Reporting Tools",
-  "Cute but Useful UI",
-];
-
-export const heroCards = [
-  "Laravel",
+export const techStack: string[] = [
   "React",
-  "Payroll Logic",
-  "SaaS Portals",
-  "QR Workflows",
-  "Reports",
+  "TypeScript",
+  "Node.js",
+  "Next.js",
+  "PostgreSQL",
+  "Redis",
+  "Docker",
+  "AWS",
+  "Prisma",
+  "Tailwind",
+  "Framer Motion",
+  "OpenAI",
+  "フロントエンド",
+  "バックエンド",
+  "クラウド",
+  "データベース",
+  "API設計",
+  "システム構築",
 ];
 
-export const contactLinks: ContactLink[] = [
+export const contactMethods: ContactMethod[] = [
   {
-    label: "Email Me",
-    href: `mailto:${personalInfo.email}`,
+    label: "Email",
+    value: developer.email,
+    href: `mailto:${developer.email}`,
     icon: Mail,
   },
   {
-    label: "View GitHub",
-    href: personalInfo.github,
+    label: "GitHub",
+    value: developer.github,
+    href: `https://${developer.github}`,
     icon: Github,
   },
   {
-    label: "Connect on LinkedIn",
-    href: personalInfo.linkedin,
-    icon: Linkedin,
-  },
-  {
-    label: "Download CV",
-    href: personalInfo.resume,
-    icon: FileDown,
+    label: "Schedule a call",
+    value: developer.calendly,
+    href: `https://${developer.calendly}`,
+    icon: CalendarDays,
   },
 ];
 
-export const footerLinks: ContactLink[] = [
-  ...contactLinks,
+export const socialLinks = [
+  { label: "GitHub", href: `https://${developer.github}` },
+  { label: "LinkedIn", href: "https://linkedin.com/in/johnrey" },
+  { label: "Email", href: `mailto:${developer.email}` },
 ];
 
-export const visualLegend = [
-  { label: "Workflows", icon: Network },
-  { label: "Dashboards", icon: ChartNoAxesCombined },
-  { label: "Product polish", icon: Sparkles },
+export const stats = [
+  { value: "5+", label: "years", labelJa: "経験" },
+  { value: "30+", label: "projects", labelJa: "作品" },
+  { value: "100%", label: "remote", labelJa: "リモート" },
 ];
+
+export const skillMarqueeJa = [
+  "フロントエンド",
+  "バックエンド",
+  "クラウド",
+  "AI",
+  "設計",
+  "管理",
+];
+
+/* Compatibility exports for older unused modules kept in this repository. */
+export const personalInfo = {
+  name: developer.name,
+  role: developer.title,
+  email: developer.email,
+  github: `https://${developer.github}`,
+  linkedin: "https://linkedin.com/in/johnrey",
+  resume: developer.resume,
+};
+
+export const aboutStats = [
+  { value: "5+", label: "years building systems" },
+  { value: "30+", label: "projects shipped" },
+  { value: "Remote", label: "available worldwide" },
+];
+
+export const aboutHighlights = principles.slice(0, 4).map((principle) => ({
+  title: principle.english,
+  description: principle.description,
+  icon: Mail,
+}));
+
+export const contactLinks = [
+  { label: "Email Me", href: `mailto:${developer.email}`, icon: Mail },
+  { label: "View GitHub", href: `https://${developer.github}`, icon: Github },
+  { label: "Connect on LinkedIn", href: "https://linkedin.com/in/johnrey", icon: Linkedin },
+  { label: "Download CV", href: developer.resume, icon: FileDown },
+];
+
+export const footerLinks = contactLinks;
+export const systemsBuilt = techStack;
+export const operatingPrinciples = principles.map((principle) => principle.english);
+export const heroCards = techStack.slice(0, 6);
+export const valuePoints = principles.slice(0, 4).map((principle) => ({
+  title: principle.english,
+  description: principle.description,
+  icon: Mail,
+}));
+export const skillCategories = skills.map((skill) => ({
+  title: skill.category,
+  description: skill.items.join("・"),
+  icon: Mail,
+  score: `${skill.proficiency}%`,
+  skills: skill.items,
+}));

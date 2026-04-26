@@ -1,14 +1,14 @@
-import type { HTMLAttributes } from "react";
+import { motion, type HTMLMotionProps } from "framer-motion";
 
-import { cx } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 
-type CardProps = HTMLAttributes<HTMLDivElement>;
+type CardProps = HTMLMotionProps<"div">;
 
 export function Card({ className, ...props }: CardProps) {
   return (
-    <div
-      className={cx(
-        "rounded-lg border border-[color:var(--border)] bg-[var(--surface)] shadow-[var(--shadow-soft)]",
+    <motion.div
+      className={cn(
+        "cel-card corner-notch overflow-hidden transition duration-300",
         className,
       )}
       {...props}
@@ -19,10 +19,12 @@ export function Card({ className, ...props }: CardProps) {
 export function InteractiveCard({ className, ...props }: CardProps) {
   return (
     <Card
-      className={cx(
-        "group cursor-pointer transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)] hover:shadow-[var(--shadow-strong)]",
+      className={cn(
+        "group cursor-pointer hover:-translate-y-1.5 hover:border-[color:var(--sakura)] hover:shadow-[8px_8px_0_var(--sakura)]",
         className,
       )}
+      whileHover={{ y: -6, boxShadow: "8px 8px 0px var(--sakura)" }}
+      whileTap={{ scale: 0.98 }}
       {...props}
     />
   );

@@ -1,101 +1,117 @@
-import { motion } from "framer-motion";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
-import { Mascot } from "@/components/mascot/Mascot";
 import { SectionHeading } from "@/components/ui/section-heading";
-import { skillCategories } from "@/data/portfolio";
+import { skills, type Skill } from "@/data/portfolio";
+
+function SkillCard({ skill, index }: { skill: Skill; index: number }) {
+  const ref = useRef<HTMLElement | null>(null);
+  const inView = useInView(ref, { once: true, margin: "-120px" });
+
+  return (
+    <motion.article
+      className="cel-card relative min-h-[25rem] overflow-hidden p-6 transition duration-300 hover:-translate-y-1.5 hover:border-[color:var(--sakura)] hover:shadow-[8px_8px_0_var(--sakura)]"
+      initial={{ opacity: 0, y: 30 }}
+      ref={ref}
+      transition={{
+        delay: index * 0.07,
+        duration: 0.58,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      viewport={{ once: true, margin: "-100px" }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
+      <span className="font-display pointer-events-none absolute -right-3 -top-5 text-[10rem] font-black text-[var(--parchment)] opacity-[0.05]">
+        {skill.kanjiWatermark}
+      </span>
+      <div className="relative z-10">
+        <p className="font-mono text-sm text-[var(--gold)]">六つの道</p>
+        <h3 className="font-display mt-4 text-3xl font-black text-[var(--parchment)]">
+          {skill.category}
+        </h3>
+        <p className="font-body mt-2 text-sm text-[var(--gold)]">
+          {skill.categoryJa}
+        </p>
+
+        <div className="mt-8 grid gap-5">
+          {skill.items.map((item, itemIndex) => {
+            const value = Math.max(58, skill.proficiency - itemIndex * 4);
+
+            return (
+              <div key={item}>
+                <div className="flex items-center justify-between gap-4">
+                  <span className="font-mono text-sm text-[var(--parchment)]">
+                    {item}
+                  </span>
+                  <span className="font-mono text-xs text-[var(--ink-faded)]">
+                    {value}%
+                  </span>
+                </div>
+                <div className="mt-2 h-0.5 bg-[var(--border)]">
+                  <motion.div
+                    animate={inView ? { width: `${value}%` } : undefined}
+                    className="h-full bg-[var(--sakura)]"
+                    initial={{ width: 0 }}
+                    transition={{
+                      delay: itemIndex * 0.1,
+                      duration: 1,
+                      ease: "easeOut",
+                    }}
+                  />
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      <svg
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-20 w-full opacity-[0.08]"
+        preserveAspectRatio="none"
+        viewBox="0 0 320 80"
+      >
+        <defs>
+          <pattern height="28" id={`waves-${skill.category}`} patternUnits="userSpaceOnUse" width="56">
+            <path
+              d="M0 28a28 28 0 0 1 56 0M14 28a14 14 0 0 1 28 0"
+              fill="none"
+              stroke="var(--parchment)"
+              strokeWidth="2"
+            />
+          </pattern>
+        </defs>
+        <rect fill={`url(#waves-${skill.category})`} height="80" width="320" />
+      </svg>
+    </motion.article>
+  );
+}
 
 export function SkillsSection() {
   return (
     <section className="section-shell" id="skills">
+      <p className="vertical-label font-mono absolute left-3 top-28 hidden text-xs text-[var(--ink-faded)] md:block">
+        道場・第三章
+      </p>
       <div className="mx-auto max-w-7xl">
         <SectionHeading
-          eyebrow="Skills"
-          title="Capabilities grouped by what I can deliver."
-          description="Tools only matter when they ship outcomes. These bento boxes connect the stack to the kind of work I can take from request to working feature."
+          chapter="第三章"
+          titleEn="What I Train In"
+          titleJa="道場"
         />
 
-        <div className="grid gap-8 lg:grid-cols-[0.28fr_0.72fr] lg:items-start">
-          <motion.div
-            className="bento-card relative overflow-hidden p-6 lg:sticky lg:top-28"
-            initial={{ opacity: 0, y: 22 }}
-            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-            whileInView={{ opacity: 1, y: 0 }}
-          >
-            <div className="flex items-center justify-between gap-4">
-              <p className="stamp-label">Stack energy</p>
-              <div className="mascot-badge size-16 bg-[var(--gold-soft)]">
-                <Mascot className="size-20 translate-y-2 scale-125" decorative pose="happy" />
-              </div>
-            </div>
-            <p className="font-display mt-6 text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
-              Friendly brand, serious delivery.
-            </p>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-              I group skills by the kind of system they help deliver, not by a
-              long tool list.
-            </p>
-            <div className="mt-6 grid gap-3">
-              {["Plan", "Build", "Explain"].map((label) => (
-                <span className="tag-chip w-full justify-between" key={label}>
-                  {label}
-                  <span className="size-2 rounded-full bg-[var(--matcha)]" />
-                </span>
-              ))}
-            </div>
-          </motion.div>
+        <div className="mb-8 flex items-center gap-4">
+          <span className="h-px flex-1 bg-[var(--border)]" />
+          <p className="font-display text-2xl font-black text-[var(--gold)]">
+            六つの道
+          </p>
+          <span className="h-px flex-1 bg-[var(--border)]" />
+        </div>
 
-          <div className="grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {skillCategories.map((category, index) => {
-              const Icon = category.icon;
-
-              return (
-                <motion.div
-                  className={[
-                    "bento-card group p-6 transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)]",
-                    index === 0 ? "md:col-span-2 xl:col-span-2" : "",
-                    index === 3 ? "xl:col-span-2" : "",
-                  ].join(" ")}
-                  initial={{ opacity: 0, y: 22 }}
-                  key={category.title}
-                  transition={{
-                    delay: index * 0.06,
-                    duration: 0.55,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="grid size-12 place-items-center rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_10%,transparent)] transition duration-200 group-hover:-rotate-3">
-                      <Icon aria-hidden="true" className="size-5" />
-                    </span>
-                    <span className="stamp-label rotate-[1deg]">
-                      {category.score}
-                    </span>
-                  </div>
-
-                  <h3 className="font-display mt-7 text-xl font-extrabold text-[var(--text-strong)]">
-                    {category.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--muted)] md:min-h-16">
-                    {category.description}
-                  </p>
-
-                  <div className="mt-7 flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span
-                        className="tag-chip transition duration-200 group-hover:-translate-y-0.5 group-hover:border-[color:var(--accent-border)]"
-                        key={skill}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              );
-            })}
-          </div>
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+          {skills.map((skill, index) => (
+            <SkillCard index={index} key={skill.category} skill={skill} />
+          ))}
         </div>
       </div>
     </section>
