@@ -6,13 +6,13 @@ export function ValueStrip() {
   return (
     <section className="px-4 pb-8" aria-label="Trust points">
       <div className="mx-auto max-w-7xl">
-        <div className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-2 md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0">
+        <div className="-mx-4 flex snap-x gap-3 overflow-x-auto px-4 pb-3 md:mx-0 md:grid md:grid-cols-4 md:overflow-visible md:px-0">
           {valuePoints.map((item, index) => {
             const Icon = item.icon;
 
             return (
               <motion.div
-                className="studio-panel min-w-[78vw] snap-start rounded-lg p-5 md:min-w-0"
+                className="ticket-card group min-w-[78vw] snap-start p-5 transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)] md:min-w-0"
                 initial={{ opacity: 0, y: 18 }}
                 key={item.title}
                 transition={{
@@ -21,13 +21,13 @@ export function ValueStrip() {
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 viewport={{ once: true, margin: "-80px" }}
-                whileHover={{ y: -4 }}
                 whileInView={{ opacity: 1, y: 0 }}
               >
-                <span className="grid size-11 place-items-center rounded-lg border border-[color:var(--accent-border)] bg-[var(--accent-soft)] text-[var(--accent-strong)]">
+                <div className="mb-4 h-2 w-16 rotate-[-2deg] washi-strip" />
+                <span className="grid size-11 place-items-center rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_10%,transparent)] transition duration-200 group-hover:-rotate-3">
                   <Icon aria-hidden="true" className="size-5" />
                 </span>
-                <p className="mt-5 text-base font-semibold text-[var(--text-strong)]">
+                <p className="font-display mt-5 text-base font-extrabold text-[var(--text-strong)]">
                   {item.title}
                 </p>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted)]">

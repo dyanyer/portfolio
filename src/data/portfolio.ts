@@ -55,6 +55,7 @@ export type Project = {
   title: string;
   problemSolved: string;
   description: string;
+  role: string;
   techStack: string[];
   businessValue: string;
   status: "System Feature" | "Architecture" | "Compliance" | "Landing Page";
@@ -112,22 +113,22 @@ export const navItems: NavItem[] = [
 export const valuePoints: ValuePoint[] = [
   {
     title: "Workflow-first thinking",
-    description: "Requirements, rules, and roles before screens.",
+    description: "Rules, roles, and real tasks before shiny screens.",
     icon: BriefcaseBusiness,
   },
   {
     title: "Clean implementation",
-    description: "Readable code paths for future changes.",
+    description: "Readable code paths that stay easier to change.",
     icon: Code2,
   },
   {
     title: "Practical features",
-    description: "Built around daily business operations.",
+    description: "Tools built around daily business operations.",
     icon: LayoutDashboard,
   },
   {
-    title: "Continuous improvement",
-    description: "Real scenarios guide the next iteration.",
+    title: "Calm collaboration",
+    description: "Clear updates, scoped decisions, and useful handoffs.",
     icon: Cloud,
   },
 ];
@@ -135,30 +136,30 @@ export const valuePoints: ValuePoint[] = [
 export const aboutHighlights: AboutHighlight[] = [
   {
     title: "Workflow-first thinking",
-    description: "Start with people, approvals, data, and the real business outcome.",
+    description: "I start with people, approvals, data, and the real business outcome.",
     icon: MessagesSquare,
   },
   {
-    title: "Clean implementation",
-    description: "Design states and flows around the tasks teams actually repeat.",
+    title: "Practical UI decisions",
+    description: "Screens are designed around tasks teams actually repeat.",
     icon: UsersRound,
   },
   {
-    title: "Practical features",
-    description: "Favor clear rules, readable structure, and predictable feature paths.",
+    title: "Maintainable backend logic",
+    description: "I favor clear rules, readable structure, and predictable feature paths.",
     icon: Wrench,
   },
   {
-    title: "Continuous improvement",
-    description: "Use real scenarios to refine the parts that cause friction.",
+    title: "Useful iteration",
+    description: "Real scenarios shape the next improvement instead of guesswork.",
     icon: BadgeCheck,
   },
 ];
 
 export const aboutStats = [
-  { value: "Full-stack", label: "frontend to deployment" },
-  { value: "Business ops", label: "HR, payroll, reports" },
-  { value: "Practical UI", label: "clear screens and states" },
+  { value: "Full-stack", label: "interfaces, APIs, data, deployment" },
+  { value: "Ops-aware", label: "HR, payroll, reports, approvals" },
+  { value: "Clear delivery", label: "scoped features and handoff notes" },
 ];
 
 export const projects: Project[] = [
@@ -168,6 +169,7 @@ export const projects: Project[] = [
     problemSolved: "Manual HR workflows and scattered employee records.",
     description:
       "A system for managing employees, attendance, leave, overtime, payroll processing, and reporting workflows.",
+    role: "Full-stack feature design and implementation",
     techStack: ["Laravel", "PHP", "MySQL", "JavaScript", "Tailwind CSS"],
     businessValue:
       "Centralizes HR operations so teams can review payroll inputs with less confusion.",
@@ -190,6 +192,7 @@ export const projects: Project[] = [
       "Multiple clients need separate portals without maintaining separate codebases.",
     description:
       "A Laravel-based SaaS setup using one codebase with separate tenant databases and subdomain-based client portals.",
+    role: "Architecture planning and backend foundation",
     techStack: ["Laravel", "MySQL", "Nginx", "Cloudflare", "VPS", "Queues"],
     businessValue:
       "Creates a repeatable platform foundation with tenant isolation and cleaner provisioning.",
@@ -211,6 +214,7 @@ export const projects: Project[] = [
     problemSolved: "Manual tracking of employee meal benefits.",
     description:
       "A QR-based employee meal benefit feature with automatic stub issuance, validation, usage tracking, and admin review.",
+    role: "Workflow logic, admin screens, and validation flow",
     techStack: ["Laravel", "MySQL", "QR Code", "Attendance Integration"],
     businessValue:
       "Improves transparency and control over employee meal benefit usage.",
@@ -232,6 +236,7 @@ export const projects: Project[] = [
     problemSolved: "Payroll tax reports must match computed payroll tax data.",
     description:
       "A payroll tax reporting module focused on computed tax consistency, taxable components, and report accuracy.",
+    role: "Payroll computation logic and reporting review flow",
     techStack: ["Laravel", "PHP", "MySQL", "Payroll Tax Logic"],
     businessValue:
       "Gives payroll teams a clearer way to validate tax-related data before reports are used.",
@@ -253,6 +258,7 @@ export const projects: Project[] = [
     problemSolved: "Small businesses need a credible online presence.",
     description:
       "Conversion-focused landing pages for small businesses that need a professional online presence.",
+    role: "UI implementation, content structure, and interaction polish",
     techStack: ["React", "Tailwind CSS", "Framer Motion"],
     businessValue:
       "Helps visitors understand the offer quickly and move toward an inquiry.",
@@ -272,74 +278,89 @@ export const projects: Project[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Build Interfaces",
-    description: "Responsive product screens, dashboards, and UI states.",
-    icon: LayoutDashboard,
-    score: "92%",
-    skills: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Framer Motion"],
+    title: "Web Systems",
+    description: "End-to-end features for dashboards, portals, reports, and operations.",
+    icon: Network,
+    score: "Core",
+    skills: ["System flows", "Dashboards", "Reports", "Portals", "Feature planning"],
   },
   {
-    title: "Build Systems",
-    description: "Business rules, authentication, APIs, queues, and reports.",
+    title: "UI Implementation",
+    description: "Responsive React screens with polished states, motion, and accessibility.",
+    icon: LayoutDashboard,
+    score: "Frontend",
+    skills: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Responsive UI"],
+  },
+  {
+    title: "Backend Logic",
+    description: "Rules, APIs, permissions, queues, authentication, and report data.",
     icon: Database,
-    score: "90%",
+    score: "Backend",
     skills: ["Laravel", "PHP", "MySQL", "REST APIs", "Authentication", "Queues"],
   },
   {
-    title: "Ship and Maintain",
-    description: "Source control, VPS deployment, debugging, and documentation.",
-    icon: Rocket,
-    score: "86%",
-    skills: ["Git", "GitHub", "VPS", "Nginx", "Cloudflare", "Debugging", "Documentation"],
+    title: "HR / Payroll Systems",
+    description: "Operational workflows for employees, attendance, payroll, and compliance.",
+    icon: UsersRound,
+    score: "Ops",
+    skills: [
+      "Attendance",
+      "Leave",
+      "Overtime",
+      "Payroll review",
+      "Tax reports",
+    ],
   },
   {
-    title: "Work With Teams",
-    description: "Requirements, breakdowns, communication, and coordination.",
-    icon: UsersRound,
-    score: "88%",
-    skills: [
-      "Requirements clarification",
-      "Task breakdown",
-      "Communication",
-      "Coordination",
-    ],
+    title: "SaaS / Multi-Tenant Systems",
+    description: "Tenant-aware portals, provisioning, isolation, deployment, and operations.",
+    icon: Server,
+    score: "SaaS",
+    skills: ["Tenant databases", "Subdomains", "Nginx", "Cloudflare", "VPS"],
+  },
+  {
+    title: "Automation / AI-assisted Development",
+    description: "Use automation to move faster while keeping requirements and code clear.",
+    icon: Sparkles,
+    score: "Assist",
+    skills: ["Task breakdown", "Code review", "Debugging", "Documentation", "AI workflows"],
   },
 ];
 
 export const processSteps: ProcessStep[] = [
   {
     step: "01",
-    title: "Understand the workflow",
+    title: "Understand the request",
     description: "Map users, approvals, data sources, handoffs, and business outcomes.",
     icon: MessagesSquare,
   },
   {
     step: "02",
-    title: "Clarify rules and edge cases",
+    title: "Clarify scope",
     description: "Document permissions, exceptions, computations, and reporting needs.",
     icon: ClipboardCheck,
   },
   {
     step: "03",
-    title: "Design the data and feature flow",
+    title: "Design the system",
     description: "Shape models, relationships, screens, states, and API contracts.",
     icon: Network,
   },
   {
     step: "04",
-    title: "Build the interface and backend logic",
+    title: "Build the backend logic",
     description: "Implement focused features with clean UI and maintainable code.",
     icon: Code2,
   },
   {
     step: "05",
-    title: "Test real scenarios",
+    title: "Test the workflow",
     description: "Run practical cases for payroll, reports, exceptions, and approvals.",
     icon: ShieldCheck,
   },
   {
     step: "06",
-    title: "Deploy, document, and improve",
+    title: "Deliver useful output",
     description: "Prepare release steps, write notes, and refine after feedback.",
     icon: Rocket,
   },
@@ -357,18 +378,20 @@ export const systemsBuilt = [
   "Laravel Systems",
   "React Interfaces",
   "Payroll Logic",
-  "SaaS Platforms",
-  "Dashboards",
+  "SaaS Portals",
+  "Bento Dashboards",
   "QR Features",
   "Reporting Tools",
+  "Cute but Useful UI",
 ];
 
 export const heroCards = [
   "Laravel",
   "React",
   "Payroll Logic",
-  "SaaS",
-  "Dashboard Systems",
+  "SaaS Portals",
+  "QR Workflows",
+  "Reports",
 ];
 
 export const contactLinks: ContactLink[] = [
@@ -387,15 +410,15 @@ export const contactLinks: ContactLink[] = [
     href: personalInfo.linkedin,
     icon: Linkedin,
   },
+  {
+    label: "Download CV",
+    href: personalInfo.resume,
+    icon: FileDown,
+  },
 ];
 
 export const footerLinks: ContactLink[] = [
   ...contactLinks,
-  {
-    label: "Resume",
-    href: personalInfo.resume,
-    icon: FileDown,
-  },
 ];
 
 export const visualLegend = [

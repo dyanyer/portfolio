@@ -37,12 +37,12 @@ export function SectionHeading({
           )}
         >
           <div className="mb-4 flex items-center gap-3">
-            <span className="h-px w-8 bg-[var(--accent)]" aria-hidden="true" />
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+            <span className="h-2 w-10 rounded-full washi-strip" aria-hidden="true" />
+            <p className="stamp-label">
               {eyebrow}
             </p>
           </div>
-          <h2 className="max-w-4xl text-balance text-3xl font-semibold leading-tight text-[var(--text-strong)] md:text-5xl">
+          <h2 className="font-display max-w-4xl text-balance text-3xl font-extrabold leading-tight text-[var(--text-strong)] md:text-5xl">
             {title}
           </h2>
           {description ? (

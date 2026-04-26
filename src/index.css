@@ -8,70 +8,92 @@
 :root,
 .theme-light {
   color-scheme: light;
-  --page: #f6efe4;
-  --page-soft: #fbf7ef;
-  --surface: #fffaf2;
+  --font-display: "M PLUS Rounded 1c", "Noto Sans JP", ui-sans-serif, system-ui;
+  --page: #fff6ea;
+  --page-soft: #fce9dd;
+  --surface: #fffdf7;
   --surface-strong: #ffffff;
-  --surface-muted: #eee2d0;
-  --ink-panel: #191817;
-  --text: #1b1a18;
-  --text-strong: #0f0e0d;
-  --muted: #6d655d;
-  --muted-strong: #3d3934;
-  --border: rgb(31 28 24 / 0.14);
-  --border-strong: rgb(31 28 24 / 0.24);
-  --accent: #c7a06c;
-  --accent-strong: #81582f;
-  --accent-foreground: #16120d;
-  --accent-soft: rgb(199 160 108 / 0.18);
-  --accent-border: rgb(129 88 47 / 0.28);
-  --cream: #fff4df;
-  --warm-gray: #aaa095;
-  --glow: rgb(129 88 47 / 0.16);
-  --grid: rgb(31 28 24 / 0.07);
-  --hero-a: rgb(199 160 108 / 0.18);
-  --hero-b: rgb(25 24 23 / 0.08);
-  --shadow-soft: 0 16px 42px rgb(31 28 24 / 0.12);
-  --shadow-strong: 0 24px 86px rgb(31 28 24 / 0.18);
-  --background: 40 42% 94%;
-  --foreground: 220 34% 9%;
-  --card: 38 80% 97%;
-  --card-foreground: 220 34% 9%;
-  --ring: 33 45% 45%;
+  --surface-muted: #f8e1d4;
+  --paper: #fff9ef;
+  --sticker: #ffffff;
+  --ink-panel: #1d1815;
+  --text: #2a201b;
+  --text-strong: #15110f;
+  --muted: #725f53;
+  --muted-strong: #4c3f38;
+  --border: rgb(48 33 25 / 0.16);
+  --border-strong: rgb(48 33 25 / 0.3);
+  --accent: #f5745f;
+  --accent-strong: #b93e31;
+  --accent-foreground: #fffaf2;
+  --accent-soft: rgb(245 116 95 / 0.14);
+  --accent-border: rgb(185 62 49 / 0.28);
+  --gold: #f6b84b;
+  --gold-soft: rgb(246 184 75 / 0.2);
+  --matcha: #8ca66c;
+  --matcha-soft: rgb(140 166 108 / 0.16);
+  --sky: #83aeca;
+  --sky-soft: rgb(131 174 202 / 0.17);
+  --brown: #8a6048;
+  --brown-soft: rgb(138 96 72 / 0.14);
+  --cream: #fff1cf;
+  --paper-speck: rgb(81 54 38 / 0.1);
+  --grid: rgb(66 45 34 / 0.085);
+  --line: #211814;
+  --glow: rgb(245 116 95 / 0.18);
+  --shadow-soft: 0 16px 34px rgb(60 39 28 / 0.12);
+  --shadow-strong: 0 22px 68px rgb(60 39 28 / 0.2);
+  --shadow-sticker: 5px 6px 0 rgb(33 24 20 / 0.1);
+  --background: 32 100% 96%;
+  --foreground: 19 36% 9%;
+  --card: 42 100% 99%;
+  --card-foreground: 19 36% 9%;
+  --ring: 8 87% 67%;
 }
 
 .theme-night {
   color-scheme: dark;
-  --page: #090908;
-  --page-soft: #11100f;
-  --surface: #181715;
-  --surface-strong: #211f1d;
-  --surface-muted: #121110;
-  --ink-panel: #0f0e0d;
-  --text: #f4eadc;
-  --text-strong: #fff9ed;
-  --muted: #b9aea2;
-  --muted-strong: #e1d4c3;
-  --border: rgb(255 244 223 / 0.11);
-  --border-strong: rgb(255 244 223 / 0.2);
-  --accent: #d4b487;
-  --accent-strong: #f1d29f;
-  --accent-foreground: #12100d;
-  --accent-soft: rgb(212 180 135 / 0.13);
-  --accent-border: rgb(212 180 135 / 0.3);
-  --cream: #fff1d6;
-  --warm-gray: #928a81;
-  --glow: rgb(212 180 135 / 0.2);
-  --grid: rgb(255 244 223 / 0.055);
-  --hero-a: rgb(212 180 135 / 0.14);
-  --hero-b: rgb(255 244 223 / 0.06);
-  --shadow-soft: 0 18px 55px rgb(0 0 0 / 0.34);
-  --shadow-strong: 0 28px 100px rgb(0 0 0 / 0.46);
-  --background: 220 32% 5%;
-  --foreground: 210 40% 96%;
-  --card: 217 26% 10%;
-  --card-foreground: 210 40% 96%;
-  --ring: 36 50% 68%;
+  --font-display: "M PLUS Rounded 1c", "Noto Sans JP", ui-sans-serif, system-ui;
+  --page: #15100e;
+  --page-soft: #201816;
+  --surface: #251d19;
+  --surface-strong: #30241f;
+  --surface-muted: #1b1513;
+  --paper: #221916;
+  --sticker: #2d231e;
+  --ink-panel: #0f0b0a;
+  --text: #f7e9d8;
+  --text-strong: #fff7e9;
+  --muted: #c6b2a0;
+  --muted-strong: #ead8c6;
+  --border: rgb(255 236 210 / 0.13);
+  --border-strong: rgb(255 236 210 / 0.24);
+  --accent: #ff9b76;
+  --accent-strong: #ffc267;
+  --accent-foreground: #1a1110;
+  --accent-soft: rgb(255 155 118 / 0.14);
+  --accent-border: rgb(255 194 103 / 0.31);
+  --gold: #ffc267;
+  --gold-soft: rgb(255 194 103 / 0.18);
+  --matcha: #b4c98a;
+  --matcha-soft: rgb(180 201 138 / 0.14);
+  --sky: #96b6cc;
+  --sky-soft: rgb(150 182 204 / 0.13);
+  --brown: #d0a17f;
+  --brown-soft: rgb(208 161 127 / 0.14);
+  --cream: #ffedc9;
+  --paper-speck: rgb(255 236 210 / 0.08);
+  --grid: rgb(255 236 210 / 0.07);
+  --line: #ffead3;
+  --glow: rgb(255 155 118 / 0.2);
+  --shadow-soft: 0 18px 46px rgb(0 0 0 / 0.36);
+  --shadow-strong: 0 24px 86px rgb(0 0 0 / 0.5);
+  --shadow-sticker: 5px 6px 0 rgb(0 0 0 / 0.25);
+  --background: 18 27% 7%;
+  --foreground: 35 75% 94%;
+  --card: 22 24% 14%;
+  --card-foreground: 35 75% 94%;
+  --ring: 30 100% 70%;
 }
 
 * {
@@ -121,9 +143,10 @@ a {
   min-height: 100vh;
   overflow-x: clip;
   background:
-    radial-gradient(circle at 18% 6%, var(--hero-a), transparent 22rem),
-    radial-gradient(circle at 92% 14%, var(--hero-b), transparent 24rem),
-    linear-gradient(180deg, var(--page), var(--page-soft) 42%, var(--page));
+    linear-gradient(90deg, transparent 31px, var(--grid) 32px),
+    linear-gradient(180deg, transparent 31px, var(--grid) 32px),
+    linear-gradient(180deg, var(--page), var(--page-soft) 47%, var(--page));
+  background-size: 32px 32px, 32px 32px, auto;
   transition: background-color 220ms ease, color 220ms ease;
 }
 
@@ -134,11 +157,12 @@ a {
   pointer-events: none;
   content: "";
   background-image:
-    linear-gradient(var(--grid) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid) 1px, transparent 1px);
-  background-size: 56px 56px;
+    radial-gradient(circle at 20% 30%, var(--paper-speck) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 80% 70%, var(--paper-speck) 0 0.8px, transparent 1.4px),
+    repeating-linear-gradient(135deg, transparent 0 18px, rgb(255 255 255 / 0.045) 18px 19px, transparent 19px 36px);
+  background-size: 13px 13px, 17px 17px, 160px 160px;
   mask-image: linear-gradient(to bottom, black 0%, black 48%, transparent 86%);
-  opacity: 0.72;
+  opacity: 0.62;
 }
 
 .portfolio-shell::after {
@@ -147,11 +171,16 @@ a {
   top: 0;
   bottom: 0;
   left: clamp(1rem, 6vw, 6rem);
-  width: 1px;
+  width: 0.7rem;
   pointer-events: none;
   content: "";
-  background: linear-gradient(to bottom, transparent, var(--border-strong), transparent);
-  opacity: 0.8;
+  background:
+    repeating-linear-gradient(
+      45deg,
+      color-mix(in srgb, var(--accent) 58%, transparent) 0 8px,
+      transparent 8px 16px
+    );
+  opacity: 0.18;
 }
 
 .portfolio-shell > * {
@@ -168,8 +197,8 @@ a {
 }
 
 .hero-grid {
-  background-size: 78px 78px;
-  mask-image: linear-gradient(to bottom, black 8%, transparent 78%);
+  background-size: 44px 44px;
+  mask-image: linear-gradient(to bottom, black 4%, transparent 86%);
 }
 
 .subtle-grid {
@@ -191,16 +220,20 @@ a {
   opacity: 0.5;
 }
 
-.hero-mesh {
+.paper-sunburst {
   background:
-    linear-gradient(104deg, transparent 0%, var(--hero-a) 44%, transparent 82%),
-    linear-gradient(180deg, transparent, rgb(255 255 255 / 0.03), transparent);
-  opacity: 0.78;
+    repeating-conic-gradient(
+      from -8deg at 50% 50%,
+      color-mix(in srgb, var(--gold) 18%, transparent) 0deg 8deg,
+      transparent 8deg 18deg
+    );
+  mask-image: radial-gradient(circle, black 0 34%, transparent 69%);
+  opacity: 0.72;
 }
 
 .section-shell {
   position: relative;
-  padding: 4.75rem 1rem;
+  padding: 5rem 1rem;
   scroll-margin-top: 7rem;
 }
 
@@ -209,8 +242,11 @@ a {
   inset: 0;
   pointer-events: none;
   content: "";
-  background: linear-gradient(to bottom, rgb(255 255 255 / 0.035), transparent 20%);
-  border-top: 1px solid var(--border);
+  background:
+    linear-gradient(to bottom, color-mix(in srgb, var(--surface) 32%, transparent), transparent 20%),
+    repeating-linear-gradient(90deg, transparent 0 28px, color-mix(in srgb, var(--accent) 12%, transparent) 28px 29px, transparent 29px 58px);
+  border-top: 1px dashed var(--border);
+  opacity: 0.8;
 }
 
 .section-shell > * {
@@ -220,32 +256,221 @@ a {
 
 .glass-panel {
   border: 1px solid var(--border);
-  background: color-mix(in srgb, var(--surface) 84%, transparent);
+  background: color-mix(in srgb, var(--surface) 90%, transparent);
   box-shadow: var(--shadow-soft);
   backdrop-filter: blur(18px);
 }
 
 .studio-panel {
+  position: relative;
   border: 1px solid var(--border);
+  border-radius: 8px;
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 88%, transparent), color-mix(in srgb, var(--surface) 78%, transparent)),
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 88%, transparent), color-mix(in srgb, var(--paper) 90%, transparent)),
     var(--surface);
   box-shadow: var(--shadow-soft);
 }
 
 .ink-panel {
-  border: 1px solid color-mix(in srgb, var(--accent) 28%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent) 36%, transparent);
+  border-radius: 8px;
   background:
-    radial-gradient(circle at 18% 12%, rgb(255 244 223 / 0.09), transparent 13rem),
-    linear-gradient(135deg, #201e1b, var(--ink-panel));
+    linear-gradient(90deg, rgb(255 255 255 / 0.045) 1px, transparent 1px),
+    linear-gradient(180deg, #2a211d, var(--ink-panel));
+  background-size: 24px 24px, auto;
   color: var(--cream);
   box-shadow: var(--shadow-strong);
 }
 
 .paper-edge {
   box-shadow:
-    inset 0 1px 0 rgb(255 255 255 / 0.38),
+    inset 0 1px 0 rgb(255 255 255 / 0.58),
+    var(--shadow-sticker),
     var(--shadow-soft);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.stationery-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 1px 1px, var(--paper-speck) 0 0.7px, transparent 1px),
+    linear-gradient(180deg, var(--surface-strong), var(--paper));
+  background-size: 12px 12px, auto;
+  box-shadow: var(--shadow-sticker), var(--shadow-soft);
+}
+
+.sticker-card {
+  position: relative;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--sticker);
+  box-shadow: var(--shadow-sticker);
+}
+
+.manga-panel {
+  position: relative;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--grid) 65%, transparent) 1px, transparent 1px),
+    linear-gradient(180deg, color-mix(in srgb, var(--grid) 65%, transparent) 1px, transparent 1px),
+    var(--surface);
+  background-size: 22px 22px;
+  box-shadow: 6px 7px 0 color-mix(in srgb, var(--line) 12%, transparent);
+}
+
+.ticket-card {
+  position: relative;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, var(--accent-soft) 0 1px, transparent 1px 18px),
+    var(--surface);
+  background-size: 18px 18px, auto;
+  box-shadow: var(--shadow-soft);
+}
+
+.ticket-card::before,
+.ticket-card::after {
+  position: absolute;
+  top: 50%;
+  width: 1.2rem;
+  height: 1.2rem;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--page);
+  content: "";
+}
+
+.ticket-card::before {
+  left: -0.65rem;
+  transform: translateY(-50%);
+}
+
+.ticket-card::after {
+  right: -0.65rem;
+  transform: translateY(-50%);
+}
+
+.stamp-label {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  border: 1px dashed var(--accent-border);
+  border-radius: 6px;
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  line-height: 1;
+  padding: 0.42rem 0.55rem;
+  text-transform: uppercase;
+  transform: rotate(-1deg);
+}
+
+.mini-ticket {
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: 2px 3px 0 color-mix(in srgb, var(--line) 8%, transparent);
+}
+
+.washi-strip {
+  border-radius: 3px;
+  background:
+    repeating-linear-gradient(
+      -45deg,
+      color-mix(in srgb, var(--accent) 44%, transparent) 0 7px,
+      color-mix(in srgb, var(--gold) 32%, transparent) 7px 14px
+    );
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.08);
+}
+
+.label-tab {
+  border: 1px solid var(--border-strong);
+  border-bottom: 0;
+  border-radius: 8px 8px 0 0;
+  background: var(--gold-soft);
+  color: var(--muted-strong);
+}
+
+.speech-bubble {
+  position: relative;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-strong);
+  box-shadow: 4px 5px 0 color-mix(in srgb, var(--line) 10%, transparent);
+}
+
+.speech-bubble::after {
+  position: absolute;
+  bottom: -0.62rem;
+  left: 1.35rem;
+  width: 1rem;
+  height: 1rem;
+  border-right: 2px solid var(--line);
+  border-bottom: 2px solid var(--line);
+  background: inherit;
+  content: "";
+  transform: rotate(45deg);
+}
+
+.collectible-card {
+  position: relative;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--card-accent, var(--accent)) 15%, transparent) 0 0.55rem, transparent 0.55rem),
+    radial-gradient(circle at 1px 1px, var(--paper-speck) 0 0.7px, transparent 1px),
+    linear-gradient(180deg, var(--surface-strong), var(--paper));
+  background-size: auto, 11px 11px, auto;
+  box-shadow: var(--shadow-sticker), var(--shadow-soft);
+}
+
+.collectible-card::before {
+  position: absolute;
+  top: 0.9rem;
+  right: -2.8rem;
+  z-index: 0;
+  width: 9rem;
+  height: 1.9rem;
+  background: color-mix(in srgb, var(--card-accent, var(--accent)) 82%, transparent);
+  color: var(--accent-foreground);
+  content: "";
+  opacity: 0.86;
+  transform: rotate(35deg);
+}
+
+.project-scene {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--card-accent, var(--accent)) 11%, transparent) 1px, transparent 1px),
+    linear-gradient(180deg, color-mix(in srgb, var(--card-accent, var(--accent)) 11%, transparent) 1px, transparent 1px),
+    color-mix(in srgb, var(--surface-muted) 72%, var(--surface));
+  background-size: 20px 20px;
+}
+
+.night-cafe-glow {
+  box-shadow:
+    inset 0 0 0 1px rgb(255 255 255 / 0.04),
+    0 0 28px color-mix(in srgb, var(--accent) 18%, transparent),
+    var(--shadow-strong);
+}
+
+.float-soft {
+  animation: float-soft 7s ease-in-out infinite;
+}
+
+.wiggle-soft {
+  animation: wiggle-soft 5.8s ease-in-out infinite;
 }
 
 .mascot-cutout {
@@ -259,10 +484,6 @@ a {
 .marquee-track {
   animation: marquee 28s linear infinite;
   transform: translate3d(0, 0, 0);
-}
-
-.float-soft {
-  animation: float-soft 7s ease-in-out infinite;
 }
 
 @keyframes marquee {
@@ -286,9 +507,20 @@ a {
   }
 }
 
+@keyframes wiggle-soft {
+  0%,
+  100% {
+    transform: rotate(-1deg);
+  }
+
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
 @media (min-width: 768px) {
   .section-shell {
-    padding: 6.5rem 1rem;
+    padding: 6.8rem 1rem;
   }
 }
 

@@ -9,23 +9,23 @@ export function ContactSection() {
   return (
     <section className="section-shell" id="contact">
       <motion.div
-        className="ink-panel relative mx-auto max-w-7xl overflow-hidden rounded-lg p-5 md:p-10"
+        className="ink-panel night-cafe-glow relative mx-auto max-w-7xl overflow-hidden p-5 md:p-10"
         initial={{ opacity: 0, y: 28 }}
         transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
         viewport={{ once: true, margin: "-120px" }}
         whileInView={{ opacity: 1, y: 0 }}
       >
-        <div className="kumiko-grid absolute inset-0 opacity-30" />
+        <div className="absolute right-8 top-8 h-8 w-32 rotate-[5deg] washi-strip" />
         <div className="relative grid gap-8 lg:grid-cols-[1fr_0.42fr] lg:items-end">
           <div>
             <div className="mb-4 flex items-center gap-3">
-              <span className="h-px w-8 bg-[var(--accent)]" aria-hidden="true" />
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+              <span className="h-2 w-10 rounded-full washi-strip" aria-hidden="true" />
+              <p className="stamp-label">
                 Contact
               </p>
             </div>
-            <h2 className="max-w-4xl text-balance text-4xl font-semibold leading-tight md:text-6xl">
-              Let&apos;s build something useful.
+            <h2 className="font-display max-w-4xl text-balance text-4xl font-extrabold leading-tight md:text-6xl">
+              Let&apos;s build something useful, clear, and a little memorable.
             </h2>
             <p className="mt-5 max-w-3xl text-base leading-8 text-[color-mix(in_srgb,var(--cream)_78%,transparent)] md:text-lg">
               Whether you need a business system, feature implementation,
@@ -33,7 +33,7 @@ export function ContactSection() {
               solution that fits the real need.
             </p>
 
-            <div className="mt-7 grid gap-3 sm:grid-cols-3">
+            <div className="mt-7 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {contactLinks.map((link, index) => {
                 const Icon = link.icon;
 
@@ -45,7 +45,7 @@ export function ContactSection() {
                     rel="noreferrer"
                     size="lg"
                     target={link.href.startsWith("http") ? "_blank" : undefined}
-                    variant={index === 0 ? "primary" : "secondary"}
+                    variant={index === 0 ? "primary" : index === 3 ? "outline" : "secondary"}
                   >
                     <span className="flex items-center gap-2">
                       <Icon aria-hidden="true" className="size-4" />
@@ -58,7 +58,10 @@ export function ContactSection() {
             </div>
           </div>
 
-          <div className="relative min-h-72 overflow-hidden rounded-lg bg-[rgb(255_244_223_/_0.06)]">
+          <div className="manga-panel relative min-h-72 overflow-hidden bg-[rgb(255_244_223_/_0.06)]">
+            <div className="speech-bubble absolute left-4 top-5 z-20 max-w-44 p-3 text-sm font-bold leading-6 text-[var(--text-strong)]">
+              Send the rough idea. I can help shape the workflow.
+            </div>
             <motion.div
               animate={{ y: [0, -8, 0] }}
               className="absolute inset-x-0 bottom-0 mx-auto h-80 w-64"

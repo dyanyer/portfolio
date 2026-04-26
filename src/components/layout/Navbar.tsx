@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Mail, Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
@@ -51,18 +51,18 @@ export function Navbar() {
       <nav
         aria-label="Primary navigation"
         className={cx(
-          "mx-auto flex max-w-7xl items-center justify-between rounded-full border border-[color:var(--border)] px-3 py-2 transition duration-200 sm:px-4",
+          "stationery-card mx-auto flex max-w-7xl items-center justify-between px-3 py-2 transition duration-200 sm:px-4",
           isScrolled
-            ? "bg-[color-mix(in_srgb,var(--surface)_88%,transparent)] shadow-[var(--shadow-soft)] backdrop-blur-xl"
-            : "bg-[color-mix(in_srgb,var(--surface)_70%,transparent)] backdrop-blur-lg",
+            ? "backdrop-blur-xl"
+            : "bg-[color-mix(in_srgb,var(--surface)_78%,transparent)] backdrop-blur-lg",
         )}
       >
         <a
-          className="flex min-w-0 cursor-pointer items-center gap-3 rounded-full pr-2 text-[var(--text)] outline-none transition-colors duration-200 hover:text-[var(--accent-strong)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
+          className="group flex min-w-0 cursor-pointer items-center gap-3 rounded-full pr-2 text-[var(--text)] outline-none transition-colors duration-200 hover:text-[var(--accent-strong)] focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]"
           href="#home"
           onClick={() => setIsOpen(false)}
         >
-          <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-full border border-[color:var(--accent-border)] bg-[var(--cream)]">
+          <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-full border-2 border-[color:var(--line)] bg-[var(--cream)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_12%,transparent)] transition duration-200 group-hover:-rotate-3">
             <img
               alt=""
               className="size-14 translate-y-0.5 scale-125 select-none object-cover"
@@ -72,22 +72,22 @@ export function Navbar() {
             />
           </span>
           <span className="min-w-0">
-            <span className="block truncate text-sm font-semibold leading-5">
+            <span className="font-display block truncate text-sm font-extrabold leading-5">
               {personalInfo.name}
             </span>
             <span className="block truncate text-xs text-[var(--muted)]">
-              Chibi Developer Studio
+              Chibi dev studio
             </span>
           </span>
         </a>
 
-        <div className="hidden items-center gap-1 lg:flex">
+        <div className="hidden items-center gap-1 rounded-full border border-[color:var(--border)] bg-[color-mix(in_srgb,var(--surface)_70%,transparent)] p-1 lg:flex">
           {navItems.map((item) => (
             <a
               className={cx(
-                "cursor-pointer rounded-full px-3 py-2 text-sm font-medium text-[var(--muted)] transition-colors duration-200 hover:bg-[var(--accent-soft)] hover:text-[var(--text-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
+                "cursor-pointer rounded-full px-3 py-2 text-sm font-bold text-[var(--muted)] transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--accent-soft)] hover:text-[var(--text-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
                 activeId === item.id &&
-                  "bg-[var(--accent-soft)] text-[var(--accent-strong)]",
+                  "bg-[var(--accent-soft)] text-[var(--accent-strong)] shadow-[inset_0_0_0_1px_var(--accent-border)]",
               )}
               href={item.href}
               key={item.id}
@@ -100,15 +100,16 @@ export function Navbar() {
         <div className="flex items-center gap-2">
           <ThemeToggle />
           <a
-            className="hidden h-10 cursor-pointer items-center rounded-full border border-[color:var(--accent-border)] bg-[var(--accent-soft)] px-4 text-sm font-semibold text-[var(--accent-strong)] transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] sm:inline-flex"
+            className="hidden h-10 cursor-pointer items-center gap-2 rounded-full border-2 border-[color:var(--line)] bg-[var(--accent)] px-4 text-sm font-bold text-[var(--accent-foreground)] shadow-[3px_4px_0_color-mix(in_srgb,var(--line)_14%,transparent)] transition duration-200 hover:-translate-y-1 hover:bg-[var(--accent-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] sm:inline-flex"
             href="#contact"
           >
-            Start Project
+            <Mail aria-hidden="true" className="size-4" />
+            Contact
           </a>
           <button
             aria-expanded={isOpen}
             aria-label="Toggle navigation menu"
-            className="grid size-10 cursor-pointer place-items-center rounded-full border border-[color:var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] transition-colors duration-200 hover:border-[color:var(--accent-border)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] lg:hidden"
+            className="grid size-10 cursor-pointer place-items-center rounded-full border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--text)] shadow-[3px_4px_0_color-mix(in_srgb,var(--line)_10%,transparent)] transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--cream)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] lg:hidden"
             onClick={() => setIsOpen((value) => !value)}
             type="button"
           >
@@ -125,15 +126,16 @@ export function Navbar() {
         {isOpen ? (
           <motion.div
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-lg border border-[color:var(--border)] bg-[color-mix(in_srgb,var(--surface)_94%,transparent)] p-2 shadow-[var(--shadow-strong)] backdrop-blur-xl lg:hidden"
+            className="stationery-card mx-auto mt-2 max-w-7xl overflow-hidden p-2 backdrop-blur-xl lg:hidden"
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             initial={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
           >
+            <div className="mb-2 h-2 w-24 rotate-[-1.5deg] rounded-full washi-strip" />
             {navItems.map((item) => (
               <a
                 className={cx(
-                  "block cursor-pointer rounded-lg px-4 py-3 text-base font-semibold text-[var(--muted-strong)] transition-colors duration-200 hover:bg-[var(--accent-soft)] hover:text-[var(--text-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
+                  "block cursor-pointer rounded-lg px-4 py-3 text-base font-bold text-[var(--muted-strong)] transition duration-200 hover:translate-x-1 hover:bg-[var(--accent-soft)] hover:text-[var(--text-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
                   activeId === item.id &&
                     "bg-[var(--accent-soft)] text-[var(--accent-strong)]",
                 )}

@@ -11,23 +11,23 @@ export function ProcessSection() {
         <SectionHeading
           eyebrow="Process"
           title="How I turn unclear requests into working systems."
-          description="A practical workflow for translating business needs into data structures, interface states, backend logic, release steps, and improvement notes."
+          description="A practical workflow for turning a rough request into data structures, backend behavior, interface states, and something useful enough to hand off."
         />
 
         <div className="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:items-start">
           <motion.div
-            className="studio-panel relative overflow-hidden rounded-lg p-6 lg:sticky lg:top-28"
+            className="manga-panel relative overflow-hidden p-6 lg:sticky lg:top-28"
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true, margin: "-100px" }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <div className="kumiko-grid absolute inset-0 opacity-45" />
+            <div className="absolute right-5 top-5 h-7 w-24 rotate-[5deg] washi-strip" />
             <div className="relative">
-              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">
+              <p className="stamp-label">
                 Project flow
               </p>
-              <p className="mt-4 text-2xl font-semibold leading-tight text-[var(--text-strong)]">
+              <p className="font-display mt-5 text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
                 Reduce ambiguity before it becomes technical debt.
               </p>
               <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
@@ -35,7 +35,7 @@ export function ProcessSection() {
                 interface, database, and backend behavior can support the actual
                 workflow.
               </p>
-              <div className="mt-5 h-56 overflow-hidden rounded-lg bg-[linear-gradient(180deg,var(--accent-soft),transparent)]">
+              <div className="mt-5 h-56 overflow-hidden rounded-lg bg-[var(--sky-soft)]">
                 <motion.div
                   animate={{ x: [0, 8, 0], y: [0, -6, 0] }}
                   className="mx-auto h-56 w-48"
@@ -64,7 +64,7 @@ export function ProcessSection() {
 
                 return (
                   <motion.div
-                    className="relative rounded-lg border border-[color:var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] md:grid md:grid-cols-[5rem_1fr] md:gap-5"
+                    className="sticker-card relative p-5 transition duration-200 md:grid md:grid-cols-[5rem_1fr] md:gap-5"
                     initial={{ opacity: 0, x: 24 }}
                     key={step.step}
                     transition={{
@@ -76,14 +76,14 @@ export function ProcessSection() {
                     whileHover={{ x: 4 }}
                     whileInView={{ opacity: 1, x: 0 }}
                   >
-                    <span className="absolute -left-[2.05rem] top-6 grid size-9 place-items-center rounded-full border border-[color:var(--accent-border)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[var(--shadow-soft)] md:-left-[2.45rem]">
+                    <span className="absolute -left-[2.05rem] top-6 grid size-9 place-items-center rounded-full border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_10%,transparent)] md:-left-[2.45rem]">
                       <Icon aria-hidden="true" className="size-4" />
                     </span>
-                    <p className="font-mono text-sm font-semibold text-[var(--accent-strong)]">
+                    <p className="font-mono text-sm font-extrabold text-[var(--accent-strong)]">
                       {step.step}
                     </p>
                     <div>
-                      <h3 className="mt-3 text-lg font-semibold text-[var(--text-strong)] md:mt-0">
+                      <h3 className="font-display mt-3 text-lg font-extrabold text-[var(--text-strong)] md:mt-0">
                         {step.title}
                       </h3>
                       <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
