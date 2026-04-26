@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "./ThemeToggle";
-import logo from "@/assets/mascot/logo.png";
+import chibiLogo from "@/assets/mascot/logo.png";
 
 const links = [
   { href: "#home", label: "Home" },
@@ -37,15 +37,13 @@ export const Navbar = () => {
             className={`flex items-center justify-between rounded-full border border-border/70 bg-background/75 backdrop-blur-xl px-3 pl-4 transition-all ${scrolled ? "shadow-card" : "shadow-soft"}`}
           >
             <a href="#home" className="flex items-center gap-2.5 py-2">
-              <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-secondary overflow-hidden ring-1 ring-border">
-                <img
-                  src={logo}
-                  alt="John Rey"
-                  className="h-11 w-11 object-cover -mt-1"
-                />
-              </span>
+              <img
+                src={chibiLogo}
+                alt="John Rey"
+                className="h-9 w-9 shrink-0 object-contain"
+              />
               <span className="font-display text-[17px] font-semibold leading-none">
-                John Rey<span className="text-tan">.</span>
+                John Rey
               </span>
             </a>
 
