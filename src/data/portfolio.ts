@@ -111,45 +111,45 @@ export const navItems: NavItem[] = [
 
 export const valuePoints: ValuePoint[] = [
   {
-    title: "Business-first development",
-    description: "Workflow clarity before UI decoration.",
+    title: "Workflow-first thinking",
+    description: "Requirements, rules, and roles before screens.",
     icon: BriefcaseBusiness,
   },
   {
-    title: "Clean Laravel architecture",
-    description: "Readable backend flows for rules and reports.",
+    title: "Clean implementation",
+    description: "Readable code paths for future changes.",
     icon: Code2,
   },
   {
-    title: "Practical UI implementation",
-    description: "Interfaces built for repeated daily use.",
+    title: "Practical features",
+    description: "Built around daily business operations.",
     icon: LayoutDashboard,
   },
   {
-    title: "Deployment-aware workflows",
-    description: "Hosting, release, and debugging considered early.",
+    title: "Continuous improvement",
+    description: "Real scenarios guide the next iteration.",
     icon: Cloud,
   },
 ];
 
 export const aboutHighlights: AboutHighlight[] = [
   {
-    title: "Clarify the workflow",
+    title: "Workflow-first thinking",
     description: "Start with people, approvals, data, and the real business outcome.",
     icon: MessagesSquare,
   },
   {
-    title: "Build for real users",
+    title: "Clean implementation",
     description: "Design states and flows around the tasks teams actually repeat.",
     icon: UsersRound,
   },
   {
-    title: "Keep code maintainable",
+    title: "Practical features",
     description: "Favor clear rules, readable structure, and predictable feature paths.",
     icon: Wrench,
   },
   {
-    title: "Improve through feedback",
+    title: "Continuous improvement",
     description: "Use real scenarios to refine the parts that cause friction.",
     icon: BadgeCheck,
   },
@@ -175,7 +175,7 @@ export const projects: Project[] = [
     icon: UsersRound,
     visualType: "dashboard",
     visualLabel: "HR dashboard mockup",
-    visualNote: "Replace with /images/project-hr-dashboard.jpg",
+    visualNote: "Employee records, attendance, leave, and payroll review in one flow.",
     placeholderImage: "/images/project-hr-dashboard.jpg",
     links: {
       details: "#project-hr-payroll",
@@ -197,7 +197,7 @@ export const projects: Project[] = [
     icon: Server,
     visualType: "architecture",
     visualLabel: "SaaS architecture mockup",
-    visualNote: "Replace with /images/project-saas-architecture.jpg",
+    visualNote: "Tenant portals, isolated data, provisioning, and deployment concerns.",
     placeholderImage: "/images/project-saas-architecture.jpg",
     links: {
       details: "#project-multi-tenant-saas",
@@ -218,7 +218,7 @@ export const projects: Project[] = [
     icon: ScanLine,
     visualType: "qr",
     visualLabel: "QR validation mockup",
-    visualNote: "Replace with /images/project-qr-validation.jpg",
+    visualNote: "Stub issuance, QR scanning, usage history, and admin review.",
     placeholderImage: "/images/project-qr-validation.jpg",
     links: {
       details: "#project-meal-stub-qr",
@@ -239,7 +239,7 @@ export const projects: Project[] = [
     icon: FileCode2,
     visualType: "report",
     visualLabel: "Reporting dashboard mockup",
-    visualNote: "Replace with /images/project-tax-report.jpg",
+    visualNote: "Computed payroll tax data shaped into reviewable reports.",
     placeholderImage: "/images/project-tax-report.jpg",
     links: {
       details: "#project-bir-tax-module",
@@ -260,7 +260,7 @@ export const projects: Project[] = [
     icon: Globe2,
     visualType: "landing",
     visualLabel: "Landing page mockup",
-    visualNote: "Replace with /images/project-business-landing.jpg",
+    visualNote: "Clear offers, strong structure, and inquiry-focused pages.",
     placeholderImage: "/images/project-business-landing.jpg",
     links: {
       details: "#project-business-landing-pages",
@@ -364,10 +364,11 @@ export const systemsBuilt = [
 ];
 
 export const heroCards = [
-  "Payroll Ready",
-  "Attendance Synced",
-  "Reports Clean",
-  "Tenant Active",
+  "Laravel",
+  "React",
+  "Payroll Logic",
+  "SaaS",
+  "Dashboard Systems",
 ];
 
 export const contactLinks: ContactLink[] = [

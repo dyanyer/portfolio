@@ -1,17 +1,11 @@
-import { ArrowRight, Mail } from "lucide-react";
+import { ArrowRight, Mail, Sparkles } from "lucide-react";
 import { motion, type Variants } from "framer-motion";
-import { lazy, Suspense, useEffect, useState } from "react";
 
+import { Mascot } from "@/components/mascot/Mascot";
 import { Badge } from "@/components/ui/badge";
 import { AnchorButton } from "@/components/ui/button";
-import { heroCards, personalInfo, visualLegend } from "@/data/portfolio";
+import { heroCards, personalInfo } from "@/data/portfolio";
 import { cx } from "@/lib/utils";
-
-const SystemVisual = lazy(() =>
-  import("@/components/three/SystemVisual").then((module) => ({
-    default: module.SystemVisual,
-  })),
-);
 
 const container: Variants = {
   hidden: {},
@@ -27,145 +21,125 @@ const item: Variants = {
   show: { opacity: 1, y: 0, transition: { duration: 0.58, ease: "easeOut" } },
 };
 
-function useLargeScreen() {
-  const [isLarge, setIsLarge] = useState(() =>
-    typeof window === "undefined" ? false : window.innerWidth >= 1024,
+const floatingPositions = [
+  "left-2 top-5",
+  "right-2 top-16",
+  "left-0 bottom-24",
+  "right-3 bottom-8",
+  "left-1/2 top-0 -translate-x-1/2",
+];
+
+function FloatingChips() {
+  return (
+    <div aria-hidden="true" className="absolute inset-0 z-20">
+      {heroCards.map((label, index) => (
+        <motion.div
+          animate={{ y: [0, index % 2 === 0 ? -8 : 8, 0] }}
+          className={cx(
+            "absolute hidden rounded-full border border-[color:var(--accent-border)] bg-[color-mix(in_srgb,var(--surface)_88%,transparent)] px-3 py-2 text-xs font-semibold text-[var(--muted-strong)] shadow-[var(--shadow-soft)] backdrop-blur sm:block",
+            floatingPositions[index],
+          )}
+          initial={{ opacity: 0, scale: 0.9 }}
+          key={label}
+          transition={{
+            opacity: { delay: 0.45 + index * 0.06, duration: 0.35 },
+            scale: { delay: 0.45 + index * 0.06, duration: 0.35 },
+            y: {
+              delay: index * 0.18,
+              duration: 4.8 + index * 0.25,
+              ease: "easeInOut",
+              repeat: Infinity,
+            },
+          }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+        >
+          {label}
+        </motion.div>
+      ))}
+    </div>
   );
-
-  useEffect(() => {
-    const media = window.matchMedia("(min-width: 1024px)");
-    const handleChange = () => setIsLarge(media.matches);
-
-    handleChange();
-    media.addEventListener("change", handleChange);
-    return () => media.removeEventListener("change", handleChange);
-  }, []);
-
-  return isLarge;
 }
 
-function WorkflowMockup({ showSystemVisual }: { showSystemVisual: boolean }) {
+function HeroMascotStudio() {
   return (
     <motion.div
-      className="relative mx-auto w-full max-w-xl lg:max-w-none"
-      initial={{ opacity: 0, y: 30, scale: 0.98 }}
-      transition={{ delay: 0.18, duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+      className="relative mx-auto w-full max-w-[26rem] sm:max-w-[31rem] lg:max-w-[34rem]"
+      initial={{ opacity: 0, y: 34, scale: 0.98 }}
+      transition={{ delay: 0.16, duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
       whileInView={{ opacity: 1, y: 0, scale: 1 }}
       viewport={{ once: true }}
     >
-      <div className="absolute -inset-6 rounded-[2rem] bg-[var(--glow)] blur-3xl" />
-      <div className="glass-panel mockup-tilt relative overflow-hidden rounded-[1.75rem] p-3 sm:p-4 lg:min-h-[560px]">
-        <div className="subtle-grid absolute inset-0 opacity-80" />
-        <div className="relative rounded-[1.25rem] border border-[color:var(--border)] bg-[var(--surface-strong)] p-3 shadow-[var(--shadow-soft)] sm:p-4">
-          <div className="mb-4 flex items-center justify-between gap-3">
-            <div className="flex items-center gap-2">
-              <span className="size-3 rounded-full bg-red-400/80" />
-              <span className="size-3 rounded-full bg-amber-400/80" />
-              <span className="size-3 rounded-full bg-emerald-400/80" />
-            </div>
-            <span className="rounded-full border border-[color:var(--border)] bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent-strong)]">
-              Operations OS
-            </span>
+      <div className="absolute -inset-5 rounded-[50%] bg-[var(--glow)] blur-3xl" />
+      <div className="studio-panel paper-edge relative overflow-hidden rounded-lg p-4 sm:p-5">
+        <div className="kumiko-grid absolute inset-0 opacity-60" />
+        <div className="relative flex items-center justify-between border-b border-[color:var(--border)] pb-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent-strong)]">
+              Chibi Developer Studio
+            </p>
+            <p className="mt-1 text-sm font-semibold text-[var(--text-strong)]">
+              Practical systems, polished interfaces
+            </p>
           </div>
-
-          <div className="grid gap-3 sm:grid-cols-[0.9fr_1.1fr]">
-            <div className="rounded-2xl border border-[color:var(--border)] bg-[var(--surface-muted)] p-4">
-              <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
-                Workflow health
-              </p>
-              <p className="mt-3 text-3xl font-semibold text-[var(--text-strong)]">
-                94%
-              </p>
-              <div className="mt-5 grid gap-2">
-                {["Attendance", "Payroll", "Reports"].map((label, index) => (
-                  <div className="h-2 overflow-hidden rounded-full bg-[var(--border)]" key={label}>
-                    <motion.div
-                      className="h-full rounded-full bg-[var(--accent)]"
-                      initial={{ width: 0 }}
-                      transition={{ delay: 0.35 + index * 0.08, duration: 0.75 }}
-                      whileInView={{ width: `${76 - index * 12}%` }}
-                      viewport={{ once: true }}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid gap-3">
-              {heroCards.map((card, index) => (
-                <motion.div
-                  className={cx(
-                    "rounded-2xl border border-[color:var(--border)] bg-[var(--surface)] p-3 shadow-sm",
-                    index % 2 === 1 && "sm:ml-5",
-                  )}
-                  key={card}
-                  initial={{ opacity: 0, x: 18 }}
-                  transition={{ delay: 0.28 + index * 0.08, duration: 0.45 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  whileHover={{ y: -3 }}
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="text-sm font-semibold text-[var(--text-strong)]">
-                      {card}
-                    </p>
-                    <span className="size-2 rounded-full bg-[var(--accent)]" />
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-3 grid gap-3 sm:grid-cols-3">
-            {visualLegend.map((entry) => {
-              const Icon = entry.icon;
-              return (
-                <div
-                  className="rounded-2xl border border-[color:var(--border)] bg-[var(--surface)] p-3"
-                  key={entry.label}
-                >
-                  <Icon className="size-4 text-[var(--accent-strong)]" aria-hidden="true" />
-                  <p className="mt-2 text-xs font-semibold text-[var(--muted-strong)]">
-                    {entry.label}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+          <span className="grid size-10 place-items-center rounded-full border border-[color:var(--accent-border)] bg-[var(--accent-soft)] text-[var(--accent-strong)]">
+            <Sparkles aria-hidden="true" className="size-4" />
+          </span>
         </div>
 
-        {showSystemVisual ? (
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 top-28 hidden lg:block">
-            <Suspense fallback={<div className="h-full w-full" aria-hidden="true" />}>
-              <SystemVisual />
-            </Suspense>
+        <div className="relative min-h-[25rem] overflow-hidden sm:min-h-[31rem]">
+          <FloatingChips />
+          <motion.div
+            animate={{ y: [0, -10, 0] }}
+            className="absolute inset-x-0 bottom-0 z-10 mx-auto h-[23rem] w-[18rem] sm:h-[29rem] sm:w-[22rem]"
+            transition={{ duration: 6.5, ease: "easeInOut", repeat: Infinity }}
+          >
+            <Mascot className="h-full w-full" pose="waving" />
+          </motion.div>
+
+          <div className="absolute bottom-3 left-3 right-3 z-30 grid grid-cols-3 gap-2">
+            {[
+              ["Systems", "HR + Payroll"],
+              ["Stack", "React + Laravel"],
+              ["Focus", "Usable flows"],
+            ].map(([label, value]) => (
+              <div
+                className="rounded-lg border border-[color:var(--border)] bg-[color-mix(in_srgb,var(--surface-strong)_86%,transparent)] p-3 backdrop-blur"
+                key={label}
+              >
+                <p className="text-[0.68rem] font-semibold uppercase tracking-[0.14em] text-[var(--muted)]">
+                  {label}
+                </p>
+                <p className="mt-1 truncate text-xs font-semibold text-[var(--text-strong)]">
+                  {value}
+                </p>
+              </div>
+            ))}
           </div>
-        ) : null}
+        </div>
       </div>
     </motion.div>
   );
 }
 
 export function HeroSection() {
-  const showSystemVisual = useLargeScreen();
-
   return (
     <section
-      className="relative min-h-[100svh] overflow-hidden px-4 pb-16 pt-28 sm:pt-32"
+      className="relative min-h-[100svh] overflow-hidden px-4 pb-14 pt-28 sm:pt-32"
       id="home"
     >
-      <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-80" />
+      <div aria-hidden="true" className="hero-grid absolute inset-0 opacity-75" />
       <div aria-hidden="true" className="hero-mesh absolute inset-0" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl items-center gap-10 lg:min-h-[calc(100svh-9rem)] lg:grid-cols-[0.95fr_1.05fr]">
         <motion.div
+          animate="show"
           className="max-w-3xl"
           initial="hidden"
-          animate="show"
           variants={container}
         >
           <motion.div variants={item}>
-            <Badge tone="green">Available for freelance and system development work</Badge>
+            <Badge tone="accent">Available for freelance and system development work</Badge>
           </motion.div>
 
           <motion.p
@@ -176,20 +150,19 @@ export function HeroSection() {
           </motion.p>
 
           <motion.h1
-            className="mt-4 text-balance text-4xl font-semibold leading-[1.04] text-[var(--text-strong)] sm:text-5xl md:text-6xl lg:text-[4.55rem]"
+            className="mt-4 text-balance text-4xl font-semibold leading-[1.05] text-[var(--text-strong)] sm:text-5xl md:text-6xl lg:text-[4.35rem]"
             variants={item}
           >
-            I build web systems that make business operations clearer.
+            I build web systems with clarity, structure, and personality.
           </motion.h1>
 
           <motion.p
             className="mt-5 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg md:text-xl"
             variants={item}
           >
-            I&apos;m John Rey, a full-stack developer focused on practical systems
-            - HR workflows, payroll logic, SaaS portals, dashboards, QR
-            features, and reporting tools that help teams work with less
-            confusion.
+            I&apos;m John Rey, a full-stack developer focused on practical
+            business systems - from HR and payroll workflows to dashboards, SaaS
+            portals, QR features, and modern web interfaces.
           </motion.p>
 
           <motion.div
@@ -212,26 +185,26 @@ export function HeroSection() {
           >
             <p>
               <span className="block font-semibold text-[var(--text-strong)]">
-                Systems
+                Business Systems
               </span>
               HR, payroll, SaaS, reports
             </p>
             <p>
               <span className="block font-semibold text-[var(--text-strong)]">
-                Execution
+                Product Interfaces
               </span>
-              UI, backend, data, deploy
+              Dashboards, portals, landing pages
             </p>
             <p>
               <span className="block font-semibold text-[var(--text-strong)]">
-                Approach
+                Practical Delivery
               </span>
-              Clear rules, maintainable flow
+              Clear rules, maintainable code
             </p>
           </motion.div>
         </motion.div>
 
-        <WorkflowMockup showSystemVisual={showSystemVisual} />
+        <HeroMascotStudio />
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 
+import { Mascot } from "@/components/mascot/Mascot";
 import { SectionHeading } from "@/components/ui/section-heading";
 import { processSteps } from "@/data/portfolio";
 
@@ -15,22 +16,35 @@ export function ProcessSection() {
 
         <div className="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:items-start">
           <motion.div
-            className="glass-panel rounded-[1.75rem] p-6 lg:sticky lg:top-28"
+            className="studio-panel relative overflow-hidden rounded-lg p-6 lg:sticky lg:top-28"
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true, margin: "-100px" }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">
-              Project flow
-            </p>
-            <p className="mt-4 text-2xl font-semibold leading-tight text-[var(--text-strong)]">
-              Reduce ambiguity before it becomes technical debt.
-            </p>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-              The work starts by making rules visible. From there, the interface,
-              database, and backend behavior can support the actual workflow.
-            </p>
+            <div className="kumiko-grid absolute inset-0 opacity-45" />
+            <div className="relative">
+              <p className="text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-strong)]">
+                Project flow
+              </p>
+              <p className="mt-4 text-2xl font-semibold leading-tight text-[var(--text-strong)]">
+                Reduce ambiguity before it becomes technical debt.
+              </p>
+              <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+                The work starts by making rules visible. From there, the
+                interface, database, and backend behavior can support the actual
+                workflow.
+              </p>
+              <div className="mt-5 h-56 overflow-hidden rounded-lg bg-[linear-gradient(180deg,var(--accent-soft),transparent)]">
+                <motion.div
+                  animate={{ x: [0, 8, 0], y: [0, -6, 0] }}
+                  className="mx-auto h-56 w-48"
+                  transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
+                >
+                  <Mascot className="h-full w-full" pose="walking" />
+                </motion.div>
+              </div>
+            </div>
           </motion.div>
 
           <div className="relative pl-5 md:pl-8">
@@ -50,7 +64,7 @@ export function ProcessSection() {
 
                 return (
                   <motion.div
-                    className="relative rounded-[1.5rem] border border-[color:var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] md:grid md:grid-cols-[5rem_1fr] md:gap-5"
+                    className="relative rounded-lg border border-[color:var(--border)] bg-[var(--surface)] p-5 shadow-[var(--shadow-soft)] md:grid md:grid-cols-[5rem_1fr] md:gap-5"
                     initial={{ opacity: 0, x: 24 }}
                     key={step.step}
                     transition={{

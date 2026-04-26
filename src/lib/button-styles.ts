@@ -5,7 +5,7 @@ export type ButtonSize = "sm" | "md" | "lg";
 
 const variantClasses: Record<ButtonVariant, string> = {
   primary:
-    "border-[color:var(--accent)] bg-[var(--accent)] text-white shadow-[0_18px_42px_var(--glow)] hover:bg-[var(--accent-strong)] hover:border-[color:var(--accent-strong)]",
+    "border-[color:var(--accent)] bg-[var(--accent)] text-[var(--accent-foreground)] shadow-[0_18px_42px_var(--glow)] hover:border-[color:var(--accent-strong)] hover:bg-[var(--accent-strong)]",
   secondary:
     "border-[color:var(--border)] bg-[var(--surface)] text-[var(--text)] shadow-[var(--shadow-soft)] hover:border-[color:var(--accent-border)] hover:bg-[var(--surface-strong)]",
   ghost:

@@ -3,14 +3,13 @@ import type { HTMLAttributes } from "react";
 import { cx } from "@/lib/utils";
 
 type BadgeProps = HTMLAttributes<HTMLSpanElement> & {
-  tone?: "default" | "green" | "cyan" | "amber";
+  tone?: "default" | "accent" | "warm";
 };
 
 const tones: Record<NonNullable<BadgeProps["tone"]>, string> = {
   default: "border-[color:var(--border)] bg-[var(--surface)] text-[var(--muted-strong)]",
-  green: "border-[color:var(--accent-border)] bg-[var(--accent-soft)] text-[var(--accent-strong)]",
-  cyan: "border-cyan-400/25 bg-cyan-400/10 text-cyan-700 dark:text-cyan-100",
-  amber: "border-amber-400/25 bg-amber-400/10 text-amber-700 dark:text-amber-100",
+  accent: "border-[color:var(--accent-border)] bg-[var(--accent-soft)] text-[var(--accent-strong)]",
+  warm: "border-[color:var(--border-strong)] bg-[var(--cream)] text-[var(--accent-strong)]",
 };
 
 export function Badge({

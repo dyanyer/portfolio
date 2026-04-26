@@ -1,12 +1,14 @@
 import { ArrowUp } from "lucide-react";
 import { motion } from "framer-motion";
 
+import { Mascot } from "@/components/mascot/Mascot";
 import { personalInfo, systemsBuilt } from "@/data/portfolio";
 
 export function Footer() {
   return (
-    <footer className="relative border-t border-[color:var(--border)] bg-[var(--surface-muted)] px-4 py-10">
-      <div className="mx-auto max-w-7xl">
+    <footer className="relative overflow-hidden border-t border-[color:var(--border)] bg-[var(--surface-muted)] px-4 py-10">
+      <div className="kumiko-grid absolute inset-0 opacity-35" />
+      <div className="relative mx-auto max-w-7xl">
         <div className="overflow-hidden border-b border-[color:var(--border)] pb-8">
           <div className="marquee-track flex w-max gap-6 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--muted)]">
             {[...systemsBuilt, ...systemsBuilt].map((item, index) => (
@@ -18,14 +20,25 @@ export function Footer() {
         </div>
 
         <div className="flex flex-col gap-6 pt-8 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="text-xl font-semibold text-[var(--text-strong)]">
-              {personalInfo.name}
-            </p>
-            <p className="mt-2 text-sm text-[var(--muted)]">{personalInfo.role}</p>
-            <p className="mt-4 text-sm text-[var(--muted)]">
-              &copy; 2026 {personalInfo.name}. All rights reserved.
-            </p>
+          <div className="flex items-center gap-4">
+            <div className="grid size-16 shrink-0 place-items-center overflow-hidden rounded-full border border-[color:var(--accent-border)] bg-[var(--cream)]">
+              <Mascot
+                className="size-20 translate-y-1 scale-125"
+                decorative
+                pose="calm"
+              />
+            </div>
+            <div>
+              <p className="text-xl font-semibold text-[var(--text-strong)]">
+                {personalInfo.name}
+              </p>
+              <p className="mt-2 text-sm text-[var(--muted)]">
+                {personalInfo.role} / Chibi Developer Studio
+              </p>
+              <p className="mt-4 text-sm text-[var(--muted)]">
+                &copy; 2026 {personalInfo.name}. All rights reserved.
+              </p>
+            </div>
           </div>
 
           <motion.button

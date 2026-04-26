@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Code2, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { ThemeToggle } from "@/components/layout/ThemeToggle";
@@ -62,15 +62,21 @@ export function Navbar() {
           href="#home"
           onClick={() => setIsOpen(false)}
         >
-          <span className="grid size-10 shrink-0 place-items-center rounded-full border border-[color:var(--border)] bg-[var(--accent-soft)] text-[var(--accent-strong)]">
-            <Code2 aria-hidden="true" className="size-4" />
+          <span className="grid size-10 shrink-0 place-items-center overflow-hidden rounded-full border border-[color:var(--accent-border)] bg-[var(--cream)]">
+            <img
+              alt=""
+              className="size-14 translate-y-0.5 scale-125 select-none object-cover"
+              decoding="async"
+              draggable={false}
+              src="/chibi_logo.png"
+            />
           </span>
           <span className="min-w-0">
             <span className="block truncate text-sm font-semibold leading-5">
               {personalInfo.name}
             </span>
             <span className="block truncate text-xs text-[var(--muted)]">
-              {personalInfo.role}
+              Chibi Developer Studio
             </span>
           </span>
         </a>
@@ -97,7 +103,7 @@ export function Navbar() {
             className="hidden h-10 cursor-pointer items-center rounded-full border border-[color:var(--accent-border)] bg-[var(--accent-soft)] px-4 text-sm font-semibold text-[var(--accent-strong)] transition duration-200 hover:-translate-y-0.5 hover:bg-[var(--surface)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)] sm:inline-flex"
             href="#contact"
           >
-            Start a Project
+            Start Project
           </a>
           <button
             aria-expanded={isOpen}
@@ -119,7 +125,7 @@ export function Navbar() {
         {isOpen ? (
           <motion.div
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-3xl border border-[color:var(--border)] bg-[color-mix(in_srgb,var(--surface)_94%,transparent)] p-2 shadow-[var(--shadow-strong)] backdrop-blur-xl lg:hidden"
+            className="mx-auto mt-2 max-w-7xl overflow-hidden rounded-lg border border-[color:var(--border)] bg-[color-mix(in_srgb,var(--surface)_94%,transparent)] p-2 shadow-[var(--shadow-strong)] backdrop-blur-xl lg:hidden"
             exit={{ opacity: 0, y: -10, scale: 0.98 }}
             initial={{ opacity: 0, y: -10, scale: 0.98 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
@@ -127,7 +133,7 @@ export function Navbar() {
             {navItems.map((item) => (
               <a
                 className={cx(
-                  "block cursor-pointer rounded-2xl px-4 py-3 text-base font-semibold text-[var(--muted-strong)] transition-colors duration-200 hover:bg-[var(--accent-soft)] hover:text-[var(--text-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
+                  "block cursor-pointer rounded-lg px-4 py-3 text-base font-semibold text-[var(--muted-strong)] transition-colors duration-200 hover:bg-[var(--accent-soft)] hover:text-[var(--text-strong)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[color:var(--accent)]",
                   activeId === item.id &&
                     "bg-[var(--accent-soft)] text-[var(--accent-strong)]",
                 )}

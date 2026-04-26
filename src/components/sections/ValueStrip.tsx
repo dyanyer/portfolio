@@ -12,7 +12,7 @@ export function ValueStrip() {
 
             return (
               <motion.div
-                className="glass-panel min-w-[78vw] snap-start rounded-3xl p-5 md:min-w-0"
+                className="studio-panel min-w-[78vw] snap-start rounded-lg p-5 md:min-w-0"
                 initial={{ opacity: 0, y: 18 }}
                 key={item.title}
                 transition={{
@@ -24,7 +24,7 @@ export function ValueStrip() {
                 whileHover={{ y: -4 }}
                 whileInView={{ opacity: 1, y: 0 }}
               >
-                <span className="grid size-11 place-items-center rounded-2xl border border-[color:var(--accent-border)] bg-[var(--accent-soft)] text-[var(--accent-strong)]">
+                <span className="grid size-11 place-items-center rounded-lg border border-[color:var(--accent-border)] bg-[var(--accent-soft)] text-[var(--accent-strong)]">
                   <Icon aria-hidden="true" className="size-5" />
                 </span>
                 <p className="mt-5 text-base font-semibold text-[var(--text-strong)]">

@@ -3,7 +3,6 @@ import { Navbar } from "@/components/layout/Navbar";
 import { AboutSection } from "@/components/sections/AboutSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { PrinciplesSection } from "@/components/sections/PrinciplesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { ValueStrip } from "@/components/sections/ValueStrip";
@@ -20,7 +19,6 @@ export default function App() {
         <WorkSection />
         <SkillsSection />
         <ProcessSection />
-        <PrinciplesSection />
         <ContactSection />
       </main>
       <Footer />
