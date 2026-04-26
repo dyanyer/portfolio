@@ -33,10 +33,16 @@ export const Navbar = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all ${scrolled ? "py-2" : "py-4"}`}
       >
         <div className="container">
-          <div className={`flex items-center justify-between rounded-full border border-border/70 bg-background/75 backdrop-blur-xl px-3 pl-4 transition-all ${scrolled ? "shadow-card" : "shadow-soft"}`}>
+          <div
+            className={`flex items-center justify-between rounded-full border border-border/70 bg-background/75 backdrop-blur-xl px-3 pl-4 transition-all ${scrolled ? "shadow-card" : "shadow-soft"}`}
+          >
             <a href="#home" className="flex items-center gap-2.5 py-2">
               <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-full bg-secondary overflow-hidden ring-1 ring-border">
-                <img src={logo} alt="John Rey" className="h-11 w-11 object-cover -mt-1" />
+                <img
+                  src={logo}
+                  alt="John Rey"
+                  className="h-11 w-11 object-cover -mt-1"
+                />
               </span>
               <span className="font-display text-[17px] font-semibold leading-none">
                 John Rey<span className="text-tan">.</span>
@@ -45,7 +51,11 @@ export const Navbar = () => {
 
             <nav className="hidden lg:flex items-center gap-1">
               {links.map((l) => (
-                <a key={l.href} href={l.href} className="relative px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors group">
+                <a
+                  key={l.href}
+                  href={l.href}
+                  className="relative px-3 py-2 text-sm text-muted-foreground hover:text-foreground transition-colors group"
+                >
                   {l.label}
                   <span className="absolute inset-x-3 -bottom-0.5 h-px scale-x-0 bg-tan transition-transform duration-300 group-hover:scale-x-100" />
                 </a>
@@ -54,10 +64,17 @@ export const Navbar = () => {
 
             <div className="flex items-center gap-2 py-1.5 pr-1.5">
               <ThemeToggle />
-              <a href="#contact" className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-tan-gradient px-4 py-2 text-sm font-medium text-tan-foreground shadow-glow transition hover:-translate-y-0.5">
+              <a
+                href="#contact"
+                className="hidden md:inline-flex items-center gap-1.5 rounded-full bg-tan-gradient px-4 py-2 text-sm font-medium text-tan-foreground shadow-glow transition hover:-translate-y-0.5"
+              >
                 Hire me <span className="text-tan-foreground/70">→</span>
               </a>
-              <button className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70" onClick={() => setOpen(true)} aria-label="Open menu">
+              <button
+                className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-card/70"
+                onClick={() => setOpen(true)}
+                aria-label="Open menu"
+              >
                 <Menu className="h-5 w-5" />
               </button>
             </div>
@@ -67,16 +84,30 @@ export const Navbar = () => {
 
       <AnimatePresence>
         {open && (
-          <motion.div className="fixed inset-0 z-[60] lg:hidden" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <div className="absolute inset-0 bg-foreground/40 backdrop-blur-sm" onClick={() => setOpen(false)} />
+          <motion.div
+            className="fixed inset-0 z-[60] lg:hidden"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <div
+              className="absolute inset-0 bg-foreground/40 backdrop-blur-sm"
+              onClick={() => setOpen(false)}
+            />
             <motion.div
-              initial={{ x: "100%" }} animate={{ x: 0 }} exit={{ x: "100%" }}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 28, stiffness: 260 }}
               className="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-background border-l border-border p-6 flex flex-col"
             >
               <div className="flex items-center justify-between mb-10">
                 <span className="font-display text-lg font-semibold">Menu</span>
-                <button onClick={() => setOpen(false)} aria-label="Close" className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-border">
+                <button
+                  onClick={() => setOpen(false)}
+                  aria-label="Close"
+                  className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-border"
+                >
                   <X className="h-5 w-5" />
                 </button>
               </div>
@@ -95,7 +126,11 @@ export const Navbar = () => {
                   </motion.a>
                 ))}
               </nav>
-              <a href="#contact" onClick={() => setOpen(false)} className="mt-auto inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-primary-foreground font-medium">
+              <a
+                href="#contact"
+                onClick={() => setOpen(false)}
+                className="mt-auto inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-primary-foreground font-medium"
+              >
                 Hire me
               </a>
             </motion.div>

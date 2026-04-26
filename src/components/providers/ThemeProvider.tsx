@@ -1,4 +1,4 @@
-import { useMemo, useState, type ReactNode } from "react";
+import { useEffect, useMemo, useState, type ReactNode } from "react";
 
 import {
   STORAGE_KEY,
@@ -20,21 +20,16 @@ function applyTheme(theme: Theme) {
 }
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setThemeState] = useState<Theme>(() => {
-    const initialTheme = getInitialTheme();
+  const [theme, setThemeState] = useState<Theme>(getInitialTheme);
 
-    if (typeof window !== "undefined") {
-      applyTheme(initialTheme);
-    }
-
-    return initialTheme;
-  });
+  useEffect(() => {
+    applyTheme(theme);
+  }, [theme]);
 
   const value = useMemo<ThemeContextValue>(() => {
     const setTheme = (nextTheme: Theme) => {
       setThemeState(nextTheme);
       window.localStorage.setItem(STORAGE_KEY, nextTheme);
-      applyTheme(nextTheme);
     };
 
     return {
