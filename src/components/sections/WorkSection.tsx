@@ -18,18 +18,25 @@ const cardAccents = [
 ];
 
 function VisualBars() {
+  const rows = [
+    ["Records", 78],
+    ["Attendance", 58],
+    ["Payroll", 86],
+    ["Reports", 44],
+  ] as const;
+
   return (
     <div className="grid gap-3">
-      {[78, 58, 86, 44].map((width, index) => (
+      {rows.map(([label, width], index) => (
         <div
-          className="rounded-lg border border-[color:var(--border)] bg-[var(--surface)] p-3 shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_7%,transparent)]"
-          key={width}
+          className="rounded-lg border border-[color:var(--border)] bg-[var(--surface)] p-3 shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_6%,transparent)]"
+          key={label}
         >
           <div className="flex items-center justify-between">
-            <span className="text-xs font-semibold text-[var(--muted)]">
-              Flow {index + 1}
+            <span className="text-xs font-bold text-[var(--muted)]">
+              {label}
             </span>
-            <span className="size-2 rounded-full bg-[var(--accent)]" />
+            <span className="size-2 rounded-full bg-[var(--card-accent)]" />
           </div>
           <div className="mt-3 h-2 rounded-full bg-[var(--border)]">
             <motion.div
@@ -48,14 +55,14 @@ function VisualBars() {
 
 function QrMockup() {
   return (
-    <div className="mx-auto grid size-36 rotate-[-2deg] grid-cols-5 gap-1 rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface)] p-4 shadow-[4px_5px_0_color-mix(in_srgb,var(--line)_10%,transparent)]">
+    <div className="mx-auto grid size-36 rotate-[-1deg] grid-cols-5 gap-1 rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface)] p-4 shadow-[4px_5px_0_color-mix(in_srgb,var(--line)_10%,transparent)]">
       {Array.from({ length: 25 }).map((_, index) => (
         <span
           className={cx(
             "rounded-sm",
             [0, 1, 2, 5, 10, 12, 14, 18, 20, 21, 24].includes(index)
               ? "bg-[var(--text-strong)]"
-              : "bg-[var(--accent-soft)]",
+              : "bg-[var(--matcha-soft)]",
           )}
           key={index}
         />
@@ -101,17 +108,25 @@ function LandingMockup() {
   );
 }
 
-function ProjectArtwork({ project }: { project: Project }) {
+function ProjectArtwork({
+  project,
+  featured = false,
+}: {
+  project: Project;
+  featured?: boolean;
+}) {
   const Icon = project.icon;
 
   return (
     <motion.div
-      className="project-scene relative min-h-[19rem] overflow-hidden p-4"
+      className={cx(
+        "project-scene relative overflow-hidden p-5",
+        featured ? "min-h-[23rem] md:min-h-[27rem]" : "min-h-[17rem]",
+      )}
       transition={{ duration: 0.22 }}
       whileHover={{ y: -4 }}
     >
-      <div className="absolute right-4 top-4 h-7 w-20 rotate-[7deg] washi-strip" />
-      <div className="relative flex items-start gap-3 border-b border-dashed border-[color:var(--border-strong)] pb-4">
+      <div className="relative flex items-start gap-3 border-b border-dashed border-[color:var(--border-strong)] pb-5">
         <span className="grid size-10 place-items-center rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_10%,transparent)]">
           <Icon aria-hidden="true" className="size-5" />
         </span>
@@ -125,7 +140,7 @@ function ProjectArtwork({ project }: { project: Project }) {
         </div>
       </div>
 
-      <div className="relative mt-6">
+      <div className={cx("relative", featured ? "mt-8" : "mt-6")}>
         {project.visualType === "architecture" ? <ArchitectureMockup /> : null}
         {project.visualType === "qr" ? <QrMockup /> : null}
         {project.visualType === "landing" ? <LandingMockup /> : null}
@@ -134,12 +149,9 @@ function ProjectArtwork({ project }: { project: Project }) {
         ) : null}
       </div>
 
-      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap gap-2">
+      <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-2">
         {project.techStack.slice(0, 3).map((tech) => (
-          <span
-            className="mini-ticket px-3 py-1.5 text-xs font-bold text-[var(--muted-strong)]"
-            key={tech}
-          >
+          <span className="tag-chip bg-[var(--surface-strong)]" key={tech}>
             {tech}
           </span>
         ))}
@@ -148,134 +160,170 @@ function ProjectArtwork({ project }: { project: Project }) {
   );
 }
 
-function WorkMascotCallout() {
+function FeaturedProjectCard({ project }: { project: Project }) {
   return (
-    <motion.div
-      className="sticker-card relative mb-6 hidden overflow-hidden p-5 lg:block"
+    <motion.article
+      className="case-study-card mb-8 grid gap-8 p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10"
+      id={`project-${project.id}`}
       initial={{ opacity: 0, y: 20 }}
-      transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
+      style={{ "--card-accent": cardAccents[0] } as CSSProperties}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       viewport={{ once: true, margin: "-100px" }}
       whileInView={{ opacity: 1, y: 0 }}
     >
-      <div className="absolute left-6 top-4 h-7 w-24 rotate-[-4deg] washi-strip" />
-      <div className="relative grid grid-cols-[0.72fr_0.28fr] items-end gap-4">
-        <div>
-          <p className="stamp-label">
-            Selected Work
-          </p>
-          <p className="font-display mt-5 max-w-2xl text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
-            System work presented like collectible case cards: problem, role,
-            stack, and the value behind the interface.
-          </p>
+      <div className="relative z-10 flex flex-col">
+        <div className="mb-8 flex flex-wrap items-center gap-3">
+          <Badge tone="accent">Featured case study</Badge>
+          <Badge tone="warm">{project.status}</Badge>
         </div>
-        <Mascot className="h-40 w-36 justify-self-end" pose="laptop" />
+
+        <h3 className="font-display text-balance text-3xl font-extrabold leading-tight text-[var(--text-strong)] md:text-5xl">
+          {project.title}
+        </h3>
+        <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-[var(--muted-strong)]">
+          {project.problemSolved}
+        </p>
+        <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--muted)] md:text-lg md:leading-9">
+          {project.description}
+        </p>
+
+        <div className="my-8 grid gap-4 sm:grid-cols-2">
+          <div className="bento-card p-5">
+            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--muted)]">
+              Role
+            </p>
+            <p className="mt-2 text-sm font-bold leading-7 text-[var(--text-strong)]">
+              {project.role}
+            </p>
+          </div>
+          <div className="bento-card p-5">
+            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--muted)]">
+              Result
+            </p>
+            <p className="mt-2 text-sm leading-7 text-[var(--muted-strong)]">
+              {project.businessValue}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {project.techStack.map((tech) => (
+            <span className="tag-chip" key={tech}>
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <AnchorButton href={project.links.details} size="lg">
+            View Details
+            <ArrowUpRight aria-hidden="true" className="size-4" />
+          </AnchorButton>
+          <AnchorButton href="#contact" size="lg" variant="secondary">
+            Discuss Similar Work
+          </AnchorButton>
+        </div>
       </div>
-    </motion.div>
+
+      <div className="relative z-10">
+        <div className="mb-4 flex items-center justify-between gap-4">
+          <p className="stamp-label">Workflow preview</p>
+          <div className="mascot-badge size-16 bg-[var(--gold-soft)]">
+            <Mascot className="size-20 translate-y-2 scale-125" decorative pose="laptop" />
+          </div>
+        </div>
+        <ProjectArtwork featured project={project} />
+      </div>
+    </motion.article>
+  );
+}
+
+function ProjectCard({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
+  return (
+    <motion.article
+      className="bento-card group flex flex-col p-6 transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)]"
+      id={`project-${project.id}`}
+      initial={{ opacity: 0, y: 24 }}
+      style={
+        {
+          "--card-accent": cardAccents[(index + 1) % cardAccents.length],
+        } as CSSProperties
+      }
+      transition={{
+        delay: index * 0.05,
+        duration: 0.55,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+      viewport={{ once: true, margin: "-100px" }}
+      whileInView={{ opacity: 1, y: 0 }}
+    >
+      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
+        <Badge tone={index % 2 === 0 ? "warm" : "default"}>
+          {project.status}
+        </Badge>
+        <span className="text-sm font-extrabold text-[var(--muted)]">
+          {String(index + 2).padStart(2, "0")}
+        </span>
+      </div>
+
+      <ProjectArtwork project={project} />
+
+      <div className="mt-6 flex flex-1 flex-col">
+        <h3 className="font-display text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
+          {project.title}
+        </h3>
+        <p className="mt-4 text-sm font-semibold leading-7 text-[var(--muted-strong)]">
+          {project.problemSolved}
+        </p>
+        <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
+          {project.businessValue}
+        </p>
+
+        <div className="mt-6 flex flex-wrap gap-2">
+          {project.techStack.slice(0, 4).map((tech) => (
+            <span className="tag-chip" key={tech}>
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div className="mt-auto pt-7">
+          <AnchorButton href={project.links.details} variant="outline">
+            View Details
+            <ArrowUpRight aria-hidden="true" className="size-4" />
+          </AnchorButton>
+        </div>
+      </div>
+    </motion.article>
   );
 }
 
 export function WorkSection() {
+  const featuredProject = projects[0];
+  const projectGrid = projects.slice(1);
+
+  if (!featuredProject) return null;
+
   return (
     <section className="section-shell" id="work">
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Selected Work"
-          title="Project cards with the problem, role, stack, and result up front."
-          description="The visuals are playful, but the structure stays practical: what was hard, what I handled, and how the system helped."
+          title="A cleaner case-study gallery for practical systems."
+          description="One featured build gets the full story. The rest stay easy to scan with problem, value, tech, and a direct path to details."
         />
 
-        <WorkMascotCallout />
+        <FeaturedProjectCard project={featuredProject} />
 
-        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project, index) => (
-            <motion.article
-              className={cx(
-                "collectible-card group p-4 md:p-5",
-                index === 0 && "md:col-span-2 xl:grid xl:grid-cols-[0.95fr_1.05fr] xl:gap-5",
-                index === 1 && "xl:row-span-2",
-              )}
-              id={`project-${project.id}`}
-              initial={{ opacity: 0, y: 28 }}
-              key={project.id}
-              style={
-                {
-                  "--card-accent": cardAccents[index % cardAccents.length],
-                } as CSSProperties
-              }
-              transition={{
-                delay: index * 0.04,
-                duration: 0.6,
-                ease: [0.16, 1, 0.3, 1],
-              }}
-              viewport={{ once: true, margin: "-100px" }}
-              whileInView={{ opacity: 1, y: 0 }}
-            >
-              <div className="relative z-10 flex min-h-full flex-col">
-                <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-                  <Badge tone={index === 1 ? "accent" : "warm"}>
-                    {project.status}
-                  </Badge>
-                  <span className="rounded-full border border-[color:var(--border)] bg-[var(--surface)] px-3 py-1 text-sm font-extrabold text-[var(--muted)]">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-                </div>
-
-                <h3 className="font-display text-balance text-2xl font-extrabold leading-tight text-[var(--text-strong)] md:text-3xl">
-                  {project.title}
-                </h3>
-                <p className="mt-4 text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--accent-strong)]">
-                  Problem solved
-                </p>
-                <p className="mt-2 text-base leading-7 text-[var(--muted-strong)]">
-                  {project.problemSolved}
-                </p>
-
-                <div className="my-5 grid gap-3">
-                  <div className="rounded-lg border border-dashed border-[color:var(--border-strong)] bg-[color-mix(in_srgb,var(--surface)_72%,transparent)] p-3">
-                    <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--muted)]">
-                      Role
-                    </p>
-                    <p className="mt-1 text-sm font-semibold leading-6 text-[var(--text-strong)]">
-                      {project.role}
-                    </p>
-                  </div>
-                  <div className="rounded-lg border border-dashed border-[color:var(--border-strong)] bg-[color-mix(in_srgb,var(--surface)_72%,transparent)] p-3">
-                    <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--muted)]">
-                      Result
-                    </p>
-                    <p className="mt-1 text-sm leading-6 text-[var(--muted-strong)]">
-                      {project.businessValue}
-                    </p>
-                  </div>
-                </div>
-
-                <p className="text-sm leading-7 text-[var(--muted)]">
-                  {project.description}
-                </p>
-
-                <div className="mt-5 flex flex-wrap gap-2">
-                  {project.techStack.map((tech) => (
-                    <span
-                      className="mini-ticket px-3 py-1.5 text-xs font-bold text-[var(--muted-strong)] transition duration-200 group-hover:-translate-y-0.5"
-                      key={tech}
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="mt-auto pt-6">
-                  <AnchorButton href={project.links.details} variant="outline">
-                    View Details
-                    <ArrowUpRight aria-hidden="true" className="size-4" />
-                  </AnchorButton>
-                </div>
-              </div>
-
-              <div className={cx("relative z-10 mt-5", index === 0 && "xl:mt-0")}>
-                <ProjectArtwork project={project} />
-              </div>
-            </motion.article>
+        <div className="grid gap-6 md:grid-cols-2">
+          {projectGrid.map((project, index) => (
+            <ProjectCard index={index} key={project.id} project={project} />
           ))}
         </div>
       </div>

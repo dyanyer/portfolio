@@ -21,7 +21,7 @@ export function SectionHeading({
   return (
     <motion.div
       className={cx(
-        "mb-9 flex flex-col gap-5 md:mb-14",
+        "mb-12 flex flex-col gap-6 md:mb-16 lg:mb-20",
         align === "center" && "items-center text-center",
       )}
       initial={{ opacity: 0, y: 22 }}
@@ -29,24 +29,23 @@ export function SectionHeading({
       viewport={{ once: true, margin: "-100px" }}
       whileInView={{ opacity: 1, y: 0 }}
     >
-      <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+      <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
         <div
           className={cx(
-            "max-w-3xl",
+            "max-w-4xl",
             align === "center" && "mx-auto flex flex-col items-center",
           )}
         >
-          <div className="mb-4 flex items-center gap-3">
-            <span className="h-2 w-10 rounded-full washi-strip" aria-hidden="true" />
+          <div className="mb-5 flex items-center gap-3">
             <p className="stamp-label">
               {eyebrow}
             </p>
           </div>
-          <h2 className="font-display max-w-4xl text-balance text-3xl font-extrabold leading-tight text-[var(--text-strong)] md:text-5xl">
+          <h2 className="font-display max-w-5xl text-balance text-4xl font-extrabold leading-[1.08] text-[var(--text-strong)] md:text-5xl lg:text-6xl">
             {title}
           </h2>
           {description ? (
-            <p className="mt-4 max-w-2xl text-base leading-8 text-[var(--muted)] md:text-lg">
+            <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--muted-strong)] md:text-lg md:leading-9">
               {description}
             </p>
           ) : null}

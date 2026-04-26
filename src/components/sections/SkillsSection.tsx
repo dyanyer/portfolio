@@ -14,43 +14,45 @@ export function SkillsSection() {
           description="Tools only matter when they ship outcomes. These bento boxes connect the stack to the kind of work I can take from request to working feature."
         />
 
-        <div className="grid gap-5 lg:grid-cols-[0.3fr_0.7fr] lg:items-start">
+        <div className="grid gap-8 lg:grid-cols-[0.28fr_0.72fr] lg:items-start">
           <motion.div
-            className="ink-panel night-cafe-glow relative overflow-hidden p-5 lg:sticky lg:top-28"
+            className="bento-card relative overflow-hidden p-6 lg:sticky lg:top-28"
             initial={{ opacity: 0, y: 22 }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true, margin: "-100px" }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <p className="stamp-label">
-              Stack energy
-            </p>
-            <p className="font-display mt-5 text-2xl font-extrabold leading-tight">
+            <div className="flex items-center justify-between gap-4">
+              <p className="stamp-label">Stack energy</p>
+              <div className="mascot-badge size-16 bg-[var(--gold-soft)]">
+                <Mascot className="size-20 translate-y-2 scale-125" decorative pose="happy" />
+              </div>
+            </div>
+            <p className="font-display mt-6 text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
               Friendly brand, serious delivery.
             </p>
-            <p className="mt-4 text-sm leading-7 text-[color-mix(in_srgb,var(--cream)_76%,transparent)]">
+            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
               I group skills by the kind of system they help deliver, not by a
               long tool list.
             </p>
-            <div className="relative mt-5 h-64 overflow-hidden rounded-lg bg-[rgb(255_244_223_/_0.06)]">
-              <motion.div
-                animate={{ y: [0, -8, 0] }}
-                className="absolute inset-x-0 bottom-0 mx-auto h-64 w-52"
-                transition={{ duration: 5.8, ease: "easeInOut", repeat: Infinity }}
-              >
-                <Mascot className="h-full w-full" pose="celebrate" />
-              </motion.div>
+            <div className="mt-6 grid gap-3">
+              {["Plan", "Build", "Explain"].map((label) => (
+                <span className="tag-chip w-full justify-between" key={label}>
+                  {label}
+                  <span className="size-2 rounded-full bg-[var(--matcha)]" />
+                </span>
+              ))}
             </div>
           </motion.div>
 
-          <div className="grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
             {skillCategories.map((category, index) => {
               const Icon = category.icon;
 
               return (
                 <motion.div
                   className={[
-                    "stationery-card group p-5 transition duration-200 hover:-translate-y-1",
+                    "bento-card group p-6 transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)]",
                     index === 0 ? "md:col-span-2 xl:col-span-2" : "",
                     index === 3 ? "xl:col-span-2" : "",
                   ].join(" ")}
@@ -73,17 +75,17 @@ export function SkillsSection() {
                     </span>
                   </div>
 
-                  <h3 className="font-display mt-6 text-xl font-extrabold text-[var(--text-strong)]">
+                  <h3 className="font-display mt-7 text-xl font-extrabold text-[var(--text-strong)]">
                     {category.title}
                   </h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+                  <p className="mt-3 text-sm leading-7 text-[var(--muted)] md:min-h-16">
                     {category.description}
                   </p>
 
-                  <div className="mt-6 flex flex-wrap gap-2">
+                  <div className="mt-7 flex flex-wrap gap-2">
                     {category.skills.map((skill) => (
                       <span
-                        className="mini-ticket px-3 py-1.5 text-xs font-bold text-[var(--muted-strong)] transition duration-200 group-hover:-translate-y-0.5 group-hover:border-[color:var(--accent-border)]"
+                        className="tag-chip transition duration-200 group-hover:-translate-y-0.5 group-hover:border-[color:var(--accent-border)]"
                         key={skill}
                       >
                         {skill}

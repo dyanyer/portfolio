@@ -14,20 +14,22 @@ export function ProcessSection() {
           description="A practical workflow for turning a rough request into data structures, backend behavior, interface states, and something useful enough to hand off."
         />
 
-        <div className="grid gap-8 lg:grid-cols-[0.38fr_0.62fr] lg:items-start">
+        <div className="grid gap-10 lg:grid-cols-[0.34fr_0.66fr] lg:items-start">
           <motion.div
-            className="manga-panel relative overflow-hidden p-6 lg:sticky lg:top-28"
+            className="bento-card relative overflow-hidden p-6 lg:sticky lg:top-28"
             initial={{ opacity: 0, y: 20 }}
             transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
             viewport={{ once: true, margin: "-100px" }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <div className="absolute right-5 top-5 h-7 w-24 rotate-[5deg] washi-strip" />
             <div className="relative">
-              <p className="stamp-label">
-                Project flow
-              </p>
-              <p className="font-display mt-5 text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
+              <div className="flex items-center justify-between gap-4">
+                <p className="stamp-label">Project flow</p>
+                <div className="mascot-badge size-16 bg-[var(--sky-soft)]">
+                  <Mascot className="size-20 translate-y-2 scale-125" decorative pose="walking" />
+                </div>
+              </div>
+              <p className="font-display mt-6 text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
                 Reduce ambiguity before it becomes technical debt.
               </p>
               <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
@@ -35,14 +37,20 @@ export function ProcessSection() {
                 interface, database, and backend behavior can support the actual
                 workflow.
               </p>
-              <div className="mt-5 h-56 overflow-hidden rounded-lg bg-[var(--sky-soft)]">
-                <motion.div
-                  animate={{ x: [0, 8, 0], y: [0, -6, 0] }}
-                  className="mx-auto h-56 w-48"
-                  transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
-                >
-                  <Mascot className="h-full w-full" pose="walking" />
-                </motion.div>
+              <div className="mt-6 grid gap-3">
+                {["Scope", "Build", "Verify"].map((label, index) => (
+                  <div
+                    className="flex items-center gap-3 rounded-lg border border-[color:var(--border)] bg-[var(--surface)] p-3"
+                    key={label}
+                  >
+                    <span className="grid size-7 place-items-center rounded-full bg-[var(--matcha-soft)] text-xs font-extrabold text-[var(--muted-strong)]">
+                      {index + 1}
+                    </span>
+                    <span className="text-sm font-bold text-[var(--text-strong)]">
+                      {label}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -58,13 +66,13 @@ export function ProcessSection() {
               style={{ height: "100%" }}
             />
 
-            <div className="grid gap-4">
+            <div className="grid gap-5">
               {processSteps.map((step, index) => {
                 const Icon = step.icon;
 
                 return (
                   <motion.div
-                    className="sticker-card relative p-5 transition duration-200 md:grid md:grid-cols-[5rem_1fr] md:gap-5"
+                    className="bento-card relative p-6 transition duration-200 hover:-translate-y-0.5 hover:border-[color:var(--accent-border)] md:grid md:grid-cols-[5rem_1fr] md:gap-6"
                     initial={{ opacity: 0, x: 24 }}
                     key={step.step}
                     transition={{
@@ -73,7 +81,6 @@ export function ProcessSection() {
                       ease: [0.16, 1, 0.3, 1],
                     }}
                     viewport={{ once: true, margin: "-100px" }}
-                    whileHover={{ x: 4 }}
                     whileInView={{ opacity: 1, x: 0 }}
                   >
                     <span className="absolute -left-[2.05rem] top-6 grid size-9 place-items-center rounded-full border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_10%,transparent)] md:-left-[2.45rem]">
@@ -83,10 +90,10 @@ export function ProcessSection() {
                       {step.step}
                     </p>
                     <div>
-                      <h3 className="font-display mt-3 text-lg font-extrabold text-[var(--text-strong)] md:mt-0">
+                      <h3 className="font-display mt-3 text-xl font-extrabold text-[var(--text-strong)] md:mt-0">
                         {step.title}
                       </h3>
-                      <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
+                      <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
                         {step.description}
                       </p>
                     </div>

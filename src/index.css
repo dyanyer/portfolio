@@ -26,24 +26,24 @@
   --accent: #f5745f;
   --accent-strong: #b93e31;
   --accent-foreground: #fffaf2;
-  --accent-soft: rgb(245 116 95 / 0.14);
-  --accent-border: rgb(185 62 49 / 0.28);
-  --gold: #f6b84b;
-  --gold-soft: rgb(246 184 75 / 0.2);
+  --accent-soft: rgb(245 116 95 / 0.1);
+  --accent-border: rgb(185 62 49 / 0.24);
+  --gold: #dea448;
+  --gold-soft: rgb(222 164 72 / 0.18);
   --matcha: #8ca66c;
-  --matcha-soft: rgb(140 166 108 / 0.16);
-  --sky: #83aeca;
-  --sky-soft: rgb(131 174 202 / 0.17);
+  --matcha-soft: rgb(140 166 108 / 0.18);
+  --sky: #7ca7bd;
+  --sky-soft: rgb(124 167 189 / 0.13);
   --brown: #8a6048;
   --brown-soft: rgb(138 96 72 / 0.14);
   --cream: #fff1cf;
-  --paper-speck: rgb(81 54 38 / 0.1);
-  --grid: rgb(66 45 34 / 0.085);
+  --paper-speck: rgb(81 54 38 / 0.07);
+  --grid: rgb(66 45 34 / 0.055);
   --line: #211814;
-  --glow: rgb(245 116 95 / 0.18);
-  --shadow-soft: 0 16px 34px rgb(60 39 28 / 0.12);
-  --shadow-strong: 0 22px 68px rgb(60 39 28 / 0.2);
-  --shadow-sticker: 5px 6px 0 rgb(33 24 20 / 0.1);
+  --glow: rgb(245 116 95 / 0.2);
+  --shadow-soft: 0 18px 42px rgb(60 39 28 / 0.1);
+  --shadow-strong: 0 26px 72px rgb(60 39 28 / 0.18);
+  --shadow-sticker: 4px 5px 0 rgb(33 24 20 / 0.09);
   --background: 32 100% 96%;
   --foreground: 19 36% 9%;
   --card: 42 100% 99%;
@@ -71,19 +71,19 @@
   --accent: #ff9b76;
   --accent-strong: #ffc267;
   --accent-foreground: #1a1110;
-  --accent-soft: rgb(255 155 118 / 0.14);
-  --accent-border: rgb(255 194 103 / 0.31);
+  --accent-soft: rgb(255 155 118 / 0.12);
+  --accent-border: rgb(255 194 103 / 0.28);
   --gold: #ffc267;
   --gold-soft: rgb(255 194 103 / 0.18);
   --matcha: #b4c98a;
   --matcha-soft: rgb(180 201 138 / 0.14);
   --sky: #96b6cc;
-  --sky-soft: rgb(150 182 204 / 0.13);
+  --sky-soft: rgb(150 182 204 / 0.11);
   --brown: #d0a17f;
   --brown-soft: rgb(208 161 127 / 0.14);
   --cream: #ffedc9;
-  --paper-speck: rgb(255 236 210 / 0.08);
-  --grid: rgb(255 236 210 / 0.07);
+  --paper-speck: rgb(255 236 210 / 0.06);
+  --grid: rgb(255 236 210 / 0.055);
   --line: #ffead3;
   --glow: rgb(255 155 118 / 0.2);
   --shadow-soft: 0 18px 46px rgb(0 0 0 / 0.36);
@@ -143,10 +143,10 @@ a {
   min-height: 100vh;
   overflow-x: clip;
   background:
-    linear-gradient(90deg, transparent 31px, var(--grid) 32px),
-    linear-gradient(180deg, transparent 31px, var(--grid) 32px),
+    linear-gradient(90deg, transparent 39px, var(--grid) 40px),
+    linear-gradient(180deg, transparent 39px, var(--grid) 40px),
     linear-gradient(180deg, var(--page), var(--page-soft) 47%, var(--page));
-  background-size: 32px 32px, 32px 32px, auto;
+  background-size: 40px 40px, 40px 40px, auto;
   transition: background-color 220ms ease, color 220ms ease;
 }
 
@@ -160,9 +160,9 @@ a {
     radial-gradient(circle at 20% 30%, var(--paper-speck) 0 1px, transparent 1.5px),
     radial-gradient(circle at 80% 70%, var(--paper-speck) 0 0.8px, transparent 1.4px),
     repeating-linear-gradient(135deg, transparent 0 18px, rgb(255 255 255 / 0.045) 18px 19px, transparent 19px 36px);
-  background-size: 13px 13px, 17px 17px, 160px 160px;
+  background-size: 15px 15px, 21px 21px, 190px 190px;
   mask-image: linear-gradient(to bottom, black 0%, black 48%, transparent 86%);
-  opacity: 0.62;
+  opacity: 0.46;
 }
 
 .portfolio-shell::after {
@@ -171,7 +171,7 @@ a {
   top: 0;
   bottom: 0;
   left: clamp(1rem, 6vw, 6rem);
-  width: 0.7rem;
+  width: 0.45rem;
   pointer-events: none;
   content: "";
   background:
@@ -180,7 +180,7 @@ a {
       color-mix(in srgb, var(--accent) 58%, transparent) 0 8px,
       transparent 8px 16px
     );
-  opacity: 0.18;
+  opacity: 0.11;
 }
 
 .portfolio-shell > * {
@@ -233,7 +233,7 @@ a {
 
 .section-shell {
   position: relative;
-  padding: 5rem 1rem;
+  padding: 6.25rem 1rem;
   scroll-margin-top: 7rem;
 }
 
@@ -243,10 +243,9 @@ a {
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(to bottom, color-mix(in srgb, var(--surface) 32%, transparent), transparent 20%),
-    repeating-linear-gradient(90deg, transparent 0 28px, color-mix(in srgb, var(--accent) 12%, transparent) 28px 29px, transparent 29px 58px);
+    linear-gradient(to bottom, color-mix(in srgb, var(--surface) 24%, transparent), transparent 18%);
   border-top: 1px dashed var(--border);
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 .section-shell > * {
@@ -302,6 +301,15 @@ a {
     linear-gradient(180deg, var(--surface-strong), var(--paper));
   background-size: 12px 12px, auto;
   box-shadow: var(--shadow-sticker), var(--shadow-soft);
+}
+
+.bento-card {
+  position: relative;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--surface-strong) 94%, transparent), color-mix(in srgb, var(--paper) 94%, transparent));
+  box-shadow: var(--shadow-soft);
 }
 
 .sticker-card {
@@ -369,7 +377,7 @@ a {
   font-weight: 800;
   letter-spacing: 0.16em;
   line-height: 1;
-  padding: 0.42rem 0.55rem;
+  padding: 0.48rem 0.62rem;
   text-transform: uppercase;
   transform: rotate(-1deg);
 }
@@ -381,13 +389,26 @@ a {
   box-shadow: 2px 3px 0 color-mix(in srgb, var(--line) 8%, transparent);
 }
 
+.tag-chip {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--surface) 88%, transparent);
+  color: var(--muted-strong);
+  font-size: 0.75rem;
+  font-weight: 800;
+  line-height: 1;
+  padding: 0.5rem 0.72rem;
+}
+
 .washi-strip {
   border-radius: 3px;
   background:
     repeating-linear-gradient(
       -45deg,
-      color-mix(in srgb, var(--accent) 44%, transparent) 0 7px,
-      color-mix(in srgb, var(--gold) 32%, transparent) 7px 14px
+      color-mix(in srgb, var(--gold) 48%, transparent) 0 7px,
+      color-mix(in srgb, var(--matcha) 24%, transparent) 7px 14px
     );
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.08);
 }
@@ -434,6 +455,18 @@ a {
   box-shadow: var(--shadow-sticker), var(--shadow-soft);
 }
 
+.case-study-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-strong);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 1px 1px, var(--paper-speck) 0 0.6px, transparent 1px),
+    linear-gradient(180deg, var(--surface-strong), var(--paper));
+  background-size: 14px 14px, auto;
+  box-shadow: var(--shadow-strong);
+}
+
 .collectible-card::before {
   position: absolute;
   top: 0.9rem;
@@ -456,6 +489,16 @@ a {
     linear-gradient(180deg, color-mix(in srgb, var(--card-accent, var(--accent)) 11%, transparent) 1px, transparent 1px),
     color-mix(in srgb, var(--surface-muted) 72%, var(--surface));
   background-size: 20px 20px;
+}
+
+.mascot-badge {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--cream);
+  box-shadow: 3px 4px 0 color-mix(in srgb, var(--line) 10%, transparent);
 }
 
 .night-cafe-glow {
@@ -520,7 +563,13 @@ a {
 
 @media (min-width: 768px) {
   .section-shell {
-    padding: 6.8rem 1rem;
+    padding: 8rem 1rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-shell {
+    padding: 9rem 1rem;
   }
 }
 
