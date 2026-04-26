@@ -1,332 +1,251 @@
-import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
-import type { CSSProperties } from "react";
+import { ArrowUpRight, Star } from "lucide-react";
+import laptop from "@/assets/mascot/laptop.png";
 
-import { Mascot } from "@/components/mascot/Mascot";
-import { Badge } from "@/components/ui/badge";
-import { AnchorButton } from "@/components/ui/button";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { projects, type Project } from "@/data/portfolio";
-import { cx } from "@/lib/utils";
+type Project = {
+  title: string;
+  problem: string;
+  desc: string;
+  stack: string[];
+  value: string;
+  tag: string;
+  role: string;
+  status: "Live" | "Shipped" | "In Progress";
+  href?: string;
+  featured?: boolean;
+};
 
-const cardAccents = [
-  "var(--accent)",
-  "var(--sky)",
-  "var(--matcha)",
-  "var(--gold)",
-  "var(--brown)",
+const projects: Project[] = [
+  {
+    title: "HR & Payroll Management System",
+    problem: "Manual payroll & HR tracking causing errors and delays.",
+    desc: "End-to-end employee, attendance, leave, and payroll engine with role-based access.",
+    stack: ["Laravel", "MySQL", "Livewire", "Tailwind"],
+    value: "Cut payroll cycle from 3 days to under 2 hours.",
+    tag: "Enterprise",
+    role: "Lead Developer",
+    status: "Live",
+    href: "#",
+    featured: true,
+  },
+  {
+    title: "Multi-Tenant SaaS Platform",
+    problem: "Scaling a single product across many client orgs.",
+    desc: "Tenant isolation, billing-ready architecture, and per-tenant configuration.",
+    stack: ["Laravel", "PostgreSQL", "Redis"],
+    value: "Onboard new tenants in minutes, not days.",
+    tag: "SaaS",
+    role: "Full-Stack",
+    status: "Shipped",
+    href: "#",
+  },
+  {
+    title: "Free Meal Stub QR System",
+    problem: "Paper stubs were lost, duplicated, or forged.",
+    desc: "QR-based meal claim flow with real-time validation and reporting.",
+    stack: ["React", "Node", "QR API"],
+    value: "Zero duplicate claims since launch.",
+    tag: "QR / Ops",
+    role: "Solo Build",
+    status: "Live",
+    href: "#",
+  },
+  {
+    title: "BIR 1601-C Payroll Tax Module",
+    problem: "Compliance reports built by hand each month.",
+    desc: "Automated PH withholding tax computation and 1601-C generation.",
+    stack: ["Laravel", "PDF Engine"],
+    value: "Compliance reports in one click.",
+    tag: "Fintech",
+    role: "Module Owner",
+    status: "Shipped",
+    href: "#",
+  },
+  {
+    title: "Modern Business Landing Pages",
+    problem: "Brands needed conversion-focused web presence.",
+    desc: "Editorial, animation-rich landing pages with CMS-friendly structure.",
+    stack: ["React", "Tailwind", "Framer Motion"],
+    value: "Avg. 2.4× lift on lead form submissions.",
+    tag: "Marketing",
+    role: "Designer + Dev",
+    status: "Live",
+    href: "#",
+  },
 ];
 
-function VisualBars() {
-  const rows = [
-    ["Records", 78],
-    ["Attendance", 58],
-    ["Payroll", 86],
-    ["Reports", 44],
-  ] as const;
+const statusColor: Record<Project["status"], string> = {
+  Live: "bg-emerald-500/15 text-emerald-500 border-emerald-500/30",
+  Shipped: "bg-tan/15 text-tan border-tan/40",
+  "In Progress": "bg-amber-500/15 text-amber-500 border-amber-500/30",
+};
 
+export const WorkSection = () => {
   return (
-    <div className="grid gap-3">
-      {rows.map(([label, width], index) => (
-        <div
-          className="rounded-lg border border-[color:var(--border)] bg-[var(--surface)] p-3 shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_6%,transparent)]"
-          key={label}
-        >
-          <div className="flex items-center justify-between">
-            <span className="text-xs font-bold text-[var(--muted)]">
-              {label}
-            </span>
-            <span className="size-2 rounded-full bg-[var(--card-accent)]" />
-          </div>
-          <div className="mt-3 h-2 rounded-full bg-[var(--border)]">
-            <motion.div
-              className="h-full rounded-full bg-[var(--card-accent)]"
-              initial={{ width: 0 }}
-              transition={{ duration: 0.75, delay: index * 0.08 }}
-              viewport={{ once: true }}
-              whileInView={{ width: `${width}%` }}
-            />
-          </div>
-        </div>
-      ))}
-    </div>
-  );
-}
+    <section id="work" className="relative py-24 md:py-32 bg-warm/40 noise overflow-hidden">
+      {/* Decorative bg */}
+      <div aria-hidden className="absolute top-20 -left-20 h-72 w-72 rounded-full bg-tan/10 blur-3xl" />
+      <div aria-hidden className="absolute bottom-20 -right-20 h-80 w-80 rounded-full bg-accent/10 blur-3xl" />
 
-function QrMockup() {
-  return (
-    <div className="mx-auto grid size-36 rotate-[-1deg] grid-cols-5 gap-1 rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface)] p-4 shadow-[4px_5px_0_color-mix(in_srgb,var(--line)_10%,transparent)]">
-      {Array.from({ length: 25 }).map((_, index) => (
-        <span
-          className={cx(
-            "rounded-sm",
-            [0, 1, 2, 5, 10, 12, 14, 18, 20, 21, 24].includes(index)
-              ? "bg-[var(--text-strong)]"
-              : "bg-[var(--matcha-soft)]",
-          )}
-          key={index}
-        />
-      ))}
-    </div>
-  );
-}
-
-function ArchitectureMockup() {
-  return (
-    <div className="relative min-h-56">
-      <div className="absolute left-1/2 top-1/2 size-24 -translate-x-1/2 -translate-y-1/2 rounded-lg border-2 border-[color:var(--line)] bg-[color-mix(in_srgb,var(--card-accent)_20%,transparent)]" />
-      {["Tenant A", "Tenant B", "Portal", "DB"].map((item, index) => (
-        <motion.div
-          className={cx(
-            "absolute rounded-lg border border-[color:var(--border)] bg-[var(--surface)] px-4 py-3 text-sm font-bold text-[var(--text-strong)] shadow-[var(--shadow-soft)]",
-            index === 0 && "left-0 top-3",
-            index === 1 && "right-0 top-8",
-            index === 2 && "bottom-3 left-4",
-            index === 3 && "bottom-7 right-6",
-          )}
-          key={item}
-          transition={{ duration: 0.2 }}
-          whileHover={{ y: -3 }}
-        >
-          {item}
-        </motion.div>
-      ))}
-    </div>
-  );
-}
-
-function LandingMockup() {
-  return (
-    <div className="rotate-[1deg] rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface)] p-4 shadow-[4px_5px_0_color-mix(in_srgb,var(--line)_10%,transparent)]">
-      <div className="h-24 rounded-lg bg-[linear-gradient(135deg,var(--ink-panel),var(--card-accent))]" />
-      <div className="mt-4 grid gap-2">
-        <div className="h-3 w-3/4 rounded-full bg-[color-mix(in_srgb,var(--text-strong)_80%,transparent)]" />
-        <div className="h-3 w-1/2 rounded-full bg-[color-mix(in_srgb,var(--muted)_45%,transparent)]" />
-        <div className="mt-3 h-10 w-32 rounded-full bg-[var(--card-accent)]" />
-      </div>
-    </div>
-  );
-}
-
-function ProjectArtwork({
-  project,
-  featured = false,
-}: {
-  project: Project;
-  featured?: boolean;
-}) {
-  const Icon = project.icon;
-
-  return (
-    <motion.div
-      className={cx(
-        "project-scene relative overflow-hidden p-5",
-        featured ? "min-h-[23rem] md:min-h-[27rem]" : "min-h-[17rem]",
-      )}
-      transition={{ duration: 0.22 }}
-      whileHover={{ y: -4 }}
-    >
-      <div className="relative flex items-start gap-3 border-b border-dashed border-[color:var(--border-strong)] pb-5">
-        <span className="grid size-10 place-items-center rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_10%,transparent)]">
-          <Icon aria-hidden="true" className="size-5" />
-        </span>
-        <div className="min-w-0">
-          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[var(--muted)]">
-            {project.visualLabel}
-          </p>
-          <p className="mt-1 text-sm leading-6 text-[var(--muted-strong)]">
-            {project.visualNote}
-          </p>
-        </div>
-      </div>
-
-      <div className={cx("relative", featured ? "mt-8" : "mt-6")}>
-        {project.visualType === "architecture" ? <ArchitectureMockup /> : null}
-        {project.visualType === "qr" ? <QrMockup /> : null}
-        {project.visualType === "landing" ? <LandingMockup /> : null}
-        {project.visualType === "dashboard" || project.visualType === "report" ? (
-          <VisualBars />
-        ) : null}
-      </div>
-
-      <div className="absolute bottom-5 left-5 right-5 flex flex-wrap gap-2">
-        {project.techStack.slice(0, 3).map((tech) => (
-          <span className="tag-chip bg-[var(--surface-strong)]" key={tech}>
-            {tech}
-          </span>
-        ))}
-      </div>
-    </motion.div>
-  );
-}
-
-function FeaturedProjectCard({ project }: { project: Project }) {
-  return (
-    <motion.article
-      className="case-study-card mb-8 grid gap-8 p-6 md:p-8 lg:grid-cols-[0.9fr_1.1fr] lg:p-10"
-      id={`project-${project.id}`}
-      initial={{ opacity: 0, y: 20 }}
-      style={{ "--card-accent": cardAccents[0] } as CSSProperties}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      viewport={{ once: true, margin: "-100px" }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
-      <div className="relative z-10 flex flex-col">
-        <div className="mb-8 flex flex-wrap items-center gap-3">
-          <Badge tone="accent">Featured case study</Badge>
-          <Badge tone="warm">{project.status}</Badge>
-        </div>
-
-        <h3 className="font-display text-balance text-3xl font-extrabold leading-tight text-[var(--text-strong)] md:text-5xl">
-          {project.title}
-        </h3>
-        <p className="mt-5 max-w-2xl text-lg font-semibold leading-8 text-[var(--muted-strong)]">
-          {project.problemSolved}
-        </p>
-        <p className="mt-5 max-w-2xl text-base leading-8 text-[var(--muted)] md:text-lg md:leading-9">
-          {project.description}
-        </p>
-
-        <div className="my-8 grid gap-4 sm:grid-cols-2">
-          <div className="bento-card p-5">
-            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--muted)]">
-              Role
-            </p>
-            <p className="mt-2 text-sm font-bold leading-7 text-[var(--text-strong)]">
-              {project.role}
+      <div className="container relative">
+        <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8 mb-14">
+          <div className="max-w-2xl">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-tan">
+              <span className="h-px w-8 bg-tan/50" />
+              Work — 作品
+            </div>
+            <h2 className="font-display mt-3 text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.02] tracking-tight text-balance">
+              Selected systems, shipped to <span className="italic text-tan-glow">real users</span>.
+            </h2>
+            <p className="mt-4 text-foreground/70 text-base md:text-lg max-w-xl leading-relaxed">
+              From payroll engines to SaaS platforms — built to be used daily, not just demoed once.
             </p>
           </div>
-          <div className="bento-card p-5">
-            <p className="text-xs font-extrabold uppercase tracking-[0.14em] text-[var(--muted)]">
-              Result
-            </p>
-            <p className="mt-2 text-sm leading-7 text-[var(--muted-strong)]">
-              {project.businessValue}
-            </p>
-          </div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+            className="hidden md:flex items-center gap-3 rounded-2xl border border-border bg-card/70 backdrop-blur p-3 pr-5 shadow-soft"
+          >
+            <img src={laptop} alt="" className="h-16 w-16 object-contain animate-float" />
+            <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground max-w-[12rem] leading-relaxed">
+              <span className="text-tan">// 5 case studies</span><br />
+              shipped & maintained
+            </div>
+          </motion.div>
         </div>
 
-        <div className="flex flex-wrap gap-2">
-          {project.techStack.map((tech) => (
-            <span className="tag-chip" key={tech}>
-              {tech}
-            </span>
-          ))}
-        </div>
+        {/* Featured */}
+        <FeaturedCard project={projects[0]} />
 
-        <div className="mt-9 flex flex-col gap-3 sm:flex-row">
-          <AnchorButton href={project.links.details} size="lg">
-            View Details
-            <ArrowUpRight aria-hidden="true" className="size-4" />
-          </AnchorButton>
-          <AnchorButton href="#contact" size="lg" variant="secondary">
-            Discuss Similar Work
-          </AnchorButton>
-        </div>
-      </div>
-
-      <div className="relative z-10">
-        <div className="mb-4 flex items-center justify-between gap-4">
-          <p className="stamp-label">Workflow preview</p>
-          <div className="mascot-badge size-16 bg-[var(--gold-soft)]">
-            <Mascot className="size-20 translate-y-2 scale-125" decorative pose="laptop" />
-          </div>
-        </div>
-        <ProjectArtwork featured project={project} />
-      </div>
-    </motion.article>
-  );
-}
-
-function ProjectCard({
-  project,
-  index,
-}: {
-  project: Project;
-  index: number;
-}) {
-  return (
-    <motion.article
-      className="bento-card group flex flex-col p-6 transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)]"
-      id={`project-${project.id}`}
-      initial={{ opacity: 0, y: 24 }}
-      style={
-        {
-          "--card-accent": cardAccents[(index + 1) % cardAccents.length],
-        } as CSSProperties
-      }
-      transition={{
-        delay: index * 0.05,
-        duration: 0.55,
-        ease: [0.16, 1, 0.3, 1],
-      }}
-      viewport={{ once: true, margin: "-100px" }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
-      <div className="mb-5 flex flex-wrap items-center justify-between gap-3">
-        <Badge tone={index % 2 === 0 ? "warm" : "default"}>
-          {project.status}
-        </Badge>
-        <span className="text-sm font-extrabold text-[var(--muted)]">
-          {String(index + 2).padStart(2, "0")}
-        </span>
-      </div>
-
-      <ProjectArtwork project={project} />
-
-      <div className="mt-6 flex flex-1 flex-col">
-        <h3 className="font-display text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
-          {project.title}
-        </h3>
-        <p className="mt-4 text-sm font-semibold leading-7 text-[var(--muted-strong)]">
-          {project.problemSolved}
-        </p>
-        <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-          {project.businessValue}
-        </p>
-
-        <div className="mt-6 flex flex-wrap gap-2">
-          {project.techStack.slice(0, 4).map((tech) => (
-            <span className="tag-chip" key={tech}>
-              {tech}
-            </span>
-          ))}
-        </div>
-
-        <div className="mt-auto pt-7">
-          <AnchorButton href={project.links.details} variant="outline">
-            View Details
-            <ArrowUpRight aria-hidden="true" className="size-4" />
-          </AnchorButton>
-        </div>
-      </div>
-    </motion.article>
-  );
-}
-
-export function WorkSection() {
-  const featuredProject = projects[0];
-  const projectGrid = projects.slice(1);
-
-  if (!featuredProject) return null;
-
-  return (
-    <section className="section-shell" id="work">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Selected Work"
-          title="A cleaner case-study gallery for practical systems."
-          description="One featured build gets the full story. The rest stay easy to scan with problem, value, tech, and a direct path to details."
-        />
-
-        <FeaturedProjectCard project={featuredProject} />
-
-        <div className="grid gap-6 md:grid-cols-2">
-          {projectGrid.map((project, index) => (
-            <ProjectCard index={index} key={project.id} project={project} />
-          ))}
+        {/* Grid */}
+        <div className="grid md:grid-cols-2 gap-5 mt-5">
+          {projects.slice(1).map((p, i) => <ProjectCard key={p.title} project={p} index={i} />)}
         </div>
       </div>
     </section>
   );
-}
+};
+
+const StatusPill = ({ status }: { status: Project["status"] }) => (
+  <span className={`inline-flex items-center gap-1.5 rounded-full border font-mono text-[10px] px-2.5 py-1 uppercase tracking-wider ${statusColor[status]}`}>
+    <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+    {status}
+  </span>
+);
+
+const FeaturedCard = ({ project }: { project: Project }) => (
+  <motion.a
+    href={project.href}
+    initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }}
+    transition={{ duration: 0.65 }}
+    className="group block rounded-3xl border border-border bg-card overflow-hidden shadow-card hover:border-tan/60 hover:shadow-glow transition-all"
+  >
+    <div className="grid md:grid-cols-5">
+      <div className="md:col-span-3 p-7 md:p-10 relative">
+        <div className="flex flex-wrap items-center gap-2 mb-4">
+          <span className="inline-flex items-center gap-1.5 rounded-full bg-tan-gradient text-tan-foreground font-mono text-[10px] px-2.5 py-1 uppercase tracking-wider">
+            <Star className="h-3 w-3 fill-current" /> Featured
+          </span>
+          <span className="rounded-full bg-secondary font-mono text-[10px] px-2.5 py-1 uppercase tracking-wider">{project.tag}</span>
+          <StatusPill status={project.status} />
+        </div>
+        <h3 className="font-display text-3xl md:text-4xl lg:text-[42px] font-bold leading-[1.05] tracking-tight">{project.title}</h3>
+        <p className="mt-3 text-foreground/75 leading-relaxed">{project.desc}</p>
+        <div className="mt-6 grid sm:grid-cols-2 gap-5 text-sm">
+          <div>
+            <div className="font-mono text-[10px] uppercase text-muted-foreground tracking-wider mb-1.5">Problem</div>
+            <div className="text-foreground/80 leading-relaxed">{project.problem}</div>
+          </div>
+          <div>
+            <div className="font-mono text-[10px] uppercase text-tan tracking-wider mb-1.5">Outcome</div>
+            <div className="text-foreground/80 leading-relaxed">{project.value}</div>
+          </div>
+        </div>
+        <div className="mt-6 flex flex-wrap gap-1.5">
+          {project.stack.map((s) => (
+            <span key={s} className="rounded-md border border-border bg-background/60 px-2 py-1 font-mono text-[11px]">{s}</span>
+          ))}
+        </div>
+        <div className="mt-7 inline-flex items-center gap-2 font-medium text-tan group-hover:gap-3 transition-all">
+          View case study
+          <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-12 group-hover:translate-x-0.5" />
+        </div>
+      </div>
+
+      {/* Browser mockup */}
+      <div className="md:col-span-2 relative bg-ink min-h-[280px] overflow-hidden">
+        <div className="absolute inset-0 grid-paper opacity-15" />
+        <div className="absolute -top-16 -right-10 h-48 w-48 rounded-full bg-tan/30 blur-3xl" />
+        <div className="absolute inset-6 rounded-2xl bg-card/95 border border-border/50 shadow-card overflow-hidden">
+          <div className="flex items-center gap-1.5 px-3 py-2 border-b border-border/60 bg-secondary/40">
+            <span className="h-2.5 w-2.5 rounded-full bg-destructive/70" />
+            <span className="h-2.5 w-2.5 rounded-full bg-tan" />
+            <span className="h-2.5 w-2.5 rounded-full bg-emerald-500/80" />
+            <span className="ml-2 font-mono text-[10px] text-muted-foreground">payroll.app/dashboard</span>
+          </div>
+          <div className="p-4 space-y-3">
+            <div className="flex items-center justify-between">
+              <div className="h-3 w-1/3 bg-tan/40 rounded" />
+              <div className="h-3 w-12 bg-secondary rounded-full" />
+            </div>
+            <div className="h-2 w-1/2 bg-muted rounded" />
+            <div className="grid grid-cols-3 gap-2 mt-3">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="rounded-lg bg-secondary/60 border border-border p-2 space-y-1.5">
+                  <div className="h-1.5 w-2/3 bg-tan/50 rounded" />
+                  <div className="h-3 w-1/2 bg-foreground/30 rounded" />
+                </div>
+              ))}
+            </div>
+            <div className="space-y-1.5 mt-2">
+              {[...Array(3)].map((_, i) => (
+                <div key={i} className="flex items-center gap-2">
+                  <div className="h-2 w-2 rounded-full bg-tan/40" />
+                  <div className="h-1.5 flex-1 bg-muted rounded" />
+                  <div className="h-1.5 w-12 bg-secondary rounded" />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </motion.a>
+);
+
+const ProjectCard = ({ project, index }: { project: Project; index: number }) => (
+  <motion.a
+    href={project.href}
+    initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.5, delay: index * 0.08 }}
+    whileHover={{ y: -4 }}
+    className="group relative block rounded-3xl border border-border bg-card p-6 md:p-7 shadow-soft hover:shadow-card hover:border-tan/60 transition-all overflow-hidden"
+  >
+    <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-tan/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+
+    <div className="relative flex items-center justify-between mb-4 flex-wrap gap-2">
+      <div className="flex items-center gap-2 flex-wrap">
+        <span className="rounded-full bg-secondary font-mono text-[10px] px-2.5 py-1 uppercase tracking-wider">{project.tag}</span>
+        <StatusPill status={project.status} />
+      </div>
+      <ArrowUpRight className="h-5 w-5 text-muted-foreground transition group-hover:text-tan group-hover:rotate-12" />
+    </div>
+    <h3 className="relative font-display text-2xl font-bold leading-tight tracking-tight">{project.title}</h3>
+    <p className="relative mt-2 text-sm text-foreground/70 leading-relaxed">{project.desc}</p>
+    <div className="relative mt-5 pt-5 border-t border-dashed border-border space-y-2 text-sm">
+      <div className="text-foreground/75 leading-relaxed">
+        <span className="font-mono text-[10px] uppercase text-muted-foreground tracking-wider mr-2">Problem</span>{project.problem}
+      </div>
+      <div className="text-foreground/85 leading-relaxed">
+        <span className="font-mono text-[10px] uppercase text-tan tracking-wider mr-2">Value</span>{project.value}
+      </div>
+    </div>
+    <div className="relative mt-5 flex items-center justify-between gap-3">
+      <div className="flex flex-wrap gap-1.5">
+        {project.stack.map((s) => (
+          <span key={s} className="rounded-md border border-border px-2 py-0.5 font-mono text-[11px]">{s}</span>
+        ))}
+      </div>
+      <span className="font-mono text-[10px] uppercase text-muted-foreground tracking-wider whitespace-nowrap">{project.role}</span>
+    </div>
+  </motion.a>
+);

@@ -1,103 +1,93 @@
 import { motion } from "framer-motion";
+import { Palette, Server, Rocket, Users } from "lucide-react";
+import happy from "@/assets/mascot/happy.png";
+import { Sparkle } from "@/components/ui/Sparkle";
 
-import { Mascot } from "@/components/mascot/Mascot";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { skillCategories } from "@/data/portfolio";
+const groups = [
+  {
+    icon: Palette, title: "Build Interfaces", kanji: "界",
+    skills: ["React", "TypeScript", "Tailwind", "Framer Motion", "shadcn/ui", "Figma → Code"],
+  },
+  {
+    icon: Server, title: "Build Systems", kanji: "系",
+    skills: ["Laravel", "PHP", "Node.js", "MySQL", "PostgreSQL", "REST APIs", "Auth & RBAC"],
+  },
+  {
+    icon: Rocket, title: "Ship & Maintain", kanji: "発",
+    skills: ["Vercel", "VPS / Nginx", "Git workflows", "CI basics", "Logs & Monitoring"],
+  },
+  {
+    icon: Users, title: "Work With Teams", kanji: "協",
+    skills: ["Requirements", "Spec writing", "Code review", "Async comms", "Demoing"],
+  },
+];
 
-export function SkillsSection() {
+export const SkillsSection = () => {
   return (
-    <section className="section-shell" id="skills">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Skills"
-          title="Capabilities grouped by what I can deliver."
-          description="Tools only matter when they ship outcomes. These bento boxes connect the stack to the kind of work I can take from request to working feature."
-        />
+    <section id="skills" className="relative py-24 md:py-32 overflow-hidden noise">
+      <div className="absolute inset-0 dot-paper opacity-30 mask-fade-edges pointer-events-none" />
+      <div aria-hidden className="absolute top-1/3 left-1/2 -translate-x-1/2 h-[28rem] w-[28rem] rounded-full bg-tan/10 blur-3xl" />
 
-        <div className="grid gap-8 lg:grid-cols-[0.28fr_0.72fr] lg:items-start">
-          <motion.div
-            className="bento-card relative overflow-hidden p-6 lg:sticky lg:top-28"
-            initial={{ opacity: 0, y: 22 }}
-            transition={{ duration: 0.55, ease: [0.16, 1, 0.3, 1] }}
-            viewport={{ once: true, margin: "-100px" }}
-            whileInView={{ opacity: 1, y: 0 }}
-          >
-            <div className="flex items-center justify-between gap-4">
-              <p className="stamp-label">Stack energy</p>
-              <div className="mascot-badge size-16 bg-[var(--gold-soft)]">
-                <Mascot className="size-20 translate-y-2 scale-125" decorative pose="happy" />
-              </div>
+      <div className="container relative">
+        <div className="grid lg:grid-cols-12 gap-10 items-end mb-14">
+          <div className="lg:col-span-8">
+            <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-tan">
+              <span className="h-px w-8 bg-tan/50" />
+              Toolkit — 技術
             </div>
-            <p className="font-display mt-6 text-2xl font-extrabold leading-tight text-[var(--text-strong)]">
-              Friendly brand, serious delivery.
+            <h2 className="font-display mt-3 text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.02] tracking-tight text-balance">
+              A toolkit built for <span className="italic text-tan-glow">shipping</span>, not just listing.
+            </h2>
+            <p className="mt-4 text-foreground/70 text-base md:text-lg max-w-xl leading-relaxed">
+              Tools I reach for daily — chosen because they get systems out the door cleanly.
             </p>
-            <p className="mt-4 text-sm leading-7 text-[var(--muted)]">
-              I group skills by the kind of system they help deliver, not by a
-              long tool list.
-            </p>
-            <div className="mt-6 grid gap-3">
-              {["Plan", "Build", "Explain"].map((label) => (
-                <span className="tag-chip w-full justify-between" key={label}>
-                  {label}
-                  <span className="size-2 rounded-full bg-[var(--matcha)]" />
-                </span>
-              ))}
-            </div>
-          </motion.div>
-
-          <div className="grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
-            {skillCategories.map((category, index) => {
-              const Icon = category.icon;
-
-              return (
-                <motion.div
-                  className={[
-                    "bento-card group p-6 transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)]",
-                    index === 0 ? "md:col-span-2 xl:col-span-2" : "",
-                    index === 3 ? "xl:col-span-2" : "",
-                  ].join(" ")}
-                  initial={{ opacity: 0, y: 22 }}
-                  key={category.title}
-                  transition={{
-                    delay: index * 0.06,
-                    duration: 0.55,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                >
-                  <div className="flex items-center justify-between gap-4">
-                    <span className="grid size-12 place-items-center rounded-lg border-2 border-[color:var(--line)] bg-[var(--surface-strong)] text-[var(--accent-strong)] shadow-[2px_3px_0_color-mix(in_srgb,var(--line)_10%,transparent)] transition duration-200 group-hover:-rotate-3">
-                      <Icon aria-hidden="true" className="size-5" />
-                    </span>
-                    <span className="stamp-label rotate-[1deg]">
-                      {category.score}
-                    </span>
-                  </div>
-
-                  <h3 className="font-display mt-7 text-xl font-extrabold text-[var(--text-strong)]">
-                    {category.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-7 text-[var(--muted)] md:min-h-16">
-                    {category.description}
-                  </p>
-
-                  <div className="mt-7 flex flex-wrap gap-2">
-                    {category.skills.map((skill) => (
-                      <span
-                        className="tag-chip transition duration-200 group-hover:-translate-y-0.5 group-hover:border-[color:var(--accent-border)]"
-                        key={skill}
-                      >
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                </motion.div>
-              );
-            })}
           </div>
+          <div className="lg:col-span-4 relative flex items-end justify-center">
+            <Sparkle className="absolute top-2 right-1/3 animate-sparkle" size={16} />
+            <Sparkle className="absolute bottom-10 left-1/4 animate-sparkle [animation-delay:-1s]" size={12} />
+            <motion.img
+              src={happy} alt="Excited chibi" className="h-44 w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)]"
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+              animate={{ rotate: [0, -3, 3, 0], y: [0, -6, 0] }}
+              transition={{ rotate: { duration: 3, repeat: Infinity }, y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}
+            />
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-5">
+          {groups.map((g, i) => (
+            <motion.div
+              key={g.title}
+              initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
+              whileHover={{ y: -4 }}
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-soft hover:shadow-card hover:border-tan/60 transition-all"
+            >
+              <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-tan/15 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute right-5 top-5 font-mincho text-5xl text-tan/10 group-hover:text-tan/25 transition-colors leading-none select-none">
+                {g.kanji}
+              </div>
+
+              <div className="relative flex items-center gap-3 mb-5">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-cream group-hover:bg-tan-gradient group-hover:text-tan-foreground transition-all">
+                  <g.icon className="h-5 w-5" />
+                </div>
+                <h3 className="font-display text-2xl font-bold tracking-tight">{g.title}</h3>
+              </div>
+              <div className="relative flex flex-wrap gap-2">
+                {g.skills.map((s) => (
+                  <span
+                    key={s}
+                    className="rounded-full border border-border bg-background/60 backdrop-blur px-3 py-1.5 text-sm font-medium hover:border-tan hover:text-tan hover:-translate-y-0.5 transition-all cursor-default"
+                  >
+                    {s}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};

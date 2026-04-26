@@ -2,20 +2,30 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/chibi_logo.png" />
-    <link rel="apple-touch-icon" href="/chibi_logo.png" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="icon" type="image/png" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#1a1614" />
+    <title>John Rey Rebusquillo - Full-Stack Web Developer</title>
     <meta
       name="description"
-      content="John Rey Rebusquillo, full-stack web developer building practical business systems with polished, friendly interfaces."
+      content="Full-stack developer building practical web systems: HR and payroll, SaaS portals, dashboards, QR features, and modern landing pages."
     />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>John Rey Rebusquillo</title>
+    <meta property="og:title" content="John Rey Rebusquillo - Full-Stack Web Developer" />
+    <meta
+      property="og:description"
+      content="I build web systems with clarity, structure, and personality."
+    />
+    <meta property="og:type" content="website" />
+    <script>
+      (function () {
+        try {
+          var theme = localStorage.getItem("theme");
+          if (theme !== "light") document.documentElement.classList.add("dark");
+        } catch (error) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

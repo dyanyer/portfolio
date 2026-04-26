@@ -1,75 +1,114 @@
-import { ArrowUpRight } from "lucide-react";
 import { motion } from "framer-motion";
+import { Mail, Github, Linkedin, ArrowUpRight, MessageCircle } from "lucide-react";
+import pointing from "@/assets/mascot/pointing.png";
+import { Sparkle } from "@/components/ui/Sparkle";
 
-import { Mascot } from "@/components/mascot/Mascot";
-import { AnchorButton } from "@/components/ui/button";
-import { contactLinks } from "@/data/portfolio";
+const links = [
+  { icon: Mail, label: "Email Me", value: "hello@johnrey.dev", href: "mailto:hello@johnrey.dev" },
+  { icon: Github, label: "View GitHub", value: "github.com/johnrey", href: "https://github.com/" },
+  { icon: Linkedin, label: "Connect on LinkedIn", value: "linkedin.com/in/johnrey", href: "https://linkedin.com/" },
+];
 
-export function ContactSection() {
+export const ContactSection = () => {
   return (
-    <section className="section-shell" id="contact">
-      <motion.div
-        className="ink-panel night-cafe-glow relative mx-auto max-w-7xl overflow-hidden p-6 md:p-10 lg:p-12"
-        initial={{ opacity: 0, y: 28 }}
-        transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
-        viewport={{ once: true, margin: "-120px" }}
-        whileInView={{ opacity: 1, y: 0 }}
-      >
-        <div className="relative grid gap-10 lg:grid-cols-[1fr_0.38fr] lg:items-end">
-          <div>
-            <div className="mb-4 flex items-center gap-3">
-              <p className="stamp-label">
-                Contact
+    <section id="contact" className="relative py-24 md:py-32 overflow-hidden">
+      <div className="container">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7 }}
+          className="relative rounded-[2rem] md:rounded-[2.5rem] bg-ink text-cream overflow-hidden shadow-card noise"
+        >
+          {/* Pattern + glows */}
+          <div className="absolute inset-0 grid-paper opacity-[0.07]" />
+          <div className="absolute -top-10 left-0 right-0 h-32 seigaiha opacity-30" />
+          <motion.div
+            aria-hidden
+            className="absolute -top-24 -right-24 h-80 w-80 rounded-full bg-tan/40 blur-3xl"
+            animate={{ scale: [1, 1.1, 1], opacity: [0.5, 0.7, 0.5] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <div className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-tan/15 blur-3xl" />
+
+          {/* Vertical kanji decoration */}
+          <div aria-hidden className="hidden md:flex absolute right-6 top-6 flex-col items-center gap-2 font-mincho text-2xl text-cream/15 leading-none select-none">
+            <span>始</span><span>め</span><span>る</span>
+          </div>
+
+          <div className="relative grid lg:grid-cols-12 gap-10 p-8 md:p-14">
+            <div className="lg:col-span-7">
+              <div className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-tan">
+                <span className="h-px w-8 bg-tan/50" />
+                Contact — 連絡
+              </div>
+              <motion.h2
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="font-display mt-3 text-4xl md:text-6xl lg:text-[68px] font-bold leading-[1.02] tracking-tight text-balance"
+              >
+                Let's build something{" "}
+                <span className="italic text-tan-glow inline-flex items-center gap-2">
+                  useful
+                  <Sparkle size={20} className="inline-block animate-sparkle" />
+                </span>.
+              </motion.h2>
+              <p className="mt-5 text-cream/80 text-lg max-w-xl leading-relaxed">
+                Whether you need a business system, feature implementation, dashboard, or polished landing page — I can help plan and build a solution that fits the real need.
               </p>
-            </div>
-            <h2 className="font-display max-w-4xl text-balance text-4xl font-extrabold leading-tight md:text-6xl lg:text-7xl">
-              Let&apos;s build something useful, clear, and a little memorable.
-            </h2>
-            <p className="mt-6 max-w-3xl text-base leading-8 text-[color-mix(in_srgb,var(--cream)_78%,transparent)] md:text-lg md:leading-9">
-              Whether you need a business system, feature implementation,
-              dashboard, or polished landing page, I can help plan and build a
-              solution that fits the real need.
-            </p>
 
-            <div className="mt-9 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-              {contactLinks.map((link, index) => {
-                const Icon = link.icon;
+              {/* Primary CTA */}
+              <motion.a
+                href="mailto:hello@johnrey.dev"
+                whileHover={{ y: -2 }}
+                className="group mt-8 inline-flex items-center gap-2.5 rounded-full bg-tan-gradient text-tan-foreground px-6 py-3.5 font-medium shadow-glow transition-all hover:shadow-card"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Start a conversation
+                <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-12 group-hover:translate-x-0.5" />
+              </motion.a>
 
-                return (
-                  <AnchorButton
-                    className="justify-between"
-                    href={link.href}
-                    key={link.label}
-                    rel="noreferrer"
-                    size="lg"
-                    target={link.href.startsWith("http") ? "_blank" : undefined}
-                    variant={index === 0 ? "primary" : index === 3 ? "outline" : "secondary"}
+              <div className="mt-10 grid sm:grid-cols-1 gap-3 max-w-xl">
+                {links.map((l, i) => (
+                  <motion.a
+                    key={l.label} href={l.href} target="_blank" rel="noopener noreferrer"
+                    initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}
+                    transition={{ delay: i * 0.08 }}
+                    whileHover={{ x: 4 }}
+                    className="group flex items-center gap-4 rounded-2xl border border-cream/15 bg-cream/5 backdrop-blur px-5 py-4 hover:bg-cream/10 hover:border-tan/60 transition-all"
                   >
-                    <span className="flex items-center gap-2">
-                      <Icon aria-hidden="true" className="size-4" />
-                      {link.label}
-                    </span>
-                    <ArrowUpRight aria-hidden="true" className="size-4" />
-                  </AnchorButton>
-                );
-              })}
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-tan-gradient text-tan-foreground shadow-glow">
+                      <l.icon className="h-5 w-5" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <div className="font-display text-lg font-semibold leading-tight">{l.label}</div>
+                      <div className="text-sm text-cream/60 font-mono truncate">{l.value}</div>
+                    </div>
+                    <ArrowUpRight className="h-5 w-5 text-cream/60 transition group-hover:text-tan group-hover:rotate-12 group-hover:translate-x-0.5 shrink-0" />
+                  </motion.a>
+                ))}
+              </div>
             </div>
-          </div>
 
-          <div className="bento-card relative min-h-72 overflow-hidden bg-[rgb(255_244_223_/_0.06)]">
-            <div className="speech-bubble absolute left-4 top-5 z-20 max-w-44 p-3 text-sm font-bold leading-6 text-[var(--text-strong)]">
-              Send the rough idea. I can help shape the workflow.
+            {/* Mascot */}
+            <div className="lg:col-span-5 relative flex items-end justify-center min-h-[320px]">
+              <div aria-hidden className="absolute inset-0 flex items-center justify-center">
+                <div className="h-72 w-72 rounded-full bg-tan/25 blur-3xl" />
+              </div>
+              <div aria-hidden className="absolute inset-6 rounded-[2rem] border border-cream/10 bg-cream/[0.03]" />
+              <div aria-hidden className="absolute inset-10 rounded-full border border-dashed border-cream/15 animate-[spin_60s_linear_infinite]" />
+              <div aria-hidden className="absolute bottom-6 h-3 w-2/3 rounded-full bg-black/40 blur-md" />
+              <Sparkle className="absolute top-10 left-6 z-20 animate-sparkle text-tan" size={20} />
+              <Sparkle className="absolute top-1/3 right-2 z-20 animate-sparkle [animation-delay:-1.2s] text-tan" size={14} />
+              <motion.img
+                src={pointing} alt="Chibi pointing"
+                initial={{ opacity: 0, scale: 0.85, y: 30 }} whileInView={{ opacity: 1, scale: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                animate={{ y: [0, -8, 0] }}
+                className="relative z-10 max-h-[420px] w-auto object-contain drop-shadow-[0_30px_40px_rgba(0,0,0,0.6)]"
+                style={{ animation: "float 5s ease-in-out infinite" }}
+              />
             </div>
-            <motion.div
-              animate={{ y: [0, -8, 0] }}
-              className="absolute inset-x-0 bottom-0 mx-auto h-80 w-64"
-              transition={{ duration: 6, ease: "easeInOut", repeat: Infinity }}
-            >
-              <Mascot className="h-full w-full" pose="pointing" />
-            </motion.div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </section>
   );
-}
+};

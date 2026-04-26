@@ -1,133 +1,110 @@
 import { motion } from "framer-motion";
+import { Workflow, Code2, Wrench, TrendingUp } from "lucide-react";
+import thinking from "@/assets/mascot/thinking.png";
+import { Sparkle } from "@/components/ui/Sparkle";
 
-import { Mascot } from "@/components/mascot/Mascot";
-import { SectionHeading } from "@/components/ui/section-heading";
-import { aboutHighlights, aboutStats } from "@/data/portfolio";
+const cards = [
+  { icon: Workflow, title: "Workflow-first thinking", desc: "Map the real process before touching code." },
+  { icon: Code2, title: "Clean implementation", desc: "Readable, maintainable, well-structured systems." },
+  { icon: Wrench, title: "Practical features", desc: "Build what solves the actual business problem." },
+  { icon: TrendingUp, title: "Continuous improvement", desc: "Iterate based on real usage, not assumptions." },
+];
 
-function AboutMascotPanel() {
+export const AboutSection = () => {
   return (
-    <motion.div
-      className="bento-card relative overflow-hidden p-6 lg:sticky lg:top-28"
-      initial={{ opacity: 0, y: 24 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      viewport={{ once: true, margin: "-100px" }}
-      whileInView={{ opacity: 1, y: 0 }}
-    >
-      <div className="relative flex items-start justify-between gap-4">
-        <div>
-          <p className="stamp-label">Developer story</p>
-          <p className="font-display mt-5 text-2xl font-extrabold leading-tight text-[var(--text-strong)] md:text-3xl">
-            Useful software starts before the first component.
-          </p>
-        </div>
-        <div className="mascot-badge size-20 shrink-0 bg-[var(--matcha-soft)]">
-          <Mascot className="size-24 translate-y-2 scale-125" decorative pose="thinking" />
-        </div>
-      </div>
-      <div className="speech-bubble relative z-20 mt-7 p-5 text-sm font-semibold leading-7 text-[var(--muted-strong)] md:text-base md:leading-8">
-        I like making the rules visible first, then turning them into screens,
-        data, and actions that feel easy to follow.
-      </div>
-      <div className="mt-8 grid gap-3 sm:grid-cols-2">
-        {["Business rules", "Readable handoff", "Calm delivery", "Usable screens"].map(
-          (label) => (
-            <span className="tag-chip" key={label}>
-              {label}
-            </span>
-          ),
-        )}
-      </div>
-    </motion.div>
-  );
-}
+    <section id="about" className="relative py-24 md:py-32 noise">
+      <div className="container">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          {/* Mascot card */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true, margin: "-100px" }} transition={{ duration: 0.7 }}
+            className="lg:col-span-5 relative"
+          >
+            <div className="relative aspect-[4/5] max-w-sm mx-auto lg:mx-0">
+              {/* Soft ambient glow */}
+              <div className="absolute -inset-2 rounded-[2.4rem] bg-tan/15 blur-3xl" />
+              {/* Card */}
+              <div className="absolute inset-2 rounded-[2rem] bg-warm border border-border/80 shadow-card overflow-hidden noise">
+                <div className="absolute inset-0 grid-paper opacity-40" />
+                <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 h-32 w-2/3 rounded-full bg-tan/30 blur-3xl" />
+              </div>
+              <motion.img
+                src={thinking} alt="Chibi thinking" className="relative z-10 h-full w-full object-contain p-6 drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)]"
+                animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              />
 
-export function AboutSection() {
-  return (
-    <section className="section-shell" id="about">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="About"
-          title="Friendly to work with, serious about the system underneath."
-          description="I build with the person using the system in mind: what they need to check, approve, compute, explain, and hand off."
-        />
+              {/* Floating polaroid sticker */}
+              <motion.div
+                initial={{ opacity: 0, rotate: 0, y: 10 }}
+                whileInView={{ opacity: 1, rotate: 6, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3, type: "spring", stiffness: 180 }}
+                className="absolute -top-3 -right-3 z-20 rounded-2xl bg-card border border-border px-3 py-2 shadow-card"
+              >
+                <div className="flex items-center gap-1.5 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" /> Now
+                </div>
+                <div className="font-display text-sm font-semibold mt-0.5">deep work mode</div>
+              </motion.div>
 
-        <div className="grid gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:items-start">
-          <div className="grid gap-6">
+              {/* Bottom corner sticker */}
+              <motion.div
+                initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ delay: 0.5, type: "spring", stiffness: 180 }}
+                className="absolute -bottom-4 -left-2 z-20 rounded-2xl bg-ink text-cream border border-border/40 p-3 shadow-card -rotate-[6deg]"
+              >
+                <div className="font-mincho text-2xl leading-none">集中</div>
+                <div className="font-mono text-[10px] uppercase tracking-wider text-cream/60 mt-1">focus</div>
+              </motion.div>
+
+              <Sparkle className="absolute top-8 -left-3 z-20 animate-sparkle" size={16} />
+            </div>
+          </motion.div>
+
+          {/* Copy + grid */}
+          <div className="lg:col-span-7">
             <motion.div
-              className="ink-panel night-cafe-glow relative overflow-hidden p-7 md:p-10"
-              initial={{ opacity: 0, y: 18 }}
-              transition={{ duration: 0.58, ease: [0.16, 1, 0.3, 1] }}
-              viewport={{ once: true, margin: "-100px" }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}
+              className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-[0.22em] text-tan"
             >
-              <p className="font-display text-2xl font-extrabold leading-snug md:text-4xl">
-                I am drawn to the quiet parts of software: the approval rule,
-                the payroll edge case, the report someone has to trust.
-              </p>
-              <p className="mt-6 max-w-3xl text-base leading-8 text-[color-mix(in_srgb,var(--cream)_78%,transparent)] md:text-lg md:leading-9">
-                The chibi identity makes this portfolio memorable, but the work
-                stays grounded in business logic: HR records, payroll rules,
-                tenant portals, QR validation, reports, and dashboards.
-              </p>
+              <span className="h-px w-8 bg-tan/50" />
+              About — 紹介
             </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55 }}
+              className="font-display mt-3 text-4xl md:text-5xl lg:text-[56px] font-bold leading-[1.02] tracking-tight text-balance"
+            >
+              A developer brand with personality and{" "}
+              <span className="italic text-tan-glow">practical thinking</span>.
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
+              className="mt-6 text-foreground/75 text-lg max-w-xl leading-relaxed text-pretty"
+            >
+              I focus on real workflows, clear requirements, maintainable code, and useful interfaces. I build systems that solve actual business problems while keeping the experience clean and understandable.
+            </motion.p>
 
-            <div className="grid gap-4 sm:grid-cols-3">
-              {aboutStats.map((stat, index) => (
+            <div className="mt-10 grid sm:grid-cols-2 gap-4">
+              {cards.map((c, i) => (
                 <motion.div
-                  className="bento-card p-6"
-                  initial={{ opacity: 0, y: 16 }}
-                  key={stat.label}
-                  transition={{ delay: index * 0.06, duration: 0.45 }}
-                  viewport={{ once: true, margin: "-80px" }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  key={c.title}
+                  initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                  transition={{ delay: i * 0.08, duration: 0.45 }}
+                  whileHover={{ y: -4 }}
+                  className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-soft hover:shadow-card hover:border-tan/60 transition-all"
                 >
-                  <p className="font-display text-2xl font-extrabold text-[var(--text-strong)]">
-                    {stat.value}
-                  </p>
-                  <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                    {stat.label}
-                  </p>
+                  <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-tan/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
+                  <div className="relative inline-flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-tan mb-3 group-hover:bg-tan-gradient group-hover:text-tan-foreground transition-all">
+                    <c.icon className="h-5 w-5" />
+                  </div>
+                  <div className="relative font-display text-lg font-semibold leading-tight">{c.title}</div>
+                  <div className="relative text-sm text-muted-foreground mt-1.5 leading-relaxed">{c.desc}</div>
                 </motion.div>
               ))}
             </div>
-
-            <div className="grid gap-4 sm:grid-cols-2">
-              {aboutHighlights.map((item, index) => {
-                const Icon = item.icon;
-
-                return (
-                  <motion.div
-                    className="bento-card group p-6 transition duration-200 hover:-translate-y-1 hover:border-[color:var(--accent-border)]"
-                    initial={{ opacity: 0, y: 18 }}
-                    key={item.title}
-                    transition={{ delay: index * 0.05, duration: 0.5 }}
-                    viewport={{ once: true, margin: "-90px" }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                  >
-                    <div className="flex items-center justify-between gap-4">
-                      <Icon
-                        aria-hidden="true"
-                        className="size-5 text-[var(--accent-strong)]"
-                      />
-                      <span className="rounded-full border border-[color:var(--border)] bg-[var(--matcha-soft)] px-2 py-1 text-[0.65rem] font-extrabold uppercase tracking-[0.12em] text-[var(--muted-strong)]">
-                        Note
-                      </span>
-                    </div>
-                    <h3 className="font-display mt-6 text-lg font-extrabold text-[var(--text-strong)]">
-                      {item.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
-                      {item.description}
-                    </p>
-                  </motion.div>
-                );
-              })}
-            </div>
           </div>
-
-          <AboutMascotPanel />
         </div>
       </div>
     </section>
   );
-}
+};
