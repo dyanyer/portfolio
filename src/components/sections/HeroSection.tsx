@@ -4,11 +4,11 @@ import waving from "@/assets/mascot/waving.png";
 import { Sparkle } from "@/components/ui/Sparkle";
 
 const floatChips = [
-  { label: "Laravel",  x: "-10%", y: "12%", delay: 0.2 },
-  { label: "React",    x: "94%",  y: "6%",  delay: 0.32 },
-  { label: "TypeScript", x: "-18%", y: "58%", delay: 0.44 },
-  { label: "SaaS",     x: "98%",  y: "44%", delay: 0.56 },
-  { label: "Dashboards", x: "82%", y: "84%", delay: 0.68 },
+  { label: "Laravel", x: "-10%", y: "12%", delay: 0.2, duration: 3.2 },
+  { label: "React", x: "94%", y: "6%", delay: 0.32, duration: 4.1 },
+  { label: "TypeScript", x: "-18%", y: "58%", delay: 0.44, duration: 3.7 },
+  { label: "SaaS", x: "98%", y: "44%", delay: 0.56, duration: 4.5 },
+  { label: "Dashboards", x: "82%", y: "84%", delay: 0.68, duration: 3.9 },
 ];
 
 export const HeroSection = () => {
@@ -166,7 +166,7 @@ export const HeroSection = () => {
                 >
                   <motion.div
                     animate={{ y: [0, -8, 0] }}
-                    transition={{ duration: 3 + Math.random() * 2, repeat: Infinity, ease: "easeInOut" }}
+                    transition={{ duration: c.duration, repeat: Infinity, ease: "easeInOut" }}
                     whileHover={{ scale: 1.08, y: -4 }}
                     className="rounded-full border border-border/80 bg-card/95 backdrop-blur px-3 py-1.5 text-[11px] font-mono shadow-soft whitespace-nowrap cursor-default"
                   >
