@@ -51,7 +51,7 @@ export const Navbar = () => {
             <a href="#home" className="flex items-center gap-2.5 py-2">
               <img
                 src={chibiLogo}
-                alt="John Rey"
+                alt="John Rey portfolio logo"
                 className="h-9 w-9 shrink-0 object-contain"
               />
               <span className="font-display text-[17px] font-semibold leading-none">
@@ -120,7 +120,7 @@ export const Navbar = () => {
                 <div className="flex items-center gap-3">
                   <img
                     src={chibiLogo}
-                    alt="John Rey"
+                    alt="John Rey portfolio logo"
                     className="h-11 w-11 shrink-0 object-contain"
                   />
                   <span className="font-display text-xl font-bold text-foreground">Menu</span>

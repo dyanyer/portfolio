@@ -9,7 +9,7 @@ export const Footer = () => {
           <div className="flex items-center gap-3">
             <img
               src={chibiLogo}
-              alt=""
+              alt="John Rey portfolio logo"
               className="h-10 w-10 shrink-0 object-contain"
             />
             <div>

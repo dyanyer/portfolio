@@ -156,7 +156,7 @@ export const WorkSection = () => {
           >
             <img
               src={laptop}
-              alt=""
+              alt="SaaS web application project preview"
               className="h-16 w-16 object-contain animate-float"
             />
             <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground max-w-[12rem] leading-relaxed">

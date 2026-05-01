@@ -89,7 +89,7 @@ export const ProcessSection = () => {
           className="mt-20 flex justify-center relative"
         >
           <div className="absolute bottom-0 h-2 w-48 rounded-full bg-tan/20 blur-md" />
-          <img src={walking} alt="" className="relative h-32 w-auto object-contain animate-float drop-shadow-[0_15px_20px_rgba(0,0,0,0.3)]" />
+          <img src={walking} alt="John Rey portfolio mascot walking through the development process" className="relative h-32 w-auto object-contain animate-float drop-shadow-[0_15px_20px_rgba(0,0,0,0.3)]" />
         </motion.div>
       </div>
     </section>

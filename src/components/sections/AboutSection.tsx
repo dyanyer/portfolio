@@ -29,7 +29,7 @@ export const AboutSection = () => {
                 <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 h-32 w-2/3 rounded-full bg-tan/30 blur-3xl" />
               </div>
               <motion.img
-                src={thinking} alt="Chibi thinking" className="relative z-10 h-full w-full object-contain p-6 drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)]"
+                src={thinking} alt="John Rey full-stack developer portfolio mascot thinking" className="relative z-10 h-full w-full object-contain p-6 drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)]"
                 animate={{ y: [0, -8, 0] }} transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
               />
 
@@ -81,7 +81,7 @@ export const AboutSection = () => {
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               className="mt-6 text-foreground/75 text-lg max-w-xl leading-relaxed text-pretty"
             >
-              I focus on real workflows, clear requirements, maintainable code, and useful interfaces. I build systems that solve actual business problems while keeping the experience clean and understandable.
+              John Rey is a full-stack developer focused on building practical business systems, including HR platforms, payroll workflows, SaaS tools, and modern web applications. I keep requirements clear, code maintainable, and interfaces easy to understand.
             </motion.p>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-4">

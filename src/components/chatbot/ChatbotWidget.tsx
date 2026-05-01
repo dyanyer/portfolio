@@ -91,7 +91,7 @@ export function ChatbotWidget() {
               >
                 <img
                   src={logo}
-                  alt="Portfolio assistant"
+                  alt="John Rey portfolio assistant"
                   className="h-10 w-10 rounded-full object-contain"
                 />
               </motion.span>
@@ -136,7 +136,7 @@ export function ChatbotWidget() {
             >
               {/* Logo with glow ring */}
               <div className="relative flex h-9 w-9 shrink-0 items-center justify-center overflow-hidden rounded-full ring-1 ring-tan/50 shadow-[0_0_14px_2px_hsl(var(--tan-glow)/0.35)]">
-                <img src={logo} alt="Assistant" className="h-8 w-8 object-contain" />
+                <img src={logo} alt="John Rey portfolio chatbot logo" className="h-8 w-8 object-contain" />
               </div>
 
               <div className="min-w-0 flex-1">

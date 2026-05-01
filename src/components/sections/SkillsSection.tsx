@@ -46,7 +46,7 @@ export const SkillsSection = () => {
             <Sparkle className="absolute top-2 right-1/3 animate-sparkle" size={16} />
             <Sparkle className="absolute bottom-10 left-1/4 animate-sparkle [animation-delay:-1s]" size={12} />
             <motion.img
-              src={happy} alt="Excited chibi" className="h-44 w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)]"
+              src={happy} alt="John Rey portfolio mascot celebrating full-stack development skills" className="h-44 w-auto object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.3)]"
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
               animate={{ rotate: [0, -3, 3, 0], y: [0, -6, 0] }}
               transition={{ rotate: { duration: 3, repeat: Infinity }, y: { duration: 4, repeat: Infinity, ease: "easeInOut" } }}

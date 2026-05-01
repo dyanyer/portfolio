@@ -72,7 +72,7 @@ export const HeroSection = () => {
               transition={{ duration: 0.65, delay: 0.1 }}
               className="font-display mt-6 text-balance text-[44px] sm:text-6xl lg:text-[78px] font-bold leading-[0.98] tracking-tight"
             >
-              I build web systems with{" "}
+              John Rey builds web systems with{" "}
               <span className="relative inline-block">
                 <span className="italic text-tan-glow">clarity</span>
                 <svg
@@ -99,12 +99,9 @@ export const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.28 }}
               className="mt-6 text-base sm:text-lg text-foreground/80 max-w-xl text-pretty leading-relaxed"
             >
-              Hi, I'm{" "}
-              <span className="font-semibold text-foreground">John Rey</span> —
-              a full-stack developer who turns messy business workflows into
-              clean, maintainable products. From HR &amp; payroll engines to
-              multi-tenant SaaS, dashboards, and editorial landing pages — I
-              focus on systems people actually use every day.
+              Full-Stack Developer building Laravel, React, SaaS, HR, payroll,
+              and business web applications. I turn messy business workflows
+              into clean, maintainable products that teams use every day.
             </motion.p>
 
             <motion.div
