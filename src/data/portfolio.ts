@@ -95,9 +95,9 @@ export type ContactLink = {
 export const personalInfo = {
   name: "John Rey Rebusquillo",
   role: "Full-Stack Web Developer",
-  email: "your-email@example.com",
-  github: "https://github.com/yourusername",
-  linkedin: "https://linkedin.com/in/yourusername",
+  email: "rebusquillojohnrey@gmail.com",
+  github: "https://github.com/dyanyer",
+  linkedin: "https://linkedin.com/in/dyanyer",
   resume: "/resume.pdf",
 };
 

@@ -94,57 +94,76 @@ export const Navbar = () => {
 
       <AnimatePresence>
         {open && (
-          <motion.div
-            className="fixed inset-0 z-[60] lg:hidden"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <div
-              className="absolute inset-0 bg-foreground/40 backdrop-blur-sm"
+          <>
+            <motion.div
+              key="overlay"
+              className="fixed inset-0 z-[60] lg:hidden bg-black/60 backdrop-blur-sm"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
               onClick={() => setOpen(false)}
             />
-            <motion.div
+
+            <motion.aside
+              key="drawer"
+              className="fixed right-0 top-0 z-[70] lg:hidden flex h-dvh w-[86vw] max-w-[420px] flex-col overflow-hidden rounded-l-3xl border-l border-tan/20 bg-background/95 shadow-[0_0_60px_rgba(245,158,66,0.15)] backdrop-blur-xl"
               initial={{ x: "100%" }}
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 28, stiffness: 260 }}
-              className="absolute right-0 top-0 h-full w-[82%] max-w-sm bg-background border-l border-border p-6 flex flex-col"
+              transition={{ type: "spring", damping: 30, stiffness: 280 }}
             >
-              <div className="flex items-center justify-between mb-10">
-                <span className="font-display text-lg font-semibold">Menu</span>
+              <div
+                className="flex items-center justify-between px-6 pb-4"
+                style={{ paddingTop: "max(1.5rem, env(safe-area-inset-top))" }}
+              >
+                <div className="flex items-center gap-3">
+                  <img
+                    src={chibiLogo}
+                    alt="John Rey"
+                    className="h-11 w-11 shrink-0 object-contain"
+                  />
+                  <span className="font-display text-xl font-bold text-foreground">Menu</span>
+                </div>
                 <button
                   onClick={() => setOpen(false)}
-                  aria-label="Close"
-                  className="h-10 w-10 inline-flex items-center justify-center rounded-full border border-border"
+                  aria-label="Close menu"
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-tan/40 bg-tan/10 text-foreground shadow-[0_0_24px_rgba(245,158,66,0.2)] transition hover:bg-tan/20"
                 >
                   <X className="h-5 w-5" />
                 </button>
               </div>
-              <nav className="flex flex-col gap-1">
+
+              <nav className="mt-2 flex-1 overflow-y-auto px-6">
                 {links.map((l, i) => (
                   <motion.a
                     key={l.href}
                     href={l.href}
                     onClick={() => setOpen(false)}
-                    initial={{ x: 20, opacity: 0 }}
+                    initial={{ x: 24, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
-                    transition={{ delay: 0.05 + i * 0.05 }}
-                    className="font-display text-3xl py-2 border-b border-border/60 hover:text-tan transition-colors"
+                    transition={{ delay: 0.06 + i * 0.04, duration: 0.3, ease: "easeOut" }}
+                    className="block border-b border-border/70 py-3.5 font-display text-2xl font-bold leading-tight text-foreground transition-colors hover:text-tan active:scale-[0.98] sm:text-3xl"
                   >
                     {l.label}
                   </motion.a>
                 ))}
               </nav>
-              <a
-                href="#contact"
-                onClick={() => setOpen(false)}
-                className="mt-auto inline-flex items-center justify-center rounded-full bg-primary px-5 py-3 text-primary-foreground font-medium"
+
+              <div
+                className="px-6 pt-6"
+                style={{ paddingBottom: "max(1.5rem, env(safe-area-inset-bottom))" }}
               >
-                Hire me
-              </a>
-            </motion.div>
-          </motion.div>
+                <a
+                  href="#contact"
+                  onClick={() => setOpen(false)}
+                  className="flex w-full items-center justify-center rounded-full bg-tan-gradient px-6 py-4 text-base font-semibold text-[#1a120d] shadow-[0_0_30px_rgba(245,158,66,0.2)] transition hover:-translate-y-0.5"
+                >
+                  Hire me
+                </a>
+              </div>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </>
