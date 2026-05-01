@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# TODO: Replace YOUR-DOMAIN-HERE with the actual production portfolio domain.
 Sitemap: https://johnreyrebusquillo.online/sitemap.xml
