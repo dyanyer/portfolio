@@ -6,7 +6,7 @@ import { Sparkle } from "@/components/ui/Sparkle";
 const floatChips = [
   { label: "Laravel", x: "-10%", y: "12%", delay: 0.2, duration: 3.2 },
   { label: "React", x: "94%", y: "6%", delay: 0.32, duration: 4.1 },
-  { label: "TypeScript", x: "-18%", y: "58%", delay: 0.44, duration: 3.7 },
+  { label: "Mobile Apps", x: "-18%", y: "58%", delay: 0.44, duration: 3.7 },
   { label: "SaaS", x: "98%", y: "44%", delay: 0.56, duration: 4.5 },
   { label: "Dashboards", x: "82%", y: "84%", delay: 0.68, duration: 3.9 },
 ];
@@ -72,9 +72,9 @@ export const HeroSection = () => {
               transition={{ duration: 0.65, delay: 0.1 }}
               className="font-display mt-6 text-balance text-[44px] sm:text-6xl lg:text-[78px] font-bold leading-[0.98] tracking-tight"
             >
-              John Rey builds web systems with{" "}
+              Full-Stack Software{" "}
               <span className="relative inline-block">
-                <span className="italic text-tan-glow">clarity</span>
+                <span className="italic text-tan-glow">Developer</span>
                 <svg
                   className="absolute -bottom-2 left-0 w-full"
                   viewBox="0 0 200 12"
@@ -89,8 +89,7 @@ export const HeroSection = () => {
                   />
                 </svg>
               </span>
-              , <span className="italic text-tan-glow">structure</span> &{" "}
-              <span className="italic text-tan-glow">personality</span>.
+              {"."}
             </motion.h1>
 
             <motion.p
@@ -99,9 +98,9 @@ export const HeroSection = () => {
               transition={{ duration: 0.5, delay: 0.28 }}
               className="mt-6 text-base sm:text-lg text-foreground/80 max-w-xl text-pretty leading-relaxed"
             >
-              Full-Stack Developer building Laravel, React, SaaS, HR, payroll,
-              and business web applications. I turn messy business workflows
-              into clean, maintainable products that teams use every day.
+              I build practical digital systems for businesses: HR and payroll
+              platforms, CRM tools, LMS portals, chatbot systems, dashboards,
+              automation tools, mobile apps, and modern web applications.
             </motion.p>
 
             <motion.div

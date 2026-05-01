@@ -81,7 +81,11 @@ export const AboutSection = () => {
               initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}
               className="mt-6 text-foreground/75 text-lg max-w-xl leading-relaxed text-pretty"
             >
-              John Rey is a full-stack developer focused on building practical business systems, including HR platforms, payroll workflows, SaaS tools, and modern web applications. I keep requirements clear, code maintainable, and interfaces easy to understand.
+              I'm John Rey Rebusquillo, a full-stack software developer focused
+              on building useful digital systems for real business operations.
+              My work includes HR and payroll systems, CRM platforms, LMS
+              portals, chatbot tools, dashboards, SaaS features, mobile
+              applications, and web applications.
             </motion.p>
 
             <div className="mt-10 grid sm:grid-cols-2 gap-4">

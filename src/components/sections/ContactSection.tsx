@@ -106,8 +106,8 @@ export const ContactSection = () => {
               </motion.h2>
               <p className="mt-4 max-w-xl text-sm leading-relaxed text-cream/80 sm:mt-5 sm:text-base md:text-lg">
                 Whether you need a business system, feature implementation,
-                dashboard, or polished landing page — I can help plan and build
-                a solution that fits the real need.
+                dashboard, automation tool, mobile app, or web application — I
+                can help plan and build a solution that fits the real need.
               </p>
 
               {/* Primary CTA */}

@@ -48,7 +48,7 @@ const ICON_MAP: [string, LucideIcon][] = [
   ["spark", Sparkles],
   ["qr", ScanLine],
   ["scan", ScanLine],
-  ["landing", Globe2],
+  ["application", Globe2],
   ["business", Globe2],
 ];
 

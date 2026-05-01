@@ -11,7 +11,7 @@ import {
 const intents = {
   greeting: ["hi", "hello", "hey", "good morning", "good afternoon", "good evening", "howdy"],
   skills: ["skill", "skills", "tech", "technology", "technologies", "stack", "use", "expert", "tools", "know how"],
-  projects: ["project", "projects", "built", "created", "made", "portfolio", "build", "case study", "what have you"],
+  projects: ["project", "projects", "built", "created", "made", "portfolio", "build", "case study", "what have you", "mobile", "crm", "lms", "chatbot", "automation"],
   experience: ["experience", "background", "career", "history", "worked", "years", "position", "role"],
   contact: ["contact", "email", "reach", "hire", "linkedin", "github", "cv", "resume", "get in touch"],
   about: ["about", "who", "introduce", "tell me", "yourself", "bio", "description"],
@@ -31,7 +31,7 @@ function skillsResponse(): string {
   const lines = skillCategories
     .map((c) => `• **${c.title}**: ${c.skills.join(", ")}`)
     .join("\n");
-  return `Here are John Rey's skill areas:\n\n${lines}\n\nHis core stack is **Laravel + PHP** on the backend with **React + TypeScript + Tailwind CSS** on the frontend.`;
+  return `Here are John Rey's skill areas:\n\n${lines}\n\nHis core stack is **Laravel + PHP** on the backend with **React + TypeScript + Tailwind CSS** for mobile-first web interfaces, dashboards, and business applications.`;
 }
 
 function projectsResponse(): string {
@@ -42,7 +42,7 @@ function projectsResponse(): string {
 }
 
 function experienceResponse(): string {
-  return `John Rey is a **Full-Stack Web Developer** specializing in HR/payroll systems, SaaS portals, and business dashboards.\n\nHe works across the full stack — from complex Laravel backends to polished React interfaces.\n\nKey focus areas:\n• HR & payroll systems (attendance, leave, overtime, tax reports)\n• Multi-tenant SaaS architecture\n• QR-based operational workflows\n• Business landing pages and dashboards`;
+  return `John Rey is a **Full-Stack Software Developer** building practical digital systems for businesses.\n\nHe works across the full stack — from Laravel backends and APIs to polished React interfaces for web and mobile-first workflows.\n\nKey focus areas:\n• HR & payroll systems\n• CRM and operations platforms\n• LMS and exam management workflows\n• SaaS dashboards and internal tools\n• Chatbot systems, automation tools, and web applications`;
 }
 
 function contactResponse(): string {
@@ -50,7 +50,7 @@ function contactResponse(): string {
 }
 
 function aboutResponse(): string {
-  return `John Rey Rebusquillo is a **Full-Stack Web Developer** based in the Philippines.\n\nHe specializes in building practical systems — dashboards, HR/payroll platforms, SaaS portals, and operational tools that teams use day-to-day.\n\nHis approach is **workflow-first**: understanding the business process before writing a single line of code.`;
+  return `John Rey Rebusquillo is a **Full-Stack Software Developer** based in the Philippines.\n\nHe specializes in building practical digital systems — HR and payroll platforms, CRM tools, LMS workflows, chatbot interfaces, SaaS dashboards, automation tools, mobile-first apps, and web applications.\n\nHis approach is **workflow-first**: understanding the business process before writing a single line of code.`;
 }
 
 function processResponse(): string {
@@ -69,7 +69,7 @@ function saasResponse(): string {
 }
 
 function frontendResponse(): string {
-  return `On the frontend, John Rey works with:\n\n• **React + TypeScript** — component-based interfaces\n• **Tailwind CSS** — utility-first styling\n• **Framer Motion** — smooth animations\n• **Responsive UI** — mobile-first design\n\nHe builds dashboards, admin portals, landing pages, and data-heavy interfaces.`;
+  return `On the frontend, John Rey works with:\n\n• **React + TypeScript** — component-based interfaces\n• **Tailwind CSS** — utility-first styling\n• **Framer Motion** — smooth animations\n• **Responsive UI** — mobile-first design\n\nHe builds dashboards, admin portals, mobile-first application screens, and data-heavy business interfaces.`;
 }
 
 function backendResponse(): string {

@@ -6,11 +6,11 @@ import { Sparkle } from "@/components/ui/Sparkle";
 const groups = [
   {
     icon: Palette, title: "Build Interfaces", kanji: "界",
-    skills: ["React", "TypeScript", "Tailwind", "Framer Motion", "shadcn/ui", "Figma → Code"],
+    skills: ["React", "TypeScript", "Tailwind", "Mobile UI", "Framer Motion", "shadcn/ui", "Figma to Code"],
   },
   {
     icon: Server, title: "Build Systems", kanji: "系",
-    skills: ["Laravel", "PHP", "Node.js", "MySQL", "PostgreSQL", "REST APIs", "Auth & RBAC"],
+    skills: ["Laravel", "PHP", "Node.js", "MySQL", "PostgreSQL", "REST APIs", "CRM / LMS flows", "Auth & RBAC"],
   },
   {
     icon: Rocket, title: "Ship & Maintain", kanji: "発",

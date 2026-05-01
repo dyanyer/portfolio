@@ -48,7 +48,7 @@ export type ProjectVisualType =
   | "architecture"
   | "qr"
   | "report"
-  | "landing";
+  | "app";
 
 export type Project = {
   id: string;
@@ -58,7 +58,7 @@ export type Project = {
   role: string;
   techStack: string[];
   businessValue: string;
-  status: "System Feature" | "Architecture" | "Compliance" | "Landing Page";
+  status: "System Feature" | "Architecture" | "Compliance" | "Application UI";
   icon: LucideIcon;
   visualType: ProjectVisualType;
   visualLabel: string;
@@ -94,7 +94,7 @@ export type ContactLink = {
 
 export const personalInfo = {
   name: "John Rey Rebusquillo",
-  role: "Full-Stack Web Developer",
+  role: "Full-Stack Software Developer",
   email: "rebusquillojohnrey@gmail.com",
   github: "https://github.com/dyanyer",
   linkedin: "https://linkedin.com/in/dyanyer",
@@ -165,7 +165,7 @@ export const aboutStats = [
 export const projects: Project[] = [
   {
     id: "hr-payroll",
-    title: "HR and Payroll Management System",
+    title: "HR & Payroll Management System",
     problemSolved: "Manual HR workflows and scattered employee records.",
     description:
       "A system for managing employees, attendance, leave, overtime, payroll processing, and reporting workflows.",
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     problemSolved:
       "Multiple clients need separate portals without maintaining separate codebases.",
     description:
-      "A Laravel-based SaaS setup using one codebase with separate tenant databases and subdomain-based client portals.",
+      "A Laravel-based SaaS setup using one codebase with tenant dashboards, separate tenant databases, and subdomain-based client portals.",
     role: "Architecture planning and backend foundation",
     techStack: ["Laravel", "MySQL", "Nginx", "Cloudflare", "VPS", "Queues"],
     businessValue:
@@ -210,10 +210,10 @@ export const projects: Project[] = [
   },
   {
     id: "meal-stub-qr",
-    title: "Free Meal Stub QR System",
+    title: "Business Automation Tools / QR Workflow",
     problemSolved: "Manual tracking of employee meal benefits.",
     description:
-      "A QR-based employee meal benefit feature with automatic stub issuance, validation, usage tracking, and admin review.",
+      "A QR-based business automation feature with automatic meal stub issuance, validation, usage tracking, and admin review.",
     role: "Workflow logic, admin screens, and validation flow",
     techStack: ["Laravel", "MySQL", "QR Code", "Attendance Integration"],
     businessValue:
@@ -253,23 +253,23 @@ export const projects: Project[] = [
     },
   },
   {
-    id: "business-landing-pages",
-    title: "Modern Business Landing Pages",
-    problemSolved: "Small businesses need a credible online presence.",
+    id: "mobile-web-app-interfaces",
+    title: "Mobile & Web Application Interfaces",
+    problemSolved: "Businesses need responsive app interfaces for services and internal workflows.",
     description:
-      "Conversion-focused landing pages for small businesses that need a professional online presence.",
+      "Mobile-first web application screens, service pages, internal tool interfaces, reusable components, and polished interaction states.",
     role: "UI implementation, content structure, and interaction polish",
     techStack: ["React", "Tailwind CSS", "Framer Motion"],
     businessValue:
-      "Helps visitors understand the offer quickly and move toward an inquiry.",
-    status: "Landing Page",
+      "Helps users understand offers, complete tasks, and move through digital workflows with less friction.",
+    status: "Application UI",
     icon: Globe2,
-    visualType: "landing",
-    visualLabel: "Landing page mockup",
-    visualNote: "Clear offers, strong structure, and inquiry-focused pages.",
-    placeholderImage: "/images/project-business-landing.jpg",
+    visualType: "app",
+    visualLabel: "Application interface mockup",
+    visualNote: "Mobile-first screens, clear structure, and task-focused flows.",
+    placeholderImage: "/images/project-app-interfaces.jpg",
     links: {
-      details: "#project-business-landing-pages",
+      details: "#project-mobile-web-app-interfaces",
       live: "#replace-with-live-demo",
       github: "#replace-with-github-repo",
     },
@@ -278,18 +278,18 @@ export const projects: Project[] = [
 
 export const skillCategories: SkillCategory[] = [
   {
-    title: "Web Systems",
-    description: "End-to-end features for dashboards, portals, reports, and operations.",
+    title: "Business Systems",
+    description: "End-to-end features for dashboards, portals, reports, automation, and operations.",
     icon: Network,
     score: "Core",
-    skills: ["System flows", "Dashboards", "Reports", "Portals", "Feature planning"],
+    skills: ["System flows", "Dashboards", "Reports", "Portals", "Automation tools"],
   },
   {
-    title: "UI Implementation",
-    description: "Responsive React screens with polished states, motion, and accessibility.",
+    title: "Web & Mobile Interfaces",
+    description: "Responsive React screens with polished states, mobile-first layouts, and accessibility.",
     icon: LayoutDashboard,
     score: "Frontend",
-    skills: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Responsive UI"],
+    skills: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Mobile-first UI"],
   },
   {
     title: "Backend Logic",
@@ -299,7 +299,7 @@ export const skillCategories: SkillCategory[] = [
     skills: ["Laravel", "PHP", "MySQL", "REST APIs", "Authentication", "Queues"],
   },
   {
-    title: "HR / Payroll Systems",
+    title: "HR / Payroll / CRM Systems",
     description: "Operational workflows for employees, attendance, payroll, and compliance.",
     icon: UsersRound,
     score: "Ops",
@@ -308,6 +308,7 @@ export const skillCategories: SkillCategory[] = [
       "Leave",
       "Overtime",
       "Payroll review",
+      "CRM workflows",
       "Tax reports",
     ],
   },
@@ -319,11 +320,11 @@ export const skillCategories: SkillCategory[] = [
     skills: ["Tenant databases", "Subdomains", "Nginx", "Cloudflare", "VPS"],
   },
   {
-    title: "Automation / AI-assisted Development",
-    description: "Use automation to move faster while keeping requirements and code clear.",
+    title: "Automation / AI-assisted Tools",
+    description: "Use automation and assistant-style interfaces while keeping requirements and code clear.",
     icon: Sparkles,
     score: "Assist",
-    skills: ["Task breakdown", "Code review", "Debugging", "Documentation", "AI workflows"],
+    skills: ["Task breakdown", "Chatbot systems", "Code review", "Debugging", "AI workflows"],
   },
 ];
 
@@ -375,23 +376,24 @@ export const operatingPrinciples = [
 ];
 
 export const systemsBuilt = [
-  "Laravel Systems",
+  "Business Systems",
   "React Interfaces",
   "Payroll Logic",
-  "SaaS Portals",
-  "Bento Dashboards",
-  "QR Features",
-  "Reporting Tools",
-  "Cute but Useful UI",
+  "CRM Tools",
+  "LMS Portals",
+  "SaaS Platforms",
+  "Mobile Apps",
+  "Automation Tools",
 ];
 
 export const heroCards = [
   "Laravel",
   "React",
   "Payroll Logic",
-  "SaaS Portals",
-  "QR Workflows",
-  "Reports",
+  "CRM Tools",
+  "SaaS Platforms",
+  "Mobile Apps",
+  "Dashboards",
 ];
 
 export const contactLinks: ContactLink[] = [

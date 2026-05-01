@@ -17,28 +17,28 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Reisk",
+    title: "Reisk Contract Risk Analyzer",
     problem:
       "Contracts and legal documents are difficult to review manually, especially when users need to quickly understand risks, obligations, and important clauses.",
     desc: "An AI-assisted contract review tool that analyzes uploaded documents, identifies key clauses, highlights possible risks, and provides structured summaries for easier review.",
     stack: ["Next.js", "TypeScript", "PostgreSQL", "AI Pipeline"],
     value:
       "Helps users review contracts faster and understand important terms before making decisions.",
-    tag: "Legal Tech",
-    role: "Founder / Full-Stack Developer",
+    tag: "Contract Risk Analyzer",
+    role: "Founder / Full-Stack Software Developer",
     status: "In Progress",
     href: "#",
     featured: true,
   },
   {
-    title: "Reili",
+    title: "Reili Document AI Assistant",
     problem:
       "Users need a simple way to understand important document details without reading long files manually.",
-    desc: "A document intelligence app designed to help users analyze, summarize, and extract important insights from uploaded files through a clean and guided experience.",
+    desc: "A document intelligence app with an assistant-style interface for analyzing, summarizing, and extracting important insights from uploaded files.",
     stack: ["Next.js", "TypeScript", "AI", "Tailwind"],
     value:
       "Makes document review faster, easier, and more understandable for everyday users.",
-    tag: "AI App",
+    tag: "Chatbot / AI Assistant",
     role: "Founder / Product Developer",
     status: "In Progress",
     href: "#",
@@ -52,7 +52,7 @@ const projects: Project[] = [
     value:
       "Streamlined HR operations, reduced manual payroll work, and improved visibility across employee and payroll records.",
     tag: "HR Tech",
-    role: "Lead Developer",
+    role: "Lead Software Developer",
     status: "Live",
     href: "#",
   },
@@ -60,50 +60,50 @@ const projects: Project[] = [
     title: "Multi-Tenant SaaS Provisioning Platform",
     problem:
       "The business needed to launch separate client portals quickly while keeping each client’s data isolated.",
-    desc: "Designed a SaaS provisioning workflow with subdomain-based access, per-client database setup, tenant configuration, queue-based provisioning, and deployment automation.",
+    desc: "Designed a SaaS provisioning workflow with subdomain-based access, tenant dashboards, per-client database setup, tenant configuration, queue-based provisioning, and deployment automation.",
     stack: ["Laravel", "MySQL", "Redis", "Cloudflare", "GitHub Actions"],
     value:
       "Created a scalable foundation for faster client onboarding and secure tenant isolation.",
-    tag: "SaaS",
-    role: "Full-Stack Developer",
+    tag: "SaaS Dashboard",
+    role: "Full-Stack Software Developer",
     status: "In Progress",
     href: "#",
   },
   {
-    title: "Exam Monitoring Platform",
+    title: "Learning Management / Exam Monitoring Platform",
     problem:
       "Manual exam monitoring made it difficult to track examinees, validate activity, and maintain exam integrity.",
-    desc: "Built an exam monitoring platform for managing examinees, tracking exam sessions, monitoring activity, and supporting admin review workflows.",
+    desc: "Built an LMS-style exam monitoring platform for managing examinees, tracking exam sessions, monitoring activity, and supporting admin review workflows.",
     stack: ["Laravel", "MySQL", "JavaScript", "Tailwind"],
     value:
       "Improved exam supervision, centralized monitoring, and reduced manual checking for administrators.",
-    tag: "EdTech",
-    role: "Full-Stack Developer",
+    tag: "LMS / EdTech",
+    role: "Full-Stack Software Developer",
     status: "Shipped",
     href: "#",
   },
   {
-    title: "Centralized Operations Management System",
+    title: "CRM / Operations Management Platform",
     problem:
       "Operations teams needed one place to manage tickets, clients, subscriptions, billing, and internal business workflows.",
     desc: "A centralized internal system designed to support ticketing, client management, subscriptions, accounting, billing, CRM, and admin workflows.",
     stack: ["Laravel", "MySQL", "Tailwind", "JavaScript"],
     value:
       "Helped organize internal operations into a single, scalable admin platform.",
-    tag: "Operations",
-    role: "Lead Developer",
+    tag: "CRM / Operations",
+    role: "Lead Software Developer",
     status: "In Progress",
     href: "#",
   },
   {
-    title: "Business Website & Landing Page Development",
+    title: "Mobile & Web Application Interfaces",
     problem:
-      "Businesses needed modern, responsive websites to present services, build credibility, and generate leads.",
-    desc: "Designed and developed responsive websites and landing pages with clean layouts, animation-rich sections, reusable components, and mobile-first user experience.",
+      "Businesses needed modern, responsive interfaces for services, internal tools, and mobile-first workflows.",
+    desc: "Designed and developed mobile-first web application interfaces, service pages, internal tool screens, reusable components, and polished interaction states.",
     stack: ["React", "Vite", "Tailwind", "Framer Motion"],
     value:
-      "Delivered modern web experiences focused on usability, branding, and conversion.",
-    tag: "Web Design",
+      "Delivered modern mobile and web experiences focused on usability, branding, and conversion.",
+    tag: "Mobile / Web Apps",
     role: "Designer + Developer",
     status: "Live",
     href: "#",
@@ -144,8 +144,9 @@ export const WorkSection = () => {
               <span className="italic text-tan-glow">real users</span>.
             </h2>
             <p className="mt-4 text-foreground/70 text-base md:text-lg max-w-xl leading-relaxed">
-              From payroll engines to SaaS platforms — built to be used daily,
-              not just demoed once.
+              From payroll engines, CRM workflows, and LMS portals to SaaS
+              dashboards, mobile-first apps, and automation tools built for
+              daily use.
             </p>
           </div>
           <motion.div
@@ -160,7 +161,7 @@ export const WorkSection = () => {
               className="h-16 w-16 object-contain animate-float"
             />
             <div className="text-xs font-mono uppercase tracking-wider text-muted-foreground max-w-[12rem] leading-relaxed">
-              <span className="text-tan">// 5 case studies</span>
+              <span className="text-tan">// 7 systems</span>
               <br />
               shipped & maintained
             </div>
