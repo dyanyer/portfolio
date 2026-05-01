@@ -91,10 +91,10 @@ export const AboutSection = () => {
                   initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                   transition={{ delay: i * 0.08, duration: 0.45 }}
                   whileHover={{ y: -4 }}
-                  className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-soft hover:shadow-card hover:border-tan/60 transition-all"
+                  className="group relative overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-soft hover:shadow-card hover:border-tan/60 transition-[border-color,box-shadow]"
                 >
                   <div className="absolute -right-12 -top-12 h-32 w-32 rounded-full bg-tan/10 blur-2xl opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <div className="relative inline-flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-tan mb-3 group-hover:bg-tan-gradient group-hover:text-tan-foreground transition-all">
+                  <div className="relative inline-flex h-11 w-11 items-center justify-center rounded-xl bg-secondary text-tan mb-3 group-hover:bg-tan-gradient group-hover:text-tan-foreground transition-[background-color,color]">
                     <c.icon className="h-5 w-5" />
                   </div>
                   <div className="relative font-display text-lg font-semibold leading-tight">{c.title}</div>

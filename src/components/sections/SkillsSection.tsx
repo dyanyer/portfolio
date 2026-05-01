@@ -61,7 +61,7 @@ export const SkillsSection = () => {
               initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.08 }}
               whileHover={{ y: -4 }}
-              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-soft hover:shadow-card hover:border-tan/60 transition-all"
+              className="group relative overflow-hidden rounded-3xl border border-border bg-card p-7 shadow-soft hover:shadow-card hover:border-tan/60 transition-[border-color,box-shadow]"
             >
               <div className="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-tan/15 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
               <div className="absolute right-5 top-5 font-mincho text-5xl text-tan/10 group-hover:text-tan/25 transition-colors leading-none select-none">
@@ -69,7 +69,7 @@ export const SkillsSection = () => {
               </div>
 
               <div className="relative flex items-center gap-3 mb-5">
-                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-cream group-hover:bg-tan-gradient group-hover:text-tan-foreground transition-all">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-ink text-cream group-hover:bg-tan-gradient group-hover:text-tan-foreground transition-[background-color,color]">
                   <g.icon className="h-5 w-5" />
                 </div>
                 <h3 className="font-display text-2xl font-bold tracking-tight">{g.title}</h3>
@@ -78,7 +78,7 @@ export const SkillsSection = () => {
                 {g.skills.map((s) => (
                   <span
                     key={s}
-                    className="rounded-full border border-border bg-background/60 backdrop-blur px-3 py-1.5 text-sm font-medium hover:border-tan hover:text-tan hover:-translate-y-0.5 transition-all cursor-default"
+                    className="rounded-full border border-border bg-background/60 backdrop-blur px-3 py-1.5 text-sm font-medium hover:border-tan hover:text-tan hover:-translate-y-0.5 transition-[border-color,color,transform] cursor-default"
                   >
                     {s}
                   </span>

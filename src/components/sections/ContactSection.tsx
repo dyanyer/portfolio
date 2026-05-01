@@ -115,7 +115,7 @@ export const ContactSection = () => {
                 href={`mailto:${contactEmail}`}
                 aria-label={`Start a conversation by emailing ${contactEmail}`}
                 whileHover={{ y: -2 }}
-                className="group mt-6 inline-flex min-h-12 w-full max-w-full items-center justify-center gap-2.5 rounded-full bg-tan-gradient px-5 py-3 text-sm font-medium text-tan-foreground shadow-glow transition-all hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tan focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:mt-8 sm:w-auto sm:px-6 sm:py-3.5 sm:text-base"
+                className="group mt-6 inline-flex min-h-12 w-full max-w-full items-center justify-center gap-2.5 rounded-full bg-tan-gradient px-5 py-3 text-sm font-medium text-tan-foreground shadow-glow transition-[box-shadow] hover:shadow-card focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tan focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:mt-8 sm:w-auto sm:px-6 sm:py-3.5 sm:text-base"
               >
                 <MessageCircle className="h-4 w-4 flex-shrink-0" />
                 <span className="truncate">Start a conversation</span>
@@ -138,7 +138,7 @@ export const ContactSection = () => {
                       viewport={{ once: true }}
                       transition={{ delay: index * 0.08 }}
                       whileHover={{ y: -2 }}
-                      className="group flex min-h-[72px] w-full min-w-0 cursor-pointer items-center gap-3 overflow-hidden rounded-2xl border border-cream/15 bg-cream/5 p-3.5 backdrop-blur transition-all hover:border-tan/60 hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tan focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:min-h-[80px] sm:gap-4 sm:p-4 md:px-5 md:py-4"
+                      className="group flex min-h-[72px] w-full min-w-0 cursor-pointer items-center gap-3 overflow-hidden rounded-2xl border border-cream/15 bg-cream/5 p-3.5 backdrop-blur transition-[border-color,background-color] hover:border-tan/60 hover:bg-cream/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-tan focus-visible:ring-offset-2 focus-visible:ring-offset-ink sm:min-h-[80px] sm:gap-4 sm:p-4 md:px-5 md:py-4"
                     >
                       <div className="inline-flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-xl bg-tan-gradient text-tan-foreground shadow-glow sm:h-11 sm:w-11">
                         <Icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" />

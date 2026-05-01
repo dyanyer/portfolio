@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mail, Sparkles } from "lucide-react";
-// import { HeroMascotAnimation } from "@/components/mascot/HeroMascotAnimation";
-import waving from "@/assets/mascot/hello-mascot.gif";
+import { HeroMascotAnimation } from "@/components/mascot/HeroMascotAnimation";
 import { Sparkle } from "@/components/ui/Sparkle";
 
 const floatChips = [
@@ -116,7 +115,7 @@ export const HeroSection = () => {
             >
               <a
                 href="#work"
-                className="group relative inline-flex items-center gap-2 rounded-full bg-tan-gradient px-6 py-3.5 font-medium text-tan-foreground shadow-glow transition-all hover:-translate-y-0.5 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
+                className="group relative inline-flex items-center gap-2 rounded-full bg-tan-gradient px-6 py-3.5 font-medium text-tan-foreground shadow-glow transition-[transform,box-shadow] hover:-translate-y-0.5 hover:shadow-card focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background"
               >
                 <span className="relative z-10">View Selected Work</span>
                 <ArrowRight className="relative z-10 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -124,7 +123,7 @@ export const HeroSection = () => {
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur px-6 py-3.5 font-medium transition-all hover:-translate-y-0.5 hover:border-tan hover:text-tan"
+                className="inline-flex items-center gap-2 rounded-full border border-border bg-card/70 backdrop-blur px-6 py-3.5 font-medium transition-[transform,border-color,color] hover:-translate-y-0.5 hover:border-tan hover:text-tan"
               >
                 <Mail className="h-4 w-4" /> Say hi
               </a>
@@ -185,24 +184,13 @@ export const HeroSection = () => {
               />
 
               {/* Mascot */}
-              <motion.img
-                src={waving}
-                alt="John Rey chibi mascot waving"
-                className="relative z-10 h-full w-full object-contain drop-shadow-[0_30px_40px_rgba(0,0,0,0.35)]"
-                animate={{ y: [0, -12, 0] }}
-                transition={{
-                  duration: 4.8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              />
-              {/* <motion.div
+              <motion.div
                 className="relative z-10 flex h-full w-full items-center justify-center"
                 animate={{ y: [0, -12, 0] }}
                 transition={{ duration: 4.8, repeat: Infinity, ease: "easeInOut" }}
               >
                 <HeroMascotAnimation className="h-full w-full drop-shadow-[0_30px_40px_rgba(0,0,0,0.35)]" />
-              </motion.div> */}
+              </motion.div>
 
               {/* Speech bubble */}
               <motion.div

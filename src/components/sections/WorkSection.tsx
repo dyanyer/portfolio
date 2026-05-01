@@ -137,7 +137,7 @@ const FeaturedCard = ({ project }: { project: Project }) => (
     href={project.href}
     initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }}
     transition={{ duration: 0.65 }}
-    className="group block rounded-3xl border border-border bg-card overflow-hidden shadow-card hover:border-tan/60 hover:shadow-glow transition-all"
+    className="group block rounded-3xl border border-border bg-card overflow-hidden shadow-card hover:border-tan/60 hover:shadow-glow transition-[border-color,box-shadow]"
   >
     <div className="grid md:grid-cols-5">
       <div className="md:col-span-3 p-7 md:p-10 relative">
@@ -165,7 +165,7 @@ const FeaturedCard = ({ project }: { project: Project }) => (
             <span key={s} className="rounded-md border border-border bg-background/60 px-2 py-1 font-mono text-[11px]">{s}</span>
           ))}
         </div>
-        <div className="mt-7 inline-flex items-center gap-2 font-medium text-tan group-hover:gap-3 transition-all">
+        <div className="mt-7 inline-flex items-center gap-2 font-medium text-tan group-hover:gap-3 transition-[gap]">
           View case study
           <ArrowUpRight className="h-4 w-4 transition-transform group-hover:rotate-12 group-hover:translate-x-0.5" />
         </div>
@@ -218,7 +218,7 @@ const ProjectCard = ({ project, index }: { project: Project; index: number }) =>
     initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
     transition={{ duration: 0.5, delay: index * 0.08 }}
     whileHover={{ y: -4 }}
-    className="group relative block rounded-3xl border border-border bg-card p-6 md:p-7 shadow-soft hover:shadow-card hover:border-tan/60 transition-all overflow-hidden"
+    className="group relative block rounded-3xl border border-border bg-card p-6 md:p-7 shadow-soft hover:shadow-card hover:border-tan/60 transition-[border-color,box-shadow] overflow-hidden"
   >
     <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-tan/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
 
