@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { Search, ListChecks, PencilRuler, Hammer, FlaskConical, Rocket } from "lucide-react";
-import walking from "@/assets/mascot/walking.png";
+import walking from "@/assets/walking_chibi.png";
 
 const steps = [
   { n: "01", icon: Search, title: "Understand the workflow", desc: "Sit with the actual process. Who does what, when, why." },

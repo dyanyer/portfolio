@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Palette, Server, Rocket, Users } from "lucide-react";
-import happy from "@/assets/mascot/happy.png";
+import happy from "@/assets/happy_chibi.png";
 import { Sparkle } from "@/components/ui/Sparkle";
 
 const groups = [

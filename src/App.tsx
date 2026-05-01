@@ -7,6 +7,8 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { SkillsSection } from "@/components/sections/SkillsSection";
 import { WorkSection } from "@/components/sections/WorkSection";
+import { ChatbotWidget } from "@/components/chatbot/ChatbotWidget";
+import { CustomCursor } from "@/components/cursor/CustomCursor";
 
 export default function App() {
   return (
@@ -22,6 +24,8 @@ export default function App() {
         <ContactSection />
       </main>
       <Footer />
+      <ChatbotWidget />
+      <CustomCursor />
     </div>
   );
 }

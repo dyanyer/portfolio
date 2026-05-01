@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Star } from "lucide-react";
-import laptop from "@/assets/mascot/laptop.png";
+import laptop from "@/assets/laptop_chibi.png";
 
 type Project = {
   title: string;

@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Workflow, Code2, Wrench, TrendingUp } from "lucide-react";
-import thinking from "@/assets/mascot/thinking.png";
+import thinking from "@/assets/thinking_chibi.png";
 import { Sparkle } from "@/components/ui/Sparkle";
 
 const cards = [

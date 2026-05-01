@@ -7,7 +7,7 @@ import {
   MessageCircle,
   type LucideIcon,
 } from "lucide-react";
-import pointing from "@/assets/mascot/pointing.png";
+import pointing from "@/assets/pointing_chibi.png";
 import { Sparkle } from "@/components/ui/Sparkle";
 
 type ContactLink = {
